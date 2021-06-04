@@ -1,0 +1,90 @@
+.servicios-section
+{
+    width: 100%;
+    
+}
+a
+{
+    text-decoration: none;
+}
+.page-link-img-inner
+{
+    width: 450px;
+    height: 450px;
+}
+
+.page-link-img-inner img
+{
+    width: calc(100% * 1.665);
+    height: 100%;
+}
+.page-links
+{
+    width: 92%;    
+    background-color: #fff;
+    margin-bottom: 150px;
+}
+/* .servicios-section::before
+{
+    content: url(../images/iconos/muebles.png);
+    position: relative;
+    top: 1900px;
+    z-index: 5;
+} */
+
+.page-linkk
+{
+    list-style: none;
+    margin-left: 100px;
+}
+.page-link-a
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding:100px 0;
+}
+.page-link-txt
+{
+    display: flex;  
+    flex-flow: row wrap;    
+    height: 350px;
+    background-color: #fff;
+    z-index: 5;
+    position: relative;
+    bottom: 50px;
+    transition: all 300ms ease-in-out;
+    
+}
+.page-link-txt::after
+{
+    content: url('../images/iconos/right-arrow-orange.png');
+    position: relative;
+    left: 398px;
+    bottom: 89px;
+}
+.page-link-img
+{
+    position: relative;
+    right: 300px;
+    bottom: 50px;
+}
+.page-link-txt div
+{
+    width: 100%;
+
+}
+.page-link-txt div h3
+{
+    color: black;
+    font-size: 2em;
+    padding-top: 100px;
+    padding-left: 70px;
+}
+.page-link-txt div p
+{
+    color: gray;
+    font-size: 1em;
+    padding-top: 15px;
+    padding-left: 70px;
+}

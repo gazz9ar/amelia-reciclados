@@ -1,0 +1,229 @@
+
+@import './general';
+@import './responsive';
+@import'./navbar';
+
+
+
+
+      
+    
+  
+
+body 
+{
+    background-color: rgb(228, 227, 227);
+}
+.gallery-titulo
+{
+    display: block;
+    width: 30%;
+    color: black;
+    margin: 0px auto;
+    text-align: center;
+    padding-top: 220px;
+    margin-bottom: 50px;
+    font-size: 40px;
+}
+.gallery-container
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+}
+.gallery-row-3
+{
+    width: 80%;
+    height: 67vh;
+    display: flex;
+    justify-content: center;
+}
+.gallery-row-2
+{
+    width: 80%;
+    height: 67vh;
+    margin-top: 15px;   
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+.img-horizontal
+{
+    width: 31%;
+    height: 65vh;
+    border:1px solid rgb(170, 169, 169);
+    padding: 5px;
+    margin: 5px;
+    box-shadow: 5px 5px 10px;
+   
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    
+    position: relative;    
+    transition: all 300ms;
+}
+.img-horizontal-1
+{
+    background-image: url('../images/gallery/vertical-1.jpg') ;
+   
+}
+.img-horizontal-2
+{
+    background-image: url('../images/gallery/vertical.jpg');
+}
+.img-horizontal-3
+{
+    background-image: url('../images/gallery/beautiful-shot-of-modern-house-kitchen-and-dining-room.jpg') ;
+}
+.img-horizontal-4
+{
+    background-image: url('../images/gallery/hairdresser-cut-hair-her-client-in-hair-salon.jpg') ;
+}
+.img-horizontal-5
+{
+    background-image: url('../images/gallery/horizontal-1.jpg') ;
+}
+.img-horizontal-6
+{
+    background-image: url('../images/gallery/horizontal-2.jpg') ;
+}
+.img-horizontal-7
+{
+    background-image: url('../images/gallery/horizontal-3.jpg') ;
+}
+.img-horizontal-8
+{
+    background-image: url('../images/gallery/mid-century-modern-wood-cabinet-by-leafty-wall.jpg') ;
+}
+.img-horizontal-9
+{
+    background-image: url('../images/gallery/modern-stylish-scandinavian-kitchen-interior-with-kitchen-accessories.jpg  ') ;
+}
+.img-vertical-1
+{
+    background-image: url('../images/gallery/room-interior-design.jpg') ;
+}
+.img-vertical-2
+{
+    background-image: url('../images/gallery/2007.i309.031..house\ lightning\ lamp\ interior\ realistic.jpg') ;
+}
+.img-vertical-3
+{
+    background-image: url('../images/gallery/hairdresser-cut-hair-her-client-in-hair-salon.jpg') ;
+}
+.img-vertical-4
+{
+    background-image: url('../images/gallery/modern-stylish-scandinavian-kitchen-interior-with-kitchen-accessories.jpg') ;
+}
+
+
+.img-horizontal:hover::before{
+    
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    
+}
+.img-horizontal:hover .text-horizontal{
+
+    display: block;
+}
+.text-horizontal
+{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.5em;
+    padding: 50px;
+    padding-top: 20px;
+    position: relative;
+    display: none;
+}
+.text-horizontal-titulo
+{
+    font-size: 1.4em;
+    color:white;
+}
+.text-horizontal-desc
+{
+    font-size: 0.8em;
+    color:white;
+}
+
+
+.contenedorOscuro-row3
+{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    
+}
+.img-vertical
+{
+    width: 47%;
+    height: 65vh;
+    border:1px solid rgb(170, 169, 169);
+    padding: 5px;
+    margin: 5px;
+    box-shadow: 5px 5px 10px;
+   
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    
+    position: relative;    
+    transition: all 300ms;
+   
+}
+.img-vertical:hover::before{
+    
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    
+}
+.img-vertical:hover .text-horizontal{
+
+    display: block;
+}
+.gallery-button
+{
+    font-size: 0.6em;
+    line-height: 40px;
+    color: black;
+    text-decoration: none;
+    margin-top: 100px;
+}
+
+.img-thumbnail-bg
+{  
+     transition: all 300ms;   
+}
+.img-thumbnail-bg:hover::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+}
+
+
+.img-thumbnail-bg:hover .fondo-oscuro
+{
+    display: block !important;
+}
+
+
