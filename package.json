@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "animate.css": "^4.1.1",
     "jquery": "^3.6.0"
   },
