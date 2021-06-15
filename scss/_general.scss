@@ -1,5 +1,4 @@
-@import './responsive';
-@import './rareDesign';
+
 
 /* Estilos Generales */
 * {
@@ -14,7 +13,7 @@
 
   /* VARIABLES */
 
-  $color-primary: #796D66;
+  $color-primary: rgba(38, 21, 13, 1) !important;
   $color-secondary:#EAEDF0;
   $font-normal-size:16px;
   $background-ts:transparent;
@@ -28,9 +27,7 @@
   }
   @mixin success()
   {
-    border: 1px solid greenyellow;
-    color: white;
-    box-shadow: 1px 1px 1px #ccc;
+    border: 2px solid rgb(82, 80, 80);       
     
   }
 
@@ -42,6 +39,8 @@
   body 
   {
     background-color: $color-secondary;
+    // font-family: 'SanFranciscoRegular' !important;
+    font-family: 'Roboto', sans-serif;
   }
   
   
@@ -81,6 +80,19 @@
       transform: translateY(-10px);
     }
   }
+ /* Fuentes */
+    @font-face {
+      font-family: 'MontserratRegular';
+      src: url(../fonts/Montserrat-Regular.ttf) format("truetype");
+    }
+    @font-face {
+      font-family: 'Mate', sans-serif;
+      src: url(../fonts/Mate/Mate-Regular.ttf) format("truetype");
+    }
+    @font-face {
+      font-family: 'SanFranciscoRegular', sans-serif;
+      src: url(../fonts/SF/SF-UI-Display-Regular.otf);
+    }
   .d-none
   {
      display: none;
@@ -108,7 +120,7 @@
   }
   .bg-header-footer
   {
-    background-color: $color-primary;
+    background-color: #3e3a38 !important;;
   }
   .whatsapp
   {
@@ -127,11 +139,9 @@
   }
   
   /* Variables */
-  /* Fuentes */
-  @font-face {
-    font-family: 'MontserratRegular';
-    src: url(../fonts/Montserrat-Regular.ttf) format("truetype");
-  }
+
+ 
+ 
   
   /* MODIFICO EL CAROUSEL // */
   .carousel-control-prev-icon,
@@ -161,7 +171,7 @@
   .nav-scrolled
   {
     
-    background-color: rgb(0,0,0,0.8) !important;
+    background-color: rgba(38, 21, 13, 0.9) !important;
     border-bottom: 1px solid rgb(172, 170, 170);
     box-shadow: 0px 3px 5px gray;
     transition: all 420ms;
@@ -194,11 +204,11 @@
                     flex-flow: row wrap;
             -webkit-box-pack: space-evenly;
                 -ms-flex-pack: space-evenly;
-                    justify-content: space-around;
+                    justify-content: space-between;
             -webkit-box-align: center;
                 -ms-flex-align: center;
                     align-items: center;
-            width: calc(50% + 150px/2 + 150px);
+            width: calc(50% +  150px);
             right: 0;
             position: absolute;
             height: 150PX;
@@ -207,10 +217,11 @@
               li{
                
                   a{
-                    --fill-color: white;
+                    --fill-color: #f4f4f4;
                         position: relative;
                         display: block;                        
-                        font: 700 1.5rem Raleway, sans-serif;
+                        font: 900 1.35rem SanFranciscoRegular, sans-serif;
+                        letter-spacing: 1.2px;
                         text-decoration: none;
                         text-transform: uppercase;
                         -webkit-text-stroke: 2px var(--fill-color);
@@ -230,9 +241,10 @@
              }
             .logo
             {
-              width: 100px;
-              height: 100px;
+              width: 150px;
+              height: 150px;
               align-self: CENTER;
+              margin-left: 50px;
             }
             
           }
@@ -263,6 +275,7 @@
     position: absolute;
     list-style: none;
     background-color: #353B3C;
+    margin-top: 155px;
 
 
     a{
@@ -317,8 +330,9 @@
   
   .footer {
     width: 100%;
-    height: auto;
-    margin-top: 100px;
+    height: 500px;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
     background-color: #332E29;
   }
   
@@ -405,24 +419,15 @@
 
     &:hover
     {
-        background-image: linear-gradient(to right,#423e3a,gray) ;
-        color: white;
+        background-color: #ccc;
+     
       
     }
     &:Focus 
     {
       @include success();
     }
-  }   
-  .social-contacto {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-  }
+  }    
   
   .social-contacto img {
     width: 24px;
@@ -578,18 +583,16 @@
   }
   .proyectos-title
   {
-    display: inline-block;
-    padding-top: 177px;
-      padding-left: 211px;
-    margin-right: 15px;
+    
+    padding-top: 100px;
+     
     font-size: 2em;
   }
-  .proyectos-text
-  {
+  .proyectos-text {
     padding-left: 211px;
-    padding-top: 20px;
-    padding-right: 150px;
-  }
+    /* padding-top: 20px; */
+    padding-right: 211px;
+}
   .proyectos-ir 
   {
     text-decoration: none;
@@ -874,39 +877,3 @@
   
   
 
-  /* SHOP */
-
-
-  .product-title
-  {
-    color: #4b4b4b;
-  }
-  .product-text
-  {
-    color: #4b4b4b;
-  }
-  
-.product-link
-{
-  overflow: hidden;
-  &:hover .top-90
-  {
-    display: block !important;
-    animation: carrito 0s linear 300ms infinite ;
-  }
-  .top-90
-  {
-   
-      top: 90%!important;
-      left: 12%!important;
-      background-color: rgba(0,0,0,0.6);
-      transition: all 300ms;
-    
-      p
-      {
-        color: white;      
-       
-      }  
-  
-  }
-}

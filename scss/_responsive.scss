@@ -4,6 +4,11 @@
     .modal-dialog {
         max-width: 90% !important;    
     }
+    .logo
+    {
+        width: 130px !important;
+        height: 130px !important;
+    }
 }
     
 @media only screen and (min-width: 1650px) {
@@ -41,6 +46,14 @@
         left: 220px;
         bottom: 39px;
     }
+    .hamburger
+        {
+            display: block !important;
+        }
+        .menu
+        {
+            display: none;
+        }
     
     
 }
@@ -50,7 +63,7 @@
     .proyectos-title {    
 
         padding-top: 120px;
-        padding-left: 120px;        
+               
     }
     .proyectos-text {
         padding-left: 120px;
@@ -73,17 +86,10 @@
 
 @media only screen and (max-width: 1015px) {
 
-        .hamburger
-        {
-            display: block !important;
-        }
-        .menu
-        {
-            display: none;
-        }
+        
         .proyectos-title {
             padding-top: 92px;
-            padding-left: 76px;
+            
         }
         .proyectos-text
         {
@@ -156,6 +162,14 @@
     }
     .header {
         height: 100%;
+        .header-nav
+        {
+            .flex-nav
+            {
+                width: 100%;
+            }
+        }
+      
      
     }
 
@@ -184,6 +198,15 @@
     .page-link-img-inner {
         width: 250px;
     }
+    .form-control
+    {   
+            width: 100% !important;
+    }
+    .footer 
+    {
+        height: 1000px;
+    }
+  
 
     
 
@@ -232,7 +255,7 @@
     }
     .page-link-txt div {
        
-        padding-left: 13px;
+        width: 250px;
     }
     .proyectos {
         
@@ -261,7 +284,7 @@
         align-items: center;
     }
     .proyectos-title {
-        padding-top: 0px;
+        
         padding-left: 27px;
         margin-bottom: 25px;
     }
@@ -279,6 +302,10 @@
     .modal-dialog {
     max-width: 798px !important;
     
+    }
+    .d-none-proyectos
+    {
+        display: none !important;
     }
     
 }
@@ -326,13 +353,7 @@
         border: none;
          margin: 0px; 
          margin-left: 0px;
-    }
-    .map    
-    {
-        margin: 0px auto !important;
-        width: 300px;
-        height: 450px;
-    }
+    }    
     .blog-div {
         
         left: 40px;
@@ -354,12 +375,14 @@
     }
     .hamburger img {
         width: 42px;
-        height: 42px;
+        height: 42px;        
     }
     .hamburger {
       
-        right: 25px;
-        top: 57px;
+      
+          
+            top: 40px;
+        
     }
     .blog 
     {
@@ -407,30 +430,67 @@
             width: 90%  !important;
             top: 37% !important;
         }
+        .page-link-img {
+            right: 166px;
+        }
+        .page-link-txt {
+            left: 60px;
+        }
+        .page-link-img-inner {
+            width: 313px;
+        }
+        .hero-text {
+            width: 100%;
+            padding-top: 259px;
+            padding-left: 64px;
+        }
+        .header-nav
+        {
+            height: 120px !important;
+        }
+        .logo 
+        {
+            width: 80px !important;
+            height: 80px !important;
+        }
+    
+
+        .page-link-img-inner img {
+            width: 93%;
+         
+        }
+
+       
    
 
 }
 
 
 
-
-@media only screen and (max-width: 480px) {
-
-
-    .page-link-img {
-        right: 126px;
+@media only screen and (max-width: 480px)
+{
+    .fondo-oscuro {
+        top: 28% !important;
     }
-    .page-link-txt {
-        left: 0px;
+    .w-sm-75
+    {
+        width: 75% !important;
     }
-    .page-link-img-inner {
-        width: 313px;
+    .w-sm-100
+    {
+        width: 100% !important;
     }
-    .hero-text {
-        width: 100%;
-        padding-top: 259px;
-        padding-left: 64px;
+    .w-sm-50
+    {
+        width: 50% !important;
+    }
+    .w-sm-25
+    {
+        width: 25% !important;
     }
 
-
+    
 }
+
+
+

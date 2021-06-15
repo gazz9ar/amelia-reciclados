@@ -30,18 +30,140 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/shop.css">
 </head>
 <body>
     
-    <h1 class="text-center">Tienda de productos</h1>
-    
+   
 
-    <div class="container-fluid">
+
+    
+    <header class="header">
+
+        
+        <div class="header-nav" id="header">
+        
+            <nav class="flex-nav">
+                <img src="./images/366.jpg" alt="Amelia Reciclados de muebles" class="logo ms-5">
+                <ul class="menu">
+                    <li>
+                        <a href="index.html" class="inicio">Inicio</a>
+
+                    </li>
+                    <li>
+                        <a href="gallery.html">Galeria</a>
+
+                    </li>
+                    <li>
+                        <a href="blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <ul class="hamburger-menu" id="hamburger-menu">
+                <li>
+                    <a href="index.html">Inicio</a>
+
+                </li>
+                <li>
+                    <a href="gallery.html">Galeria</a>
+
+                </li>
+                <li>
+                    <a href="blog.html">Blog</a>
+                </li>
+                <li>
+                    <a href="#contacto">Contacto</a>
+                </li>
+            </ul>
+
+            <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()">
+                <img src="./images/iconos/square.png" alt="Menu Navegacion">
+            </a>
+        </div>
+        <!-- CAROUSEL HERO -->
+        <div id="carouselExampleSlidesOnly" class="carousel slide h-100" >
+            <div class="carousel-inner h-100 " id="heroSection">
+                <div class="carousel-item  img-thumbnail-bg-hero position-relative h-100 active">
+                    <img src="./images/texture-background.jpg" class="d-block w-100 h-100" alt=" Mueble fondo 1">
+                    <!-- TEXTO ::BEFORE -->
+                    <div class="position-absolute w-50 top-50 start-0 text-white p-5 pt-0 mb-5  fondo-oscuro animate__fadeIn">
+                        <p class="fs-3 fw-bold hero-title-responsive">Visita nuestra tienda online</p>
+
+
+                        <p class="fs-5 lh-sm hero-text-responsive"> Tenemos para ofrecerte todo tipo de muebles los cuales fueron restaurados por nosotros
+                        </p>
+                        <a href="#visita" class="btn btn-light" role="button">Visitá la tienda</a>
+
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </header>
+
+    
+    <div class="container">      
+
+        <h1 class="text-center mt-5 mb-5 animate__backInUp">Productos a la venta</h1>
+
+
+
         <!-- 4 COLUMNAS en LARGE /// 2 COLUMNAS en MEDIUM /// 1 COLUMNA en SMALL -->
-        <div class="row">
+        <div class="row" id="visita">
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <a href="shop.html/?productid" class="d-block position-relative product-link">
-                    <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                    <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                    <!-- OCULTO -->
+                    <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
+                        <p>Agregar al carrito</p>
+                    </div>
+                    
+                </a>
+                
+          
+
+                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                <p class="fs-6 product-text">$650</p>
+               
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                    <img src="./images/shop/hero-2.jpeg" alt="Mueble Barniz" class="img-thumbnail">
+                    <!-- OCULTO -->
+                    <div class="position-absolute text-center w-75  start-50 top-90 agregar translate-middle d-none m-auto">
+                        <p>Agregar al carrito</p>
+                    </div>
+                    
+                </a>
+                
+          
+
+                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                <p class="fs-6 product-text">$650</p>
+               
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                    <img src="./images/shop/shop-2.jpg" alt="Mueble Barniz" class="img-thumbnail ">
+                    <!-- OCULTO -->
+                    <div class="position-absolute text-center w-75  start-50 top-90 agregar translate-middle d-none m-auto">
+                        <p>Agregar al carrito</p>
+                    </div>
+                    
+                </a>
+                
+          
+
+                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                <p class="fs-6 product-text">$650</p>
+               
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                    <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail ">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 top-90 translate-middle d-none m-auto">
                         <p>Agregar al carrito</p>
@@ -49,25 +171,192 @@
                     
                 </a>
                 
+          
+
+                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                <p class="fs-6 product-text">$650</p>
+               
+            </div>
+        </div>
+        <div class="row" id="visita">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                    <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                    <!-- OCULTO -->
+                    <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
+                        <p>Agregar al carrito</p>
+                    </div>
                     
+                </a>
+                
+          
+
                 <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
                 <p class="fs-6 product-text">$650</p>
                
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                    <img src="./images/shop/hero-2.jpeg" alt="Mueble Barniz" class="img-thumbnail">
+                    <!-- OCULTO -->
+                    <div class="position-absolute text-center w-75  start-50 top-90 agregar translate-middle d-none m-auto">
+                        <p>Agregar al carrito</p>
+                    </div>
+                    
+                </a>
+                
+          
+
+                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                <p class="fs-6 product-text">$650</p>
+               
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                    <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail ">
+                    <!-- OCULTO -->
+                    <div class="position-absolute text-center w-75  start-50 top-90 translate-middle d-none m-auto">
+                        <p>Agregar al carrito</p>
+                    </div>
+                    
+                </a>
+                
+          
+
+                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                <p class="fs-6 product-text">$650</p>
+               
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                    <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail ">
+                    <!-- OCULTO -->
+                    <div class="position-absolute text-center w-75  start-50 top-90 translate-middle d-none m-auto">
+                        <p>Agregar al carrito</p>
+                    </div>
+                    
+                </a>
+                
+          
+
+                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                <p class="fs-6 product-text">$650</p>
+               
+            </div>
+        </div>
+        <div class="row" id="visita">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                    <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                    <!-- OCULTO -->
+                    <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
+                        <p>Agregar al carrito</p>
+                    </div>
+                    
+                </a>
+                
+          
+
+                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                <p class="fs-6 product-text">$650</p>
+               
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                    <img src="./images/shop/hero-2.jpeg" alt="Mueble Barniz" class="img-thumbnail">
+                    <!-- OCULTO -->
+                    <div class="position-absolute text-center w-75  start-50 top-90 agregar translate-middle d-none m-auto">
+                        <p>Agregar al carrito</p>
+                    </div>
+                    
+                </a>
+                
+          
+
+                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                <p class="fs-6 product-text">$650</p>
+               
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                    <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail ">
+                    <!-- OCULTO -->
+                    <div class="position-absolute text-center w-75  start-50 top-90 translate-middle d-none m-auto">
+                        <p>Agregar al carrito</p>
+                    </div>
+                    
+                </a>
+                
+          
+
+                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                <p class="fs-6 product-text">$650</p>
+               
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                    <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail ">
+                    <!-- OCULTO -->
+                    <div class="position-absolute text-center w-75  start-50 top-90 translate-middle d-none m-auto">
+                        <p>Agregar al carrito</p>
+                    </div>
+                    
+                </a>
+                
+          
+
+                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                <p class="fs-6 product-text">$650</p>
+               
             </div>
         </div>
     </div>
 
 
+       
+    <footer class="bg-header-footer row footer">
+        <div class="col-lg-6 col-md-12 p-5">
+            <h3 class="text-white text-center fw-bold">Contáctenos</h3>
 
+            <input type="text" class="form-control  mt-3 w-50 m-auto" placeholder=" Ingrese su nombre...">
+            <input type="email" class="form-control mt-2 w-50 m-auto" placeholder=" Ingrese su correo...">
+            <input type="text" class="form-control  mt-2 w-50 h-50 m-auto" placeholder=" Dejenos su mensaje...">
+            <input type="submit" class="button">
+        </div>
+        <div class="map col-lg-6 col-md-12">
+            <!-- DATOS DE CONTACTO -->
+            <section class="social-contacto d-flex h-75 flex-column justify-content-center align-items-center">
+
+
+                <div class="social-contacto1-divs w-50  mt-5 border-bottom border-white">
+                    <img src="./images/iconos/twitter-blanco.png" alt="Twitter" class="d-inline-block ">
+                    <p class="mostrar-redsocial d-inline-block ms-3">/twitter</p>
+                </div>
+
+                <div class="social-contacto1-divs w-50 mt-3 border-bottom border-white">
+                    <img src="./images/iconos/facebook-blanco.png" alt="Facebook" class="d-inline-block">
+                    <p class="mostrar-redsocial d-inline-block ms-3">/facebook</p>
+                </div>
+
+                <div class="social-contacto1-divs w-50 mt-3 border-bottom border-white">
+                    <img src="./images/iconos/instagram-blanco.png" alt="Instagram" class="d-inline-block">
+                    <p class="mostrar-redsocial d-inline-block ms-3">/instagram</p>
+                </div>
+                <div class="social-contacto2-divs w-50 mt-3 border-bottom border-white">
+                    <img src="./images/iconos/phone-white.png" alt="Telefono contacto" class="d-inline-block">
+                    <p class="mostrar-redsocial d-inline-block ms-3">+54 353 4257693</p>
+                </div>
+
+                <div class="social-contacto2-divs w-50 mt-3 border-bottom border-white">
+                    <img src="./images/iconos/email-blanco.png" alt="Correo electronico contacto" class="d-inline-block">
+                    <p class="mostrar-redsocial d-inline-block ms-3">amelia@reciclados.com</p>
+                </div>
+
+
+
+            </section>
+        </div>
+    </footer>
 
 
     <!--  BOOTSTRAP JS -->
@@ -77,5 +366,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
     integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
     crossorigin="anonymous"></script>
+
+    <script src="./observer.js"></script>
 </body>
 </html>
