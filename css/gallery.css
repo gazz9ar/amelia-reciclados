@@ -508,13 +508,27 @@ body {
 /* KEYFRAMES */
 @keyframes whatsappAnimation {
   0% {
-    transform: translateY(15px);
+    top: 150% !important;
+    right: 50px !important;
   }
   50% {
-    transform: translateY(-10px);
+    top: 120% !important;
+    right: 50px !important;
   }
   100% {
-    transform: translateY(15px);
+    top: 90% !important;
+    right: 50px !important;
+  }
+}
+@keyframes carrito {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
   }
 }
 .d-none {
@@ -592,8 +606,9 @@ body {
 
 .nav-scrolled {
   background-color: rgba(0, 0, 0, 0.8) !important;
-  border-bottom: 1px solid #cecccc;
+  border-bottom: 1px solid #acaaaa;
   box-shadow: 0px 3px 5px gray;
+  transition: all 420ms;
 }
 
 /* Contenido */
@@ -604,6 +619,8 @@ body {
 }
 .header .header-nav {
   position: fixed;
+  display: flex;
+  align-items: center;
   width: 100%;
   height: 150px;
   z-index: 100;
@@ -689,15 +706,8 @@ body {
   display: inline-block;
   position: relative;
 }
-
-.header-nav .flex-nav > ul > li > ul {
-  position: absolute;
-  display: none;
-}
-
-.header-nav .flex-nav > ul > li > ul > li {
-  display: block;
-  color: white;
+.header-nav .flex-nav > ul > li .inicio {
+  margin-left: 0px;
 }
 
 .header-nav .flex-nav > ul > li:hover > ul {
@@ -1228,6 +1238,32 @@ body {
   left: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.6);
+}
+
+/* SHOP */
+.product-title {
+  color: #4b4b4b;
+}
+
+.product-text {
+  color: #4b4b4b;
+}
+
+.product-link {
+  overflow: hidden;
+}
+.product-link:hover .top-90 {
+  display: block !important;
+  animation: carrito 0s linear 300ms infinite;
+}
+.product-link .top-90 {
+  top: 90% !important;
+  left: 12% !important;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: all 300ms;
+}
+.product-link .top-90 p {
+  color: white;
 }
 
 @media (min-width: 1000px) {
