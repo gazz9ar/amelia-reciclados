@@ -30,7 +30,6 @@ body {
   50% {
     top: 120% !important;
     right: 50px !important;
-<<<<<<< HEAD
   }
   100% {
     top: 90% !important;
@@ -45,22 +44,6 @@ body {
     transform: translateY(10px);
   }
   100% {
-=======
-  }
-  100% {
-    top: 90% !important;
-    right: 50px !important;
-  }
-}
-@keyframes carrito {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
->>>>>>> gs
     transform: translateY(-10px);
   }
 }
@@ -102,7 +85,7 @@ body {
 }
 
 .bg-header-footer {
-  background-color: #3e3a38 !important;
+  background-color: rgba(38, 21, 13, 0.9) !important;
 }
 
 .whatsapp {
@@ -146,11 +129,7 @@ body {
 }
 
 .nav-scrolled {
-<<<<<<< HEAD
-  background-color: rgba(0, 0, 0, 0.8) !important;
-=======
   background-color: rgba(38, 21, 13, 0.9) !important;
->>>>>>> gs
   border-bottom: 1px solid #acaaaa;
   box-shadow: 0px 3px 5px gray;
   transition: all 420ms;
@@ -771,32 +750,6 @@ body {
   left: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.6);
-}
-
-/* SHOP */
-.product-title {
-  color: #4b4b4b;
-}
-
-.product-text {
-  color: #4b4b4b;
-}
-
-.product-link {
-  overflow: hidden;
-}
-.product-link:hover .top-90 {
-  display: block !important;
-  animation: carrito 0s linear 300ms infinite;
-}
-.product-link .top-90 {
-  top: 90% !important;
-  left: 12% !important;
-  background-color: rgba(0, 0, 0, 0.6);
-  transition: all 300ms;
-}
-.product-link .top-90 p {
-  color: white;
 }
 
 @media (min-width: 1000px) {
