@@ -36,9 +36,11 @@
 <body>
 
     <div class="header-nav bg-header-footer nav-scrolled">
-
+        <a href="shop.html" class="ps-5">
+            <img src="./images/iconos/shopping-cart.png" alt="Tienda Online Productos Muebles" class="img-fluid d-none d-md-block" >
+        </a>
         <nav class="flex-nav">
-            <img src="./images/Amelia Reciclados.png" alt="Amelia Muebles Reciclados" class="logo">
+            <img src="./images/366.jpg" alt="Amelia Reciclados de muebles" class="logo">
             <ul class="menu">
                 <li>
                     <a href="index.html">Inicio</a>
@@ -78,6 +80,7 @@
             <img src="./images/iconos/square.png" alt="Menu Navegacion">
         </a>
     </div>
+
 
 
     <!-- Modal ABRIR BLOG -->
@@ -218,72 +221,46 @@
     </section>
 
 
-    <footer id="contacto" class="footer container-fluid">
+    <footer class="bg-header-footer row footer">
+        <div class="col-lg-6 col-md-12 p-5">
+            <h3 class="text-white text-center fw-bold">Contáctenos</h3>
 
-
-        <!-- FORMULARIO CONTACTO Y GOOGLE MAPS -->
-        <div class="header-contacto bg-header-footer">
-            <div class="contact">
-                <h2 id="contact-title">Contáctenos</h2>
-                <p id="contact-text">No dudes en consultarnos! Nos podes contactar mediante este formulario,
-                    enviando en correo electrónico o mediante el numero de telefono ubicado debajo. </p>
-                <input type="text" class="input-nombre" placeholder=" Ingrese su nombre...">
-                <input type="email" class="input-email" placeholder=" Ingrese su correo...">
-                <input type="text" class="input-mensaje" placeholder=" Dejenos su mensaje...">
-                <input type="submit" class="button">
-            </div>
-            <div class="map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53887.969707273056!2d-63.27423920212392!3d-32.4192088067447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95cc42fb51306dc1%3A0xbfb3fffbd425c6b1!2zVmlsbGEgTWFyw61hLCBDw7NyZG9iYQ!5e0!3m2!1ses-419!2sar!4v1618242927603!5m2!1ses-419!2sar"
-                    style="border:0;" allowfullscreen="" loading="lazy" class="map"></iframe>
-            </div>
+            <input type="text" class="form-control  mt-3 w-50 m-auto" placeholder=" Ingrese su nombre...">
+            <input type="email" class="form-control mt-2 w-50 m-auto" placeholder=" Ingrese su correo...">
+            <input type="text" class="form-control  mt-2 w-50 h-50 m-auto" placeholder=" Dejenos su mensaje...">
+            <input type="submit" class="button">
         </div>
-
-        <section>
-            <a href="https://api.whatsapp.com/send?phone=543534258397&text=Hola%20Amelia%20Reciclados!,%20me%20gustar%C3%ADa%20saber%20sobre..."
-                class="whatsapp" target="_blank"></a>
-        </section>
+        <div class="map col-lg-6 col-md-12">
+            <!-- DATOS DE CONTACTO -->
+            <section class="social-contacto d-flex h-75 flex-column justify-content-center align-items-center">
 
 
-        <!-- DATOS DE CONTACTO -->
-        <section class="social-contacto bg-header-footer">
-
-            <div class="social-contacto1">
-                <div class="social-contacto1-divs">
-                    <img src="./images/iconos/twitter-blanco.png" alt="twitter">
-                    <p>/twitter</p>
+                <div class="social-contacto1-divs w-sm-75 w-50  mt-5 border-bottom border-white">
+                    <img src="./images/iconos/twitter-blanco.png" alt="Twitter" class="d-inline-block ">
+                    <p class="mostrar-redsocial d-inline-block ms-3">/twitter</p>
                 </div>
 
-                <div class="social-contacto1-divs">
-                    <img src="./images/iconos/facebook-blanco.png" alt="facebook">
-                    <p>/facebook</p>
+                <div class="social-contacto1-divs  w-sm-75 w-50 mt-3 border-bottom border-white">
+                    <img src="./images/iconos/facebook-blanco.png" alt="Facebook" class="d-inline-block">
+                    <p class="mostrar-redsocial d-inline-block ms-3">/facebook</p>
                 </div>
 
-                <div class="social-contacto1-divs">
-                    <img src="./images/iconos/instagram-blanco.png" alt="instagram">
-                    <p>/instagram</p>
+                <div class="social-contacto1-divs  w-sm-75 w-50 mt-3 border-bottom border-white">
+                    <img src="./images/iconos/instagram-blanco.png" alt="Instagram" class="d-inline-block">
+                    <p class="mostrar-redsocial d-inline-block ms-3">/instagram</p>
+                </div>
+                <div class="social-contacto2-divs  w-sm-75 w-50 mt-3 border-bottom border-white">
+                    <img src="./images/iconos/phone-white.png" alt="Telefono contacto" class="d-inline-block">
+                    <p class="mostrar-redsocial d-inline-block ms-3">+54 353 4257693</p>
                 </div>
 
-
-            </div>
-
-            <div class="social-contacto2">
-
-
-                <div class="social-contacto2-divs">
-                    <img src="./images/iconos/phone-white.png" alt="telefono">
-                    <p>+54 353 4257693</p>
+                <div class="social-contacto2-divs  w-sm-75 w-50 mt-3 border-bottom border-white">
+                    <img src="./images/iconos/email-blanco.png" alt="Correo electronico contacto" class="d-inline-block">
+                    <p class="mostrar-redsocial d-inline-block ms-3">amelia@reciclados.com</p>
                 </div>
 
-                <div class="social-contacto2-divs">
-                    <img src="./images/iconos/email-blanco.png" alt="email">
-                    <p>amelia@reciclados.com</p>
-                </div>
-
-            </div>
-
-        </section>
-
+            </section>
+        </div>
     </footer>
 
 

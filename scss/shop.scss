@@ -1,0 +1,148 @@
+
+
+
+
+@import './responsive';
+
+  /* SHOP */
+
+
+  .product-title
+  {
+    color: #4b4b4b;
+  }
+  .product-text
+  {
+    color: #4b4b4b;
+  }
+  
+.product-link
+{
+  overflow: hidden;
+  &:hover .agregar
+  {
+    display: block !important;        
+  }
+  .agregar
+  {
+   
+    top: 96% !important;
+      left: 50% !important;
+      background-color: rgba(26, 25, 25, 0.7);
+      border-bottom: 18.5px solid rgb(51, 50, 50);
+      
+      transition: all 300ms;
+    
+      p
+      {
+        color: white;      
+       
+      }  
+
+      // TRUCAZO: WAVY WACKGROUND
+
+      // &::after
+      // {
+      //   content: "";
+      //   display: block;
+      //   position: absolute;
+      //   border-radius: 120% 30%;
+      //   width: 120px;
+      //   height: 70px;
+      //   background-color: rgb(51, 50, 50);
+      //   left: 0px;
+      //   top: 27px;
+      // }
+      // &::before
+      // {
+      //   content: "";
+      //   display: block;
+      //   position: absolute;
+      //   border-radius: 100% 50%;
+      //   width: 120px;
+      //   height: 80px;
+      //   background-color: rgb(51, 50, 50);
+      //   right: 5px;
+      //   top: 27px;
+      // }
+  
+  }
+}
+
+
+/*  HEADER OVERRIDE */
+
+
+.header {
+    height: 100vh;
+    width: 100%;
+    min-width: 100%;
+
+    $text: #f4f4f4;
+    $text-inverse:#333;
+    $background:transparent;
+    
+    .header-nav {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 150px; 
+        z-index: 100;
+      
+        .flex-nav {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-flow: row wrap;
+                    flex-flow: row wrap;
+            -webkit-box-pack: space-evenly;
+                -ms-flex-pack: space-evenly;
+                    justify-content: space-between;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            width: 100%;
+            right: 0;
+            position: absolute;
+            height: 150PX;
+            
+            ul{
+              li{
+               
+                  a{
+                    --fill-color: white;
+                        position: relative;
+                        display: block;                        
+                        font: 700 1.5rem Raleway, sans-serif;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        -webkit-text-stroke: 2px var(--fill-color);
+                        background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
+                        color: transparent;
+                        -webkit-background-clip: text;
+                        transition: 0.5s linear;
+
+                        &:hover {
+                          background-size: 100%;
+                        }
+                       
+                  }
+                  
+               
+              }
+             }
+            .logo
+            {
+              width: 100px;
+              height: 100px;
+              align-self: CENTER;
+            }
+            
+          }
+      }
+      
+    
+  }  
