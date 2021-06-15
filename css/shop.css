@@ -465,6 +465,8 @@
 }
 .product-link .agregar p {
   color: white;
+  font-weight: 600;
+  letter-spacing: 0.7px;
 }
 
 /*  HEADER OVERRIDE */
