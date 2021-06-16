@@ -652,6 +652,10 @@
       color: white;
       font-size: 2em;
       border-left: 15px solid #332E29;
+
+      @media (max-width:1600px) {
+        width: 71%;
+      }
     }
     .servicios-title-text
   {

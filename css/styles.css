@@ -537,6 +537,11 @@ body {
   font-size: 2em;
   border-left: 15px solid #332E29;
 }
+@media (max-width: 1600px) {
+  .servicios .servicios-title {
+    width: 71%;
+  }
+}
 .servicios .servicios-title-text {
   font-size: 0.7em;
   padding-top: 15px;
@@ -1151,7 +1156,7 @@ a {
   }
 
   .page-link-img {
-    right: 169px;
+    right: 205px;
   }
 
   .page-link-txt div {
