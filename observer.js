@@ -4,7 +4,7 @@ const heroSection = document.getElementById('heroSection');
 const heroSectionOptions = {};
 
 const heroSectionObserver = new IntersectionObserver(
-    function(entries,heroSectionObserver){
+    function(entries){
 
         entries.forEach((entry) => {
             if(!entry.isIntersecting)

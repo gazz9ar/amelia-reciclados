@@ -35,11 +35,20 @@
     <link rel="stylesheet" href="./css/styles.css">
 
     <!-- TESTING FONTS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Roboto -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
+    <!-- Open Sans -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
 
+    <!-- ANIMATE.CSS -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 
 
@@ -49,14 +58,10 @@
     <!-- HEADER  siempre visible // app-header -->
 
     <!-- app-header -->
-    <header class="header">
+    <header class="header position-relative">
+       
 
-
-        <div class="header-nav" id="header">
-
-            <a href="shop.html" class="ps-5 d-none d-lg-block">
-                <img src="./images/iconos/shopping-cart.png" alt="Tienda Online Productos Muebles" class="img-fluid">
-            </a>
+        <div class="header-nav" id="header">            
             <nav class="flex-nav">
                 <img src="./images/LOGO-AMELIA.png" alt="Amelia Reciclados de muebles" class="logo">
                 <ul class="menu">
@@ -78,11 +83,12 @@
             </nav>
 
             <ul class="hamburger-menu" id="hamburger-menu">
-                <!-- <li>
-                    <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()">
-                        <img src="./images/iconos/square.png" alt="Menu Navegacion" id="burgerMenuAbierto">
-                    </a>
-                </li> -->
+                <div onclick="CloseHamburger()">
+                    <img src="./images/iconos/close-white.png" alt="Close button" class="position-relative closeHamburger">
+                </div>
+                    
+            
+                
                 <li>
                     <a href="shop.html">Tienda</a>
 
@@ -99,8 +105,8 @@
                 </li>
             </ul>
 
-            <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()">
-                <img src="./images/iconos/square.png" alt="Menu Navegacion" id="burger">
+            <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()" id="burger">
+                <img src="./images/iconos/square.png" alt="Menu Navegacion" >
             </a>
         </div>
         <!-- CAROUSEL HERO -->
@@ -110,7 +116,7 @@
                     <img src="./images/hero-2.jpg" class="d-block w-100" alt=" Mueble fondo 1">
                     <!-- TEXTO ::BEFORE -->
                     <div
-                        class="position-absolute w-50 top-50 start-0 text-white p-5 pt-0 mb-5  fondo-oscuro animate__fadeIn">
+                        class="position-absolute w-50 top-50 start-0 text-white  p-5 pt-0 mb-5  fondo-oscuro animate__fadeIn animate__infinite ">
                         <p class="fs-3 fw-bold hero-title-responsive">Venta de muebles reciclados</p>
 
 
@@ -120,7 +126,7 @@
                             expedita
                             eos corporis perspiciatis exercitationem modi quisquam quae impedit officiis!
                         </p>
-                        <a href="gallery.html" class="btn btn-light" role="button">Nuestros trabajos</a>
+                        <a href="#footer" class="btn btn-light" role="button">Contactanos</a>
 
                     </div>
                 </div>
@@ -129,7 +135,7 @@
                     <!-- TEXTO ::BEFORE -->
                     <div
                         class="position-absolute w-50 top-50 start-0 text-white p-5 pt-0 mb-5  fondo-oscuro animate__fadeIn">
-                        <p class="fs-3 fw-bold hero-title-responsive">Venta de muebles reciclados</p>
+                        <p class="fs-3 fw-bold hero-title-responsive">Conocé nuestros Servicios</p>
 
 
                         <p class="fs-5 lh-sm hero-text-responsive"> Lorem ipsum dolor, sit amet consectetur adipisicing
@@ -138,45 +144,63 @@
                             expedita
                             eos corporis perspiciatis exercitationem modi quisquam quae impedit officiis!
                         </p>
-                        <a href="gallery.html" class="btn btn-light" role="button">Nuestros trabajos</a>
+                        <a href="#servicios" class="btn btn-light" role="button">Servicios</a>
 
                     </div>
                 </div>
             </div>
         </div>
+        
+   
     </header>
 
 
 
+
+
     <!-- app-home -->
-    <section class="proyectos">
-
-        <img src="./images/7093.jpg" alt="Muebles Renovados" class="proyectos-img">
-
-        <div class="proyectos-div bg-light bg-gradient white">
-
-            <h1 class="proyectos-title text-dark fw-bold mt-sm-3 d-block text-center">Proyectos</h1>
-            <img src="./images/proyectos-bar.png" alt="Vintage"
-                class="img-fluid w-100 d-block proyectos-text m-0 d-none-proyectos">
-            <p class="proyectos-text text-dark">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil
-                doloribus
-                voluptatum fugiat quisquam quae
-                voluptates, officia necessitatibus fuga ut natus sequi consequatur illum repudiandae facere cupiditate
-                id
-                voluptate aliquid debitis.</p>
-            <a href="gallery.html" class="proyectos-ir text-dark">Ir a la galeria</a>
-            <img src="./images/iconos/right-arrow-white.png" alt="Ir" class="arrow">
+     <!-- Botones redondes -->
+     <div class="container-fluid">
+        <div class="row d-lg-flex d-md-none d-sm-none d-none">
+            <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center
+             start-circle position-relative animate__backInUp animate__infinite">
+              
+                <a href="#" class="btn btn-dark rounded-circle big-circle animate__backInUp animate__infinite">
+                    <img src="./images/iconos/shopping-cart.png" alt="Tienda">
+                </a>
+                <p class="fs-3 fw-bold mt-3">Visitá nuestra Tienda</p>
+            </div>
+            <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center
+             mid-circle position-relative">
+                
+                <a href="#" class="btn btn-dark rounded-circle big-circle ">
+                    <img src="./images/iconos/blog.png" alt="Tienda">
+                </a>
+                <p class="fs-3 fw-bold mt-3">Visitá nuestro blog</p>
+            </div>
+            <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center
+             end-circle position-relative">
+               
+                <a href="#" class="btn btn-dark rounded-circle big-circle">
+                    <img src="./images/iconos/gallery-white.png" alt="Tienda">
+                </a>
+                <p class="fs-3 fw-bold mt-3">Galeria de trabajos</p>
+            </div>              
+    
+            
         </div>
+     </div>
+     
 
-
-    </section>
+        
+   
 
     <!-- router-outlet -->
     <!-- app-home -->
-    <section class="servicios bg-light bg-gradient">
-        <div class="servicios-title bg-light bg-gradient">
-            <h4 class="servicios-title-title text-dark fw-bold">Servicios</h4>
-            <p class="servicios-title-text text-dark">Nuestros servicios son de lo mejor! te ofrecemos...</p>
+    <section class="servicios bg-light bg-gradient" id="servicios">
+        <div class="servicios-title animate__backInUp bg-light bg-gradient">
+            <h4 class="servicios-title-title text-dark fw-bold fs-1">Servicios</h4>
+            <p class="servicios-title-text text-dark fs-3">Nuestros servicios son de lo mejor! te ofrecemos...</p>
         </div>
     </section>
 
@@ -188,8 +212,8 @@
                 <a href="blog.html" class="page-link-a">
                     <div class="page-link-txt">
                         <div>
-                            <h3>Reciclado de muebles </h3>
-                            <p>Ir al Blog</p>
+                            <h3>Restauración de Muebles </h3>
+                            <p>Visitar Blog</p>
                         </div>
                     </div>
                     <div class="page-link-img">
@@ -274,7 +298,7 @@
 
 
     
-    <footer class="bg-header-footer row footer">
+    <footer class="bg-header-footer row footer" id="footer">
         <div class="col-lg-6 col-md-12 p-5">
             <h3 class="text-white text-center fw-bold">Contáctenos</h3>
 
@@ -290,17 +314,17 @@
 
                 <div class="social-contacto1-divs w-50  mt-5 border-bottom border-white">
                     <img src="./images/iconos/twitter-blanco.png" alt="Twitter" class="d-inline-block ">
-                    <p class="mostrar-redsocial d-inline-block ms-3">/twitter</p>
+                    <p class="mostrar-redsocial d-inline-block ms-3">/Amelia.Reciclados</p>
                 </div>
 
                 <div class="social-contacto1-divs w-50 mt-3 border-bottom border-white">
                     <img src="./images/iconos/facebook-blanco.png" alt="Facebook" class="d-inline-block">
-                    <p class="mostrar-redsocial d-inline-block ms-3">/facebook</p>
+                    <p class="mostrar-redsocial d-inline-block ms-3">/Amelia.fb</p>
                 </div>
 
                 <div class="social-contacto1-divs w-50 mt-3 border-bottom border-white">
                     <img src="./images/iconos/instagram-blanco.png" alt="Instagram" class="d-inline-block">
-                    <p class="mostrar-redsocial d-inline-block ms-3">/instagram</p>
+                    <p class="mostrar-redsocial d-inline-block ms-3">/Amelia_Reciclados</p>
                 </div>
                 <div class="social-contacto2-divs w-50 mt-3 border-bottom border-white">
                     <img src="./images/iconos/phone-white.png" alt="Telefono contacto" class="d-inline-block">
