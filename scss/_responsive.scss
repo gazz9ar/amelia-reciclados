@@ -491,6 +491,19 @@
             
             
           }
+          .fondo-oscuro-gallery
+          {
+            top: 48% !important;
+              p 
+              {
+                  font-size: 0.9rem !important;
+              }
+          }
+          .servicios .servicios-title {
+           
+            padding-left: 45px;
+           
+        }
 
        
    
@@ -521,9 +534,15 @@
     {
         width: 25% !important;
     }
+    
 
     
 }
-
+@media only screen and (max-width: 400px)
+{
+    .page-link-img-inner {
+        width: 261px;
+    }
+}
 
 

@@ -115,20 +115,23 @@
               li{
                
                   a{
-                    --fill-color: white;
-                        position: relative;
-                        display: block;                        
-                        font: 700 1.5rem Raleway, sans-serif;
-                        text-decoration: none;
-                        text-transform: uppercase;
-                        -webkit-text-stroke: 2px var(--fill-color);
-                        background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
-                        color: transparent;
-                        -webkit-background-clip: text;
-                        transition: 0.5s linear;
+                    // --fill-color: #f4f4f4;
+                        // position: relative;
+                        // display: block;                        
+                        font: 700 1.5rem "Roboto", sans-serif;
+                        letter-spacing: 1px;
+                       // letter-spacing: 1.2px;
+                       // text-decoration: none;
+                       // text-transform: uppercase;
+                       // -webkit-text-stroke: 2px var(--fill-color);
+                       // background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
+                       // color: transparent;
+                       // -webkit-background-clip: text;
+                        transition: all 420ms;
 
                         &:hover {
-                          background-size: 100%;
+                          
+                          color: #ccc;
                         }
                        
                   }

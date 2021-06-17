@@ -29,6 +29,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
+         <!-- Roboto -->
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/shop.css">
 </head>
@@ -44,7 +48,7 @@
         <div class="header-nav" id="header">
         
             <nav class="flex-nav">
-                <img src="./images/366.jpg" alt="Amelia Reciclados de muebles" class="logo ms-5">
+                <img src="./images/LOGO-AMELIA.png" alt="Amelia Reciclados de muebles" class="logo ms-5">
                 <ul class="menu">
                     <li>
                         <a href="index.html" class="inicio">Inicio</a>
@@ -80,8 +84,8 @@
                 </li>
             </ul>
 
-            <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()">
-                <img src="./images/iconos/square.png" alt="Menu Navegacion">
+            <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()" id="burger">
+                <img src="./images/iconos/square.png" alt="Menu Navegacion" >
             </a>
         </div>
         <!-- CAROUSEL HERO -->
@@ -114,12 +118,13 @@
         <!-- 4 COLUMNAS en LARGE /// 2 COLUMNAS en MEDIUM /// 1 COLUMNA en SMALL -->
         <div class="row" id="visita">
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
                         <p>Agregar al carrito</p>
                     </div>
+                    
                     
                 </a>
                 
@@ -130,7 +135,7 @@
                
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <img src="./images/shop/hero-2.jpeg" alt="Mueble Barniz" class="img-thumbnail">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 top-90 agregar translate-middle d-none m-auto">
@@ -146,7 +151,7 @@
                
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <img src="./images/shop/shop-2.jpg" alt="Mueble Barniz" class="img-thumbnail ">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 top-90 agregar translate-middle d-none m-auto">
@@ -162,7 +167,7 @@
                
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail ">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 top-90 translate-middle d-none m-auto">
@@ -180,7 +185,7 @@
         </div>
         <div class="row" id="visita">
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
@@ -196,7 +201,7 @@
                
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <img src="./images/shop/hero-2.jpeg" alt="Mueble Barniz" class="img-thumbnail">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 top-90 agregar translate-middle d-none m-auto">
@@ -212,7 +217,7 @@
                
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail ">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 top-90 translate-middle d-none m-auto">
@@ -228,7 +233,7 @@
                
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail ">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 top-90 translate-middle d-none m-auto">
@@ -246,7 +251,7 @@
         </div>
         <div class="row" id="visita">
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
@@ -262,7 +267,7 @@
                
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <img src="./images/shop/hero-2.jpeg" alt="Mueble Barniz" class="img-thumbnail">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 top-90 agregar translate-middle d-none m-auto">
@@ -278,7 +283,7 @@
                
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail ">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 top-90 translate-middle d-none m-auto">
@@ -294,7 +299,7 @@
                
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link">
+                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <img src="./images/fondo-responsive.jpg" alt="Mueble Barniz" class="img-thumbnail ">
                     <!-- OCULTO -->
                     <div class="position-absolute text-center w-75  start-50 top-90 translate-middle d-none m-auto">
@@ -313,6 +318,41 @@
     </div>
 
 
+
+
+      
+    
+    <!-- Modal Aviso proximamente -->
+    <div class="modal fade" id="modalProximamente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title fw-bold fs-4" id="staticBackdropLabel">Proximamente</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="fs-5">Actualmente estamos desarrollando este espacio para que puedas comprar online!</p>
+                        <br>
+                    </div>
+                    <div class="col-12">
+                        <p class="fs-5">Mientras tanto podes comunicarte con nosotros mediante whatsapp para coordinar la compra:</p>
+                        <a href="https://api.whatsapp.com/send?phone=543534258397&text=Hola!%20estoy%20interesado%20en%20unos%20de%20tus%20productos%20disponi
+                        bles%20en%20la%20tienda%20online!" class="btn btn-primary" target="_blank">Contactanos por Whatsapp</a>
+                    </div>
+                </div>
+            
+
+        
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            
+            </div>
+        </div>
+        </div>
+    </div>
        
     <footer class="bg-header-footer row footer">
         <div class="col-lg-6 col-md-12 p-5">
@@ -368,5 +408,6 @@
     crossorigin="anonymous"></script>
 
     <script src="./observer.js"></script>
+    <script src="./burger.js"></script>
 </body>
 </html>

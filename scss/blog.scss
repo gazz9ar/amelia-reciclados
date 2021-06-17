@@ -2,7 +2,12 @@
 @import './responsive';
 @import'./navbar';
 
-
+$font: 'Roboto';
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: $font, serif !important;
+  }
 
 body
 {

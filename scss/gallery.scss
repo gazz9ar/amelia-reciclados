@@ -7,9 +7,13 @@
 
 
       
-    
+ $font: 'Roboto';   
   
-
+ * {
+    margin: 0px;
+    padding: 0px;
+    font-family: $font, serif !important;
+  }
 body 
 {
     background-color: rgb(228, 227, 227);
@@ -221,7 +225,7 @@ body
 }
 
 
-.img-thumbnail-bg:hover .fondo-oscuro
+.img-thumbnail-bg:hover .fondo-oscuro-gallery
 {
     display: block !important;
 }

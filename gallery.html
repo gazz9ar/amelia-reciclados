@@ -36,19 +36,16 @@
 <body>
 
 
-    <div class="header-nav bg-header-footer nav-scrolled">
-        <a href="shop.html" class="ps-5">
-            <img src="./images/iconos/shopping-cart.png" alt="Tienda Online Productos Muebles" class="img-fluid d-none d-md-block" >
-        </a>
+    <div class="header-nav nav-scrolled" id="header">            
         <nav class="flex-nav">
-            <img src="./images/366.jpg" alt="Amelia Reciclados de muebles" class="logo">
+            <img src="./images/LOGO-AMELIA.png" alt="Amelia Reciclados de muebles" class="logo">
             <ul class="menu">
                 <li>
-                    <a href="index.html">Inicio</a>
+                    <a href="index.html" class="inicio">Inicio</a>
 
                 </li>
                 <li>
-                    <a href="gallery.html">Galeria</a>
+                    <a href="shop.html">Tienda</a>
 
                 </li>
                 <li>
@@ -61,12 +58,18 @@
         </nav>
 
         <ul class="hamburger-menu" id="hamburger-menu">
+            <div onclick="CloseHamburger()">
+                <img src="./images/iconos/close-white.png" alt="Close button" class="position-relative closeHamburger">
+            </div>
+                
+        
+            
             <li>
                 <a href="index.html">Inicio</a>
 
             </li>
             <li>
-                <a href="gallery.html">Galeria</a>
+                <a href="shop.html">Tienda</a>
 
             </li>
             <li>
@@ -77,8 +80,8 @@
             </li>
         </ul>
 
-        <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()">
-            <img src="./images/iconos/square.png" alt="Menu Navegacion">
+        <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()" id="burger">
+            <img src="./images/iconos/square.png" alt="Menu Navegacion" >
         </a>
     </div>
 
@@ -108,10 +111,10 @@
                     <!-- IMAGEN -->
                     <div class="pb-4">
                         <div class="position-relative img-thumbnail-bg ">
-                            <img src="./images/7093.jpg" alt="Mueble" class=" w-100 rounded   ">
+                            <img src="./images/craftsman-creating-wood-piece.jpg" alt="Mueble" class=" w-100 rounded   ">
                             <!-- TEXTO OCULTO -->
                             <div
-                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro "
+                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery"
                                 >
                                 
                                 <p class="fs-5 fs-sm-6 fw-bold">Mueble Restaurado</p>
@@ -131,10 +134,10 @@
                       <!-- IMAGEN -->
                       <div class="pb-4">
                         <div class="position-relative img-thumbnail-bg ">
-                            <img src="./images/gallery/vertical-1.jpg" alt="Mueble" class=" w-100 rounded   ">
+                            <img src="./images/gallery/horizontal-3.jpg" alt="Mueble" class=" w-100 rounded   ">
                             <!-- TEXTO OCULTO -->
                             <div
-                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro">
+                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
                                 <p class=" fs-5 fw-bold">Mueble Restaurado</p>
 
 
@@ -154,7 +157,7 @@
                             <img src="./images/gallery/modern-stylish-scandinavian-kitchen-interior-with-kitchen-accessories.jpg" alt="Mueble" class=" w-100 rounded   ">
                             <!-- TEXTO OCULTO -->
                             <div
-                                class="position-absolute w-100 w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro">
+                                class="position-absolute w-100 w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
                                 <p class=" fs-5 fw-bold">Mueble Restaurado</p>
 
 
@@ -182,7 +185,7 @@
                             <img src="./images/gallery/horizontal-3.jpg" alt="Mueble" class=" w-100 rounded   ">
                             <!-- TEXTO OCULTO -->
                             <div
-                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro">
+                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
                                 <p class=" fs-5 fw-bold">Mueble Restaurado</p>
 
 
@@ -202,7 +205,7 @@
                             <img src="./images/gallery/horizontal-3.jpg" alt="Mueble" class=" w-100 rounded   ">
                             <!-- TEXTO OCULTO -->
                             <div
-                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro">
+                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
                                 <p class=" fs-5 fw-bold">Mueble Restaurado</p>
 
 
@@ -222,7 +225,7 @@
                             <img src="./images/gallery/modern-stylish-scandinavian-kitchen-interior-with-kitchen-accessories.jpg" alt="Mueble" class=" w-100 rounded   ">
                             <!-- TEXTO OCULTO -->
                             <div
-                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro">
+                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
                                 <p class=" fs-5 fw-bold">Mueble Restaurado</p>
 
 
@@ -250,7 +253,7 @@
                             <img src="./images/gallery/hairdresser-cut-hair-her-client-in-hair-salon.jpg" alt="Mueble" class=" w-100 rounded   ">
                             <!-- TEXTO OCULTO -->
                             <div
-                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro">
+                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
                                 <p class=" fs-5 fw-bold">Mueble Restaurado</p>
 
 
@@ -270,7 +273,7 @@
                             <img src="./images/gallery/mid-century-modern-wood-cabinet-by-leafty-wall.jpg" alt="Mueble" class=" w-100 rounded   ">
                             <!-- TEXTO OCULTO -->
                             <div
-                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro">
+                                class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
                                 <p class=" fs-5 fw-bold">Mueble Restaurado</p>
 
 
