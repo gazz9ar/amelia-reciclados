@@ -110,10 +110,15 @@ body {
   width: 64px;
   height: 64px;
   transition: all 300ms;
-  animation: whatsappAnimation 3s linear 0s infinite;
+}
+.whatsapp:hover {
+  animation-duration: 3s;
+  animation-name: whatsappAnimation;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
 }
 
-/* Variables */
 /* MODIFICO EL CAROUSEL // */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -276,10 +281,13 @@ body {
 
 .footer {
   width: 100%;
-  height: 500px;
+  height: 600px;
   margin-left: 0px !important;
   margin-right: 0px !important;
   background-color: #332E29 !important;
+}
+.footer .mensaje {
+  height: 150px !important;
 }
 
 .footer .header-contacto {
@@ -346,7 +354,7 @@ body {
 }
 
 .button {
-  width: 36%;
+  width: 50%;
   display: block;
   height: 37px;
   margin: 0px auto;
@@ -354,7 +362,8 @@ body {
   margin-bottom: 15px;
   background-color: white;
   text-decoration: none;
-  color: black;
+  color: #2e2e2e;
+  font-weight: bold;
   border: 1px solid #ccc;
   border-radius: 5px;
   -webkit-transition: all 300ms;
@@ -389,11 +398,13 @@ body {
   margin-left: 50px;
 }
 
-.social-contacto .social-contacto1 .social-contacto1-divs {
-  width: 40%;
-  margin-left: 10px;
-  margin-bottom: 15px;
-  overflow: hidden;
+@media (max-width: 480px) {
+  .social-contacto1-divs {
+    width: 75% !important;
+  }
+}
+.social-contacto1-divs:hover p {
+  color: #c5c2c2;
 }
 
 .social-contacto .social-contacto1 .social-contacto1-divs img {
@@ -1145,6 +1156,10 @@ a {
   }
 
   .form-control {
+    width: 100% !important;
+  }
+
+  .label-responsive {
     width: 100% !important;
   }
 

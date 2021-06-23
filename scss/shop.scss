@@ -151,3 +151,18 @@
       
     
   }  
+  .mercadoPago
+  {
+
+    
+    &:hover
+    {
+      box-shadow: inset 0px 0px 5px black;
+    }
+    img 
+    {
+      height: 95% !important;
+    margin-top: 4px !important;
+     
+    }
+  }

@@ -12,34 +12,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-        <!-- MY CSS -->
+    <!-- MY CSS -->
 
-  
+
     <link rel="stylesheet" href="./css/blog.css">
 
- 
-     <!-- OPEN GRAPH / SUPER NECESARIO -->
-     <meta property="og:title" content="Amelia Reciclados">
-     <meta property="og:type" content="Web">
-     <meta property="og:image" content="url imagen principal">
-     <!--  URL PRINCIPAL -->
-     <meta property="og:url" content="https://ameliareciclados.com">
-     <!-- DESCIPTION IGUAL O DIF. A LA META DESCRIPTION -->
-     <meta property="og:description" content="Amelia reciclados es un emprendimiento que se centra en la practica de la restauracion de muebles. Volvé a la vida a tus muebles 
+
+    <!-- OPEN GRAPH / SUPER NECESARIO -->
+    <meta property="og:title" content="Amelia Reciclados">
+    <meta property="og:type" content="Web">
+    <meta property="og:image" content="url imagen principal">
+    <!--  URL PRINCIPAL -->
+    <meta property="og:url" content="https://ameliareciclados.com">
+    <!-- DESCIPTION IGUAL O DIF. A LA META DESCRIPTION -->
+    <meta property="og:description" content="Amelia reciclados es un emprendimiento que se centra en la practica de la restauracion de muebles. Volvé a la vida a tus muebles 
      deteriorados.">
-     <meta property="og:author" content="GS Solutions">
+    <meta property="og:author" content="GS Solutions">
 
-     <!-- Roboto -->
-     <link rel="preconnect" href="https://fonts.gstatic.com">
-     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Roboto -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
-   
+
 
 </head>
 
 <body>
 
-    <div class="header-nav nav-scrolled" id="header">            
+    <div class="header-nav nav-scrolled" id="header">
         <nav class="flex-nav">
             <img src="./images/LOGO-AMELIA.png" alt="Amelia Reciclados de muebles" class="logo">
             <ul class="menu">
@@ -61,12 +61,11 @@
         </nav>
 
         <ul class="hamburger-menu" id="hamburger-menu">
-            <div onclick="CloseHamburger()">
+            <a href="javascript:void(0);" onclick="closeHamburger()">
                 <img src="./images/iconos/close-white.png" alt="Close button" class="position-relative closeHamburger">
-            </div>
-                
-        
-            
+            </a>
+
+
             <li>
                 <a href="index.html">Inicio</a>
 
@@ -84,7 +83,7 @@
         </ul>
 
         <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()" id="burger">
-            <img src="./images/iconos/square.png" alt="Menu Navegacion" >
+            <img src="./images/iconos/square.png" alt="Menu Navegacion">
         </a>
     </div>
 
@@ -122,7 +121,8 @@
                                     class="d-block w-50 m-auto" alt="Mueble Reciclado">
                             </div>
                             <div class="carousel-item">
-                                <img src="./images/gallery/modern-stylish-scandinavian-kitchen-interior-with-kitchen-accessories.jpg" class="d-block w-50 m-auto" alt="Mueble barniz">
+                                <img src="./images/gallery/modern-stylish-scandinavian-kitchen-interior-with-kitchen-accessories.jpg"
+                                    class="d-block w-50 m-auto" alt="Mueble barniz">
                             </div>
                             <div class="carousel-item">
                                 <img src="./images/gallery/hairdresser-cut-hair-her-client-in-hair-salon.jpg"
@@ -164,11 +164,12 @@
                         alt="Blog muebles" class="img-fluid">
                     <div class="blog-entrada-div">
                         <p class="white blog-entrada-titulo">Entrada 1</p>
-                        <p class="white blog-entrada-descripcion">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Delectus minima earum libero unde sit dolor eligendi pariatur...
+                        <p class="white blog-entrada-descripcion">Bienvenidos a un nuevo post en mi blog! Hoy vengo a
+                            mostrarles
+                            un trabajo realizado para ...
 
                             <!-- BUTTON QUE ABRE MODAL DEL BLOG COMPLETO -->
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalBlog"> Ver mas...</a>
+                            <a data-bs-toggle="modal" data-bs-target="#modalBlog" class="fw-bold"> Ver mas...</a>
 
 
 
@@ -183,10 +184,13 @@
                     <img src="./images/gallery/beautiful-shot-of-modern-house-kitchen-and-dining-room.jpg"
                         alt="Blog muebles" class="img-fluid">
                     <div class="blog-entrada-div">
-                        <p class="white blog-entrada-titulo">Titulo entrada 1</p>
-                        <p class="white blog-entrada-descripcion">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Delectus minima earum libero unde sit dolor eligendi pariatur... <a href="#"> Ver
-                                mas...</a></p>
+                        <p class="white blog-entrada-titulo">Entrada 2</p>
+                        <p class="white blog-entrada-descripcion">Bienvenidos a un nuevo post en mi blog! Hoy vengo a
+                            mostrarles
+                            un trabajo realizado para ...
+                            <!-- BUTTON QUE ABRE MODAL DEL BLOG COMPLETO -->
+                            <a data-bs-toggle="modal" data-bs-target="#modalBlog" class="fw-bold"> Ver mas...</a>
+                        </p>
                         <p class="white blog-entrada-fecha">Fecha: 03/05/2021</p>
                     </div>
                 </div>
@@ -200,10 +204,13 @@
                     <img src="./images/gallery/beautiful-shot-of-modern-house-kitchen-and-dining-room.jpg"
                         alt="Blog muebles" class="img-fluid">
                     <div class="blog-entrada-div">
-                        <p class="white blog-entrada-titulo">Titulo entrada 1</p>
-                        <p class="white blog-entrada-descripcion">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Delectus minima earum libero unde sit dolor eligendi pariatur... <a href="#"> Ver
-                                mas...</a></p>
+                        <p class="white blog-entrada-titulo">Entrada 3</p>
+                        <p class="white blog-entrada-descripcion">Bienvenidos a un nuevo post en mi blog! Hoy vengo a
+                            mostrarles
+                            un trabajo realizado para ...
+                            <!-- BUTTON QUE ABRE MODAL DEL BLOG COMPLETO -->
+                            <a data-bs-toggle="modal" data-bs-target="#modalBlog" class="fw-bold"> Ver mas...</a>
+                        </p>
                         <p class="white blog-entrada-fecha">Fecha: 03/05/2021</p>
                     </div>
                 </div>
@@ -213,10 +220,13 @@
                     <img src="./images/gallery/beautiful-shot-of-modern-house-kitchen-and-dining-room.jpg"
                         alt="Blog muebles" class="img-fluid">
                     <div class="blog-entrada-div">
-                        <p class="white blog-entrada-titulo">Titulo entrada 1</p>
-                        <p class="white blog-entrada-descripcion">Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Delectus minima earum libero unde sit dolor eligendi pariatur... <a href="#"> Ver
-                                mas...</a></p>
+                        <p class="white blog-entrada-titulo">Entrada 4</p>
+                        <p class="white blog-entrada-descripcion">Bienvenidos a un nuevo post en mi blog! Hoy vengo a
+                            mostrarles
+                            un trabajo realizado para ...
+                            <!-- BUTTON QUE ABRE MODAL DEL BLOG COMPLETO -->
+                            <a data-bs-toggle="modal" data-bs-target="#modalBlog" class="fw-bold"> Ver mas...</a>
+                        </p>
                         <p class="white blog-entrada-fecha">Fecha: 03/05/2021</p>
                     </div>
                 </div>
@@ -226,49 +236,78 @@
 
     </section>
 
+    <section class="whatsapp-section">
+        <a href="https://api.whatsapp.com/send?phone=543534258397&text=Hola%20Amelia%20Reciclados!,%20me%20gustar%C3%ADa%20saber%20sobre..."
+            class="whatsapp" target="_blank"></a>
+    </section>
+
 
     <footer class="bg-header-footer row footer" id="contacto">
         <div class="col-lg-6 col-md-12 p-5">
             <h3 class="text-white text-center fw-bold">Contáctenos</h3>
 
-            <input type="text" class="form-control  mt-3 w-50 m-auto" placeholder=" Ingrese su nombre...">
-            <input type="email" class="form-control mt-2 w-50 m-auto" placeholder=" Ingrese su correo...">
-            <input type="text" class="form-control  mt-2 w-50 h-50 m-auto" placeholder=" Dejenos su mensaje...">
-            <input type="submit" class="button">
+            <form action="https://formspree.io/f/mnqlvkoq" method="POST" id="form-contacto">
+                <div class="form-group mt-3">
+                    <label for="name" class="text-white w-50  d-block m-auto label-responsive"> Nombre</label>
+                    <input name="name" type="text" class="form-control  mt-3 mb-2 w-50 m-auto"
+                        placeholder=" Ingrese su nombre...">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="text-white w-50  d-block m-auto label-responsive"> Email</label>
+                    <input name="email" type="email" class="form-control mt-2 mb-2  w-50 m-auto"
+                        placeholder=" Ingrese su correo...">
+                </div>
+                <div class="form-group">
+                    <label for="mensaje" class="text-white w-50 d-block m-auto label-responsive"> Mensaje</label>
+                    <input name="mensaje" type="textarea" cols="30" rows="10"
+                        class="form-control mt-2  w-50 h-75 m-auto mensaje" placeholder=" Dejenos su mensaje...">
+                </div>
+                <button type="submit" class="button">Enviar</button>
+            </form>
+
+
+
         </div>
         <div class="map col-lg-6 col-md-12">
             <!-- DATOS DE CONTACTO -->
-            <section class="social-contacto d-flex h-75 flex-column justify-content-center align-items-center">
+            <section class="social-contacto d-flex h-75 flex-column justify-content-center align-items-center mt-5">
 
 
-                <div class="social-contacto1-divs w-sm-75 w-50  mt-5 border-bottom border-white">
+                <a href="https://www.instagram.com/amelia_reciclados/" target="_blank"
+                    class="social-contacto1-divs w-50  mt-5 border-bottom border-white text-decoration-none">
                     <img src="./images/iconos/twitter-blanco.png" alt="Twitter" class="d-inline-block ">
-                    <p class="mostrar-redsocial d-inline-block ms-3">/twitter</p>
-                </div>
+                    <p class="mostrar-redsocial d-inline-block ms-3">/Amelia.Reciclados</p>
+                </a>
 
-                <div class="social-contacto1-divs  w-sm-75 w-50 mt-3 border-bottom border-white">
+                <a href="https://www.instagram.com/amelia_reciclados/" target="_blank"
+                    class="social-contacto1-divs w-50 mt-3 border-bottom border-white text-decoration-none">
                     <img src="./images/iconos/facebook-blanco.png" alt="Facebook" class="d-inline-block">
-                    <p class="mostrar-redsocial d-inline-block ms-3">/facebook</p>
-                </div>
+                    <p class="mostrar-redsocial d-inline-block ms-3">/Amelia.fb</p>
+                </a>
 
-                <div class="social-contacto1-divs  w-sm-75 w-50 mt-3 border-bottom border-white">
+                <a href="https://www.instagram.com/amelia_reciclados/" target="_blank"
+                    class="social-contacto1-divs w-50 mt-3 border-bottom border-white text-decoration-none">
                     <img src="./images/iconos/instagram-blanco.png" alt="Instagram" class="d-inline-block">
-                    <p class="mostrar-redsocial d-inline-block ms-3">/instagram</p>
-                </div>
-                <div class="social-contacto2-divs  w-sm-75 w-50 mt-3 border-bottom border-white">
+                    <p class="mostrar-redsocial d-inline-block ms-3">/Amelia_Reciclados</p>
+                </a>
+                <a href="https://www.instagram.com/amelia_reciclados/" target="_blank"
+                    class="social-contacto1-divs w-50 mt-3 border-bottom border-white text-decoration-none">
                     <img src="./images/iconos/phone-white.png" alt="Telefono contacto" class="d-inline-block">
                     <p class="mostrar-redsocial d-inline-block ms-3">+54 353 4257693</p>
-                </div>
+                </a>
 
-                <div class="social-contacto2-divs  w-sm-75 w-50 mt-3 border-bottom border-white">
-                    <img src="./images/iconos/email-blanco.png" alt="Correo electronico contacto" class="d-inline-block">
+                <a href="https://www.instagram.com/amelia_reciclados/" target="_blank"
+                    class="social-contacto1-divs w-50 mt-3 border-bottom border-white text-decoration-none">
+                    <img src="./images/iconos/email-blanco.png" alt="Correo electronico contacto"
+                        class="d-inline-block">
                     <p class="mostrar-redsocial d-inline-block ms-3">amelia@reciclados.com</p>
-                </div>
+                </a>
+
+
 
             </section>
         </div>
     </footer>
-
 
     <script src="./burger.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -278,7 +317,12 @@
         integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
         crossorigin="anonymous"></script>
 
-      
+
+    <!-- sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./alerts.js"></script>
+
+
 </body>
 
 </html>

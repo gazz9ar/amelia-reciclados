@@ -82,12 +82,13 @@ body {
   }
 }
 .left-section .inner-content .volver {
+  color: white;
+  text-decoration: none;
   text-align: center;
-  max-width: 480px;
-  font-size: 1.5em;
-  line-height: 1.15em;
-  padding: 0 1rem;
-  margin: 0 auto;
+  width: 50%;
+  margin: 0px auto;
+  display: block;
+  padding-top: 15px;
   padding-top: 15px;
 }
 @media (max-width: 770px) {
