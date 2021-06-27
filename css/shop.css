@@ -561,4 +561,9 @@
   margin-top: 4px !important;
 }
 
+.texto-oculto {
+  top: 86.5% !important;
+  color: rgba(0, 0, 0, 0);
+}
+
 /*# sourceMappingURL=shop.css.map */
