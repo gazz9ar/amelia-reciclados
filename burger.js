@@ -14,8 +14,18 @@ function OpenCloseHamburger() {
     background: rgba(0,0,0,0.3);
     height: 5074px;
     z-index: 99; }`, 0);
+    document.styleSheets[0].insertRule(`.un-distinto::after { content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    height: 9035px;
+    z-index: 99; }`, 0);
 
-    // AÑADO CUANDO HAGA FOCUS FUERA DEL MENU SE CIERRE
+
+    
     
 
     burger.classList.remove("hamburger");
@@ -47,6 +57,15 @@ function OpenCloseHamburger() {
     bottom: 0;
     background: rgba(0,0,0,0.3);
     height: 5074px;
+    z-index: 99; }`, 0);
+    document.styleSheets[0].removeRule(`.un-distinto::after { content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    height: 9035px;
     z-index: 99; }`, 0);
 
     let styleSheet = getStylesheet("./css/styles.css");
