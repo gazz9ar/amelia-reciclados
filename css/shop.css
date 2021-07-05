@@ -569,5 +569,16 @@
 .modal-responsive {
   width: 96% !important;
 }
+@media (max-width: 800px) {
+  .modal-responsive a {
+    margin-bottom: 6rem !important;
+    width: 75% !important;
+  }
+}
+@media (max-width: 800px) {
+  .modal-responsive a img {
+    width: 95% !important;
+  }
+}
 
 /*# sourceMappingURL=shop.css.map */

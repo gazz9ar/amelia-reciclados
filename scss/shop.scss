@@ -175,6 +175,23 @@
   .modal-responsive
   {
     
-    width: 96%!important;
+     width: 96%!important;
+     
+     a 
+     {
+      @media (max-width:800px) {
+        margin-bottom: 6rem !important;
+       width: 75%!important;
+      }
+       
+       img 
+       {
+        @media (max-width:800px) {
+          width: 95%!important;
+        }
 
+       
+       }
+     }
+    
   }
