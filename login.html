@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
-    <link rel="stylesheet" href="./css/login.css">
+    
 
      <!-- OPEN GRAPH / SUPER NECESARIO -->
      <meta property="og:title" content="Amelia Reciclados">
@@ -18,26 +18,33 @@
      <meta property="og:description" content="https://ameliareciclados.com">
      <meta property="og:author" content="GS Solutions">
 
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+     <link rel="stylesheet" href="./css/login.css">
 </head>
-<body>
+<body class="bg-light vh-100 d-flex justify-content-center align-items-center">
 
 
-    <div class="container">
+    <div class="container h-50 w-25 d-flex flex-column justify-content-center align-items-center   bg-light login-wrap">
 
-        <div class="login">
-            <img src="./images/usuario.png" alt="Avatar Login">
-            <br>
-            <h1 class="bienvenido">Bienvenido/a !</h1>
-            <form action="">
-                <input type="text" class="user" placeholder=" Ingrese su usuario...">
-                <input type="password" class="pass" placeholder=" Ingrese su contraseña...">
-                <input type="submit" class="button">
+        <div class="login w-100 d-flex flex-column justify-content-around align-items-center h-100">
+            <h1 class="fs-2">Ingresar</h1>           
+          
+            <form action="" class="form-group w-75">
+                <label for="user" class="text-login d-block mb-1 text-dark">Usuario</label>
+                <input type="text" name="user" class="form-control mb-2" placeholder=" Ingrese su usuario...">
+                <label for="pass" class="text-login d-block mb-1 text-dark">Contraseña</label>
+                <input type="password" name="pass" class="form-control mb-5" placeholder=" Ingrese su contraseña...">
+                <input type="submit" class="form-control btn-ingresar" >
             </form>
-    
+            <a href="./monster-html/index.html" class="text-dark text-decoration-none">2021 - GS Solutions</a>
         </div>
+
+      
 
     </div>
   
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,33 @@
+$azul-cielo: #00A6FA;
+$delete: #bb7373;
+
+.icon-edit
+{
+   color: $azul-cielo;
+   transition: all 420ms;
+   &:hover
+   {
+       color: #016ba0;
+   }
+}
+.icon-delete
+{
+    transition: all 420ms;
+   &:hover
+   {
+       color: $delete !important;
+   }
+}
+.icon-view
+{
+    transition: all 420ms;
+   &:hover
+   {
+       color: black !important;
+   }
+}
+.aniadir
+{
+    right: 0px;
+    top: -40px;
+}

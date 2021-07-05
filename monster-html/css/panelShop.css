@@ -1,0 +1,28 @@
+.icon-edit {
+  color: #00A6FA;
+  transition: all 420ms;
+}
+.icon-edit:hover {
+  color: #016ba0;
+}
+
+.icon-delete {
+  transition: all 420ms;
+}
+.icon-delete:hover {
+  color: #bb7373 !important;
+}
+
+.icon-view {
+  transition: all 420ms;
+}
+.icon-view:hover {
+  color: black !important;
+}
+
+.aniadir {
+  right: 0px;
+  top: -40px;
+}
+
+/*# sourceMappingURL=panelShop.css.map */

@@ -566,4 +566,8 @@
   color: rgba(0, 0, 0, 0);
 }
 
+.modal-responsive {
+  width: 96% !important;
+}
+
 /*# sourceMappingURL=shop.css.map */
