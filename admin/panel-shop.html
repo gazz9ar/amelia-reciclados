@@ -18,6 +18,11 @@
     <!-- Custom CSS -->
     <link href="css/style.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/panelShop.css">
+
+    <!-- Roboto -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,6 +32,91 @@
 </head>
 
 <body>
+    <!-- Modal Añadir producto -->
+    <div class="modal fade" id="modalProducto" tabindex="-1" aria-labelledby="modalProductoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-normal" id="modalProductoLabel">Añadir un nuevo producto para la tienda
+                        online</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- CAMPO 1: ID -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">ID</span>
+                        <input class="form-control" type="text" placeholder="106" aria-label="Disabled input example"
+                            disabled>
+                    </div>
+                    <!-- CAMPO 2: Nombre -->
+                    <label for="nombre">Nombre:</label>
+                    <input id="nombreInput" type="text" name="nombre" class="form-control mb-3" placeholder="Ingrese un Nombre..." aria-label="Username" aria-describedby="basic-addon1">
+                  
+                    <!-- CAMPO 3: Imagen -->
+                   
+                        <label for="img">Imagen:</label>
+                        <input type="file" class="form-control mb-1" id="fileButton" name="img">
+                        
+                        <!-- PROGRESS BAR -->
+                        <progress value="0" max="100" id="uploader" class="progress-bar mb-3 w-100">0%</progress>
+
+                  
+                    <!-- CAMPO 4: Precio -->
+                    <label for="precio">Precio:</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">$</span>
+                        <input id="precioInput" type="text" name="precio" class="form-control" placeholder="0.00" aria-label="Precio" aria-describedby="basic-addon1">
+                      </div>
+                    <!-- CAMPO 5: Cantidad disponible -->
+                    <label for="cantidad">Cantidad disponible:</label>
+                    <input id="cantidadInput" type="text" class="form-control mb-3" name="cantidad" placeholder="0.00" aria-label="cantidad" aria-describedby="basic-addon1">
+                    <!-- CAMPO 6: Descripcion -->
+                    <label for="desc">Descripción:</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">(150 caracteres Max.)</span>
+                        <textarea id="descripcionInput" class="form-control " aria-label="With textarea" name="desc"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="saveProduct()" >Añadir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal vista previa -->
+    <div class="modal fade" id="modalVistaPrevia" tabindex="-1" aria-labelledby="modalVistaPreviaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-normal" id="modalProductoLabel">Vista Previa del producto publicado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
+                    data-bs-toggle="modal" data-bs-target="#modalProximamente">
+                    <img src="../images/gallery/horizontal-3.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                    <!-- OCULTO -->
+                    <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
+                        <p>Comprar</p>
+                    </div>
+                    
+
+                    </a>
+                    <h3 class="d-block mt-3 fs-5 product-title"> Mueble reciclado con barniz</h3>
+                    <p class="d-inline-block fs-6 product-text">$650</p>
+                    <p> ( Unidades disponibles: 2 )</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -55,10 +145,11 @@
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/LOGO-AMELIA.png" alt="homepage" class="dark-logo" style="width: 75px; height: 75px; display: inline-block;" />                         
+                            <img src="../assets/images/LOGO-AMELIA.png" alt="homepage" class="dark-logo"
+                                style="width: 75px; height: 75px; display: inline-block;" />
                         </b>
                         <!--End Logo icon -->
-                      
+
                     </a>
                     <!-- ============================================================== -->
                     <!-- End Logo -->
@@ -73,7 +164,7 @@
                 <!-- End Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-                    
+
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
@@ -84,7 +175,7 @@
 
                         <li class="nav-item hidden-sm-down">
                             <form class="app-search ps-3">
-                                <input type="text" class="form-control" placeholder="Search for..."> <a
+                                <input type="text" class="form-control" placeholder="Buscar..."> <a
                                     class="srh-btn"><i class="ti-search"></i></a>
                             </form>
                         </li>
@@ -98,10 +189,16 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="text-dark  nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="text-dark  nav-link dropdown-toggle waves-effect waves-dark" href="#"
+                                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="../assets/images/users/1.jpg" alt="user" class="profile-pic me-2">Jo Mercadal
                             </a>
-                            <ul class="dropdown-menu show" aria-labelledby="navbarDropdown"></ul>
+                            <ul class="dropdown-menu show text-center d-flex justify-content-center align-items-center" aria-labelledby="navbarDropdown">
+                                <li class="d-flex flex-column perfil">                                  
+                                    <p>jomercadal@gmail.com</p>
+                                    <a href="javascript:void(0)" class="text-dark text-center">Cerrar Sesión</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -125,11 +222,11 @@
                                     aria-hidden="true"></i><span class="hide-menu">Panel Administrador</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="panel-shop.html" aria-expanded="false">
-                                <i class="me-3 fas fa-shopping-cart"></i><span
-                                    class="hide-menu">Tienda</span></a>
+                                <i class="me-3 fas fa-shopping-cart"></i><span class="hide-menu">Tienda</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="panel-gallery.html" aria-expanded="false"><i class=" me-3 far fa-images"></i><span class="hide-menu">Galeria</span></a></li>
+                                href="panel-gallery.html" aria-expanded="false"><i class=" me-3 far fa-images"></i><span
+                                    class="hide-menu">Galeria</span></a></li>
 
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="panel-blog.html" aria-expanded="false"><i class="me-3 fa fa-font"
@@ -144,7 +241,7 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="404.html" aria-expanded="false"><i class="me-3 fa fa-info-circle"
                                     aria-hidden="true"></i><span class="hide-menu">Error 404</span></a></li> -->
-                       
+
                     </ul>
 
                 </nav>
@@ -175,7 +272,7 @@
                             </nav>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -194,14 +291,16 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-md-flex">
-                                    <h4 class="card-title col-md-10 mb-md-0 mb-3 align-self-center">Productos con stock</h4>
-                                    <a href="#" class="btn btn-success position-absolute aniadir"> Añadir producto</a>
+                                    <h4 class="card-title col-md-10 mb-md-0 mb-3 align-self-center">Productos con stock
+                                    </h4>
+                                    <a href="#" class="btn btn-success position-absolute aniadir" 
+                                     type="button" onclick="abrirNuevoModalProducto()"> Añadir producto</a>
                                     <div class="col-md-2 ms-auto">
                                         <p class="me-2">Ordenar por:</p>
                                         <select class="form-select shadow-none col-md-2 ml-auto">
                                             <option selected>Mas reciente</option>
                                             <option value="1">Precio</option>
-                                            <option value="2">Unidades</option>                                       
+                                            <option value="2">Unidades</option>
                                         </select>
                                     </div>
                                 </div>
@@ -211,7 +310,7 @@
                                             <tr>
                                                 <th class="border-top-0">Nro</th>
                                                 <th class="border-top-0">Nombre</th>
-                                                <th class="border-top-0">Fecha Publicación</th>                                                
+                                                <th class="border-top-0">Fecha Publicación</th>
                                                 <th class="border-top-0">Precio</th>
                                                 <th class="border-top-0">Cantidad</th>
                                                 <th class="border-top-0">Editar/Eliminar</th>
@@ -227,9 +326,13 @@
                                                 <td class="align-middle">$650</td>
                                                 <td class="align-middle">2</td>
                                                 <td class="align-middle ps-3">
-                                                     <a href="#" class="me-2 ms-2"><i class="icon-edit fs-3 far fa-edit"></i></a>
-                                                     <a href="#" class="me-2"><i class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-                                                     <a href="#"><i class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+                                                    <a href="#"  class="me-2 ms-2"><i
+                                                            class="icon-edit fs-3 far fa-edit"></i></a>
+                                                    <a href="#" class="me-2"><i
+                                                            class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+                                                    <a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#modalVistaPrevia" type="button"><i
+                                                            class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -241,10 +344,13 @@
                                                 <td class="align-middle">$650</td>
                                                 <td class="align-middle">3</td>
                                                 <td class="align-middle ps-3">
-                                                    <a href="#" class="me-2 ms-2"><i class="icon-edit fs-3 far fa-edit"></i></a>
-                                                    <a href="#" class="me-2"><i class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-                                                    <a href="#"><i class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
-                                               </td>
+                                                    <a href="#" class="me-2 ms-2"><i
+                                                            class="icon-edit fs-3 far fa-edit"></i></a>
+                                                    <a href="#" class="me-2"><i
+                                                            class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+                                                    <a href="#"><i
+                                                            class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="width:50px;" class="fs-4">3</td>
@@ -255,10 +361,13 @@
                                                 <td class="align-middle">$650</td>
                                                 <td class="align-middle">1</td>
                                                 <td class="align-middle ps-3">
-                                                    <a href="#" class="me-2 ms-2"><i class="icon-edit fs-3 far fa-edit"></i></a>
-                                                    <a href="#" class="me-2"><i class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-                                                    <a href="#"><i class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
-                                               </td>
+                                                    <a href="#" class="me-2 ms-2"><i
+                                                            class="icon-edit fs-3 far fa-edit"></i></a>
+                                                    <a href="#" class="me-2"><i
+                                                            class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+                                                    <a href="#"><i
+                                                            class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="width:50px;" class="fs-4">4</td>
@@ -269,10 +378,13 @@
                                                 <td class="align-middle">$650</td>
                                                 <td class="align-middle">2</td>
                                                 <td class="align-middle ps-3">
-                                                    <a href="#" class="me-2 ms-2"><i class="icon-edit fs-3 far fa-edit"></i></a>
-                                                    <a href="#" class="me-2"><i class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-                                                    <a href="#"><i class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
-                                               </td>
+                                                    <a href="#" class="me-2 ms-2"><i
+                                                            class="icon-edit fs-3 far fa-edit"></i></a>
+                                                    <a href="#" class="me-2"><i
+                                                            class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+                                                    <a href="#"><i
+                                                            class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="width:50px;" class="fs-4">5</td>
@@ -283,10 +395,13 @@
                                                 <td class="align-middle">$650</td>
                                                 <td class="align-middle">2</td>
                                                 <td class="align-middle ps-3">
-                                                    <a href="#" class="me-2 ms-2"><i class="icon-edit fs-3 far fa-edit"></i></a>
-                                                    <a href="#" class="me-2"><i class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-                                                    <a href="#"><i class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
-                                               </td>
+                                                    <a href="#" class="me-2 ms-2"><i
+                                                            class="icon-edit fs-3 far fa-edit"></i></a>
+                                                    <a href="#" class="me-2"><i
+                                                            class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+                                                    <a href="#"><i
+                                                            class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="width:50px;" class="fs-4">6</td>
@@ -297,10 +412,13 @@
                                                 <td class="align-middle">$650</td>
                                                 <td class="align-middle">2</td>
                                                 <td class="align-middle ps-3">
-                                                    <a href="#" class="me-2 ms-2"><i class="icon-edit fs-3 far fa-edit"></i></a>
-                                                    <a href="#" class="me-2"><i class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-                                                    <a href="#"><i class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
-                                               </td>
+                                                    <a href="#" class="me-2 ms-2"><i
+                                                            class="icon-edit fs-3 far fa-edit"></i></a>
+                                                    <a href="#" class="me-2"><i
+                                                            class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+                                                    <a href="#"><i
+                                                            class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -315,14 +433,15 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-md-flex">
-                                    <h4 class="card-title col-md-10 mb-md-0 mb-3 align-self-center">Productos sin stock</h4>
-                                   
+                                    <h4 class="card-title col-md-10 mb-md-0 mb-3 align-self-center">Productos sin stock
+                                    </h4>
+
                                     <div class="col-md-2 ms-auto">
                                         <p class="me-2">Ordenar por:</p>
                                         <select class="form-select shadow-none col-md-2 ml-auto">
                                             <option selected>Mas reciente</option>
                                             <option value="1">Precio</option>
-                                            <option value="2">Unidades</option>                                       
+                                            <option value="2">Unidades</option>
                                         </select>
                                     </div>
                                 </div>
@@ -332,7 +451,7 @@
                                             <tr>
                                                 <th class="border-top-0">Nro</th>
                                                 <th class="border-top-0">Nombre</th>
-                                                <th class="border-top-0">Fecha Publicación</th>                                                
+                                                <th class="border-top-0">Fecha Publicación</th>
                                                 <th class="border-top-0">Precio</th>
                                                 <th class="border-top-0">Cantidad</th>
                                                 <th class="border-top-0">Editar/Eliminar</th>
@@ -348,9 +467,12 @@
                                                 <td class="align-middle">$650</td>
                                                 <td class="align-middle">0</td>
                                                 <td class="align-middle ps-3">
-                                                     <a href="#" class="me-2 ms-2"><i class="icon-edit fs-3 far fa-edit"></i></a>
-                                                     <a href="#" class="me-2"><i class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-                                                     <a href="#"><i class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+                                                    <a href="#" class="me-2 ms-2"><i
+                                                            class="icon-edit fs-3 far fa-edit"></i></a>
+                                                    <a href="#" class="me-2"><i
+                                                            class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+                                                    <a href="#"><i
+                                                            class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -362,10 +484,13 @@
                                                 <td class="align-middle">$650</td>
                                                 <td class="align-middle">0</td>
                                                 <td class="align-middle ps-3">
-                                                    <a href="#" class="me-2 ms-2"><i class="icon-edit fs-3 far fa-edit"></i></a>
-                                                    <a href="#" class="me-2"><i class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-                                                    <a href="#"><i class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
-                                               </td>
+                                                    <a href="#" class="me-2 ms-2"><i
+                                                            class="icon-edit fs-3 far fa-edit"></i></a>
+                                                    <a href="#" class="me-2"><i
+                                                            class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+                                                    <a href="#"><i
+                                                            class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="width:50px;" class="fs-4">3</td>
@@ -376,10 +501,13 @@
                                                 <td class="align-middle">$650</td>
                                                 <td class="align-middle">0</td>
                                                 <td class="align-middle ps-3">
-                                                    <a href="#" class="me-2 ms-2"><i class="icon-edit fs-3 far fa-edit"></i></a>
-                                                    <a href="#" class="me-2"><i class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-                                                    <a href="#"><i class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
-                                               </td>
+                                                    <a href="#" class="me-2 ms-2"><i
+                                                            class="icon-edit fs-3 far fa-edit"></i></a>
+                                                    <a href="#" class="me-2"><i
+                                                            class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+                                                    <a href="#"><i
+                                                            class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="width:50px;" class="fs-4">4</td>
@@ -390,10 +518,13 @@
                                                 <td class="align-middle">$650</td>
                                                 <td class="align-middle">0</td>
                                                 <td class="align-middle ps-3">
-                                                    <a href="#" class="me-2 ms-2"><i class="icon-edit fs-3 far fa-edit"></i></a>
-                                                    <a href="#" class="me-2"><i class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-                                                    <a href="#"><i class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
-                                               </td>
+                                                    <a href="#" class="me-2 ms-2"><i
+                                                            class="icon-edit fs-3 far fa-edit"></i></a>
+                                                    <a href="#" class="me-2"><i
+                                                            class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+                                                    <a href="#"><i
+                                                            class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="width:50px;" class="fs-4">5</td>
@@ -404,10 +535,13 @@
                                                 <td class="align-middle">$650</td>
                                                 <td class="align-middle">0</td>
                                                 <td class="align-middle ps-3">
-                                                    <a href="#" class="me-2 ms-2"><i class="icon-edit fs-3 far fa-edit"></i></a>
-                                                    <a href="#" class="me-2"><i class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-                                                    <a href="#"><i class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
-                                               </td>
+                                                    <a href="#" class="me-2 ms-2"><i
+                                                            class="icon-edit fs-3 far fa-edit"></i></a>
+                                                    <a href="#" class="me-2"><i
+                                                            class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+                                                    <a href="#"><i
+                                                            class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="width:50px;" class="fs-4">6</td>
@@ -418,10 +552,13 @@
                                                 <td class="align-middle">$650</td>
                                                 <td class="align-middle">0</td>
                                                 <td class="align-middle ps-3">
-                                                    <a href="#" class="me-2 ms-2"><i class="icon-edit fs-3 far fa-edit"></i></a>
-                                                    <a href="#" class="me-2"><i class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-                                                    <a href="#"><i class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
-                                               </td>
+                                                    <a href="#" class="me-2 ms-2"><i
+                                                            class="icon-edit fs-3 far fa-edit"></i></a>
+                                                    <a href="#" class="me-2"><i
+                                                            class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+                                                    <a href="#"><i
+                                                            class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -474,6 +611,48 @@
     <script src="js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.js"></script>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <!-- FIREBASE -/ FIRESTORE -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    <!-- FIREBASE -/ AUTH -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <!-- FIREBASE -/ ANALYTICS -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+    <!-- Nuevas funcionalidades: CDNs
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+   
+
+        <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+                apiKey: "AIzaSyD9eLOX6Lz8ySiOH6D9u1DX-zQT4sugby0",
+                authDomain: "amelia-reciclados.firebaseapp.com",
+                databaseURL: "https://amelia-reciclados-default-rtdb.firebaseio.com",
+                projectId: "amelia-reciclados",
+                storageBucket: "amelia-reciclados.appspot.com",
+                messagingSenderId: "382397362766",
+                appId: "1:382397362766:web:ac95943549ae2ec847091f",
+                measurementId: "G-KG9VVNE8XW"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            
+
+        </script>
+
+
+
+     <!-- sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="./js/auth.js"></script>
+    <script src="../storage.js"></script>
+    <script src="../shop.js"></script>
+    
 </body>
 
 </html>

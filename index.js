@@ -33,7 +33,7 @@ const saveBlog = (blog) => {
 
 /* FUNCION PARA OBTENER COLECCION DE BLOGS  */
 
-const getBlogs = (id) => {
+const getBlogs = () => {
 
   const collection = db.collection('blogs');  
     return collection.get(); 
@@ -235,7 +235,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 modalVistaPrevia.addEventListener( 'DOMContentLoaded', async (e) => {
 
 
-  const querySnapshot = await getBlogs(1);
+  const querySnapshot = await getBlogs();
 
   console.log(querySnapshot.data())
 

@@ -1,6 +1,11 @@
 $azul-cielo: #00A6FA;
 $delete: #bb7373;
 
+body 
+{
+    font-family: 'Roboto','sans serif';
+}
+
 .icon-edit
 {
    color: $azul-cielo;
@@ -30,4 +35,24 @@ $delete: #bb7373;
 {
     right: 0px;
     top: -40px;
+}
+.dropdown-menu
+{
+    display: none !important;   
+
+}
+.dropdown
+{
+    &:hover
+    {
+     
+        .dropdown-menu
+        {
+            display: block !important;
+        }
+    }
+}
+.progress-bar
+{
+    display: block;
 }

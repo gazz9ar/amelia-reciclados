@@ -34,3 +34,47 @@ input:focus
     color: white !important;
     background-color: $azul-cielo !important;
 }
+
+.reg-log
+{
+    left: 0;
+    top: -10px;
+
+    height: 40px;
+    width: 100%;
+    background-color: transparent;
+}
+.rounded-top-right
+{
+    border-top-right-radius: .5rem !important ;
+    border-top-left-radius: .5rem !important ;
+    cursor:pointer;
+}
+.btn-login
+{
+   border:transparent;
+    border-right: 1px solid #ccc;    
+    box-shadow: 0px 2px 6px #ccc;
+    transition: all 420ms;
+    &:hover
+    {
+        border: 0.1px solid #ccc;
+    }
+}
+.btn-reg
+{
+    border:transparent;
+    border-left: 1px solid #ccc;
+    box-shadow: 0px 2px 6px #ccc;
+    transition: all 420ms;
+    &:hover
+    {
+        border: 0.1px solid #ccc;
+    }
+
+}
+.active
+{
+    background-color: #016BA0 !important;
+    
+}

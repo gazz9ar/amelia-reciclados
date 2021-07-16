@@ -156,6 +156,11 @@ body {
   width: 100%;
   min-width: 100%;
 }
+.header .login {
+  z-index: 1000000;
+  top: 40px !important;
+  left: 80px !important;
+}
 .header .header-nav {
   position: fixed;
   display: flex;

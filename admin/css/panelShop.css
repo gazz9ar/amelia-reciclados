@@ -1,3 +1,7 @@
+body {
+  font-family: "Roboto", "sans serif";
+}
+
 .icon-edit {
   color: #00A6FA;
   transition: all 420ms;
@@ -23,6 +27,18 @@
 .aniadir {
   right: 0px;
   top: -40px;
+}
+
+.dropdown-menu {
+  display: none !important;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block !important;
+}
+
+.progress-bar {
+  display: block;
 }
 
 /*# sourceMappingURL=panelShop.css.map */

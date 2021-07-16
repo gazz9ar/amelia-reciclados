@@ -16,7 +16,9 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <!-- Custom CSS -->
+ 
     <link href="css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/panelGallery.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -170,23 +172,16 @@
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="page-title mb-0 p-0">Table</h3>
+                        <h3 class="page-title mb-0 p-0">Galeria</h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Table</li>
+                                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Galeria</li>
                                 </ol>
                             </nav>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-4 align-self-center">
-                        <div class="text-end upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/monsteradmin/"
-                                class="btn btn-success d-none d-md-inline-block text-white" target="_blank">Upgrade to
-                                Pro</a>
-                        </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -199,66 +194,204 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <!-- column -->
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Basic Table</h4>
-                                <h6 class="card-subtitle">Add class <code>.table</code></h6>
-                                <div class="table-responsive">
-                                    <table class="table user-table no-wrap">
-                                        <thead>
-                                            <tr>
-                                                <th class="border-top-0">#</th>
-                                                <th class="border-top-0">First Name</th>
-                                                <th class="border-top-0">Last Name</th>
-                                                <th class="border-top-0">Username</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Deshmukh</td>
-                                                <td>Gaylord</td>
-                                                <td>@Ritesh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Sanghani</td>
-                                                <td>Gusikowski</td>
-                                                <td>@Govinda</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Roshan</td>
-                                                <td>Rogahn</td>
-                                                <td>@Hritik</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Joshi</td>
-                                                <td>Hickle</td>
-                                                <td>@Maruti</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Nigam</td>
-                                                <td>Eichmann</td>
-                                                <td>@Sonu</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                <div class="row d-flex justify-content-center ">
+
+
+                    <!-- DISEÑO 3 COLUMNAS -->
+                      <!-- BOTON AÑADIR -->
+                    <div class="d-flex justify-content-start flex-column mb-5">
+                        <p class="fs-3">Añadir nueva imagen</p>
+                        <a href="#" class="fs-1 text-success add-img "><i class="fas fa-plus-circle add-img-icon"></i></a>    
+                    </div>     
+    
+                    <!-- COMIENZO COLUMNA 1 CON X Imagenes -->
+    
+                    <div class="col-lg-4 col-md-12  mb-lg-0 ">
+                        <!-- IMAGEN -->
+                        <div class="pb-4">
+                            <div class="position-relative img-thumbnail-bg">
+                                <div>
+                                    <img src="../images/craftsman-creating-wood-piece.jpg" alt="Mueble" class=" w-100 rounded   ">
+                                </div>
+                                
+                                <!-- TEXTO OCULTO -->
+                                <div class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery"
+                                    >                                  
+                                    <p class="fs-4 fs-sm-6 fw-normal">Mueble Restaurado</p>      
+                                    <p class="fs-6 lh-sm"> Este mueble es de los años 90, fue restaurado con X y pintado con X...
+                                    </p>                
+                                      
+                                </div>
+                                <!-- Edit/Delete OCULTO -->
+                                <div class="position-absolute w-50 w-25 top-100 start-50 translate-middle p-1 text-center d-none fondo-oscuro-gallery
+                                  border border-secondary border-top-0 edit-delete-buttons">
+                                    <a href="#" class="me-3"><i class="fas fa-edit fs-2 text-secondary"></i></a>
+                                    <a href="#"><i class="fas fa-trash-alt fs-2 text-secondary"></i></a>
+                                 </div>
+                            </div>
+    
+                        </div>
+                          <!-- IMAGEN -->
+                          <div class="pb-4">
+                            <div class="position-relative img-thumbnail-bg ">
+                                <img src="../images/gallery/horizontal-3.jpg" alt="Mueble" class=" w-100 rounded   ">
+                                <!-- TEXTO OCULTO -->
+                                <div
+                                    class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
+                                    <p class="fs-4 fs-sm-6 fw-normal">Mueble Restaurado</p>      
+                                    <p class="fs-6 lh-sm"> Este mueble es de los años 90, fue restaurado con X y pintado con X...
+                                    </p>   
+                                    
                                 </div>
                             </div>
+    
                         </div>
+                          <!-- IMAGEN -->
+                          <div class="pb-4">
+                            <div class="position-relative img-thumbnail-bg">
+                                <img src="../images/gallery/modern-stylish-scandinavian-kitchen-interior-with-kitchen-accessories.jpg" alt="Mueble" class=" w-100 rounded   ">
+                                <!-- TEXTO OCULTO -->
+                                <div
+                                    class="position-absolute w-100 w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
+                                    <p class="fs-4 fs-sm-6 fw-normal">Mueble Restaurado</p>      
+                                    <p class="fs-6 lh-sm"> Este mueble es de los años 90, fue restaurado con X y pintado con X...
+                                    </p>   
+                                   
+                                </div>
+                                <!-- Edit/Delete OCULTO -->
+                                <div class="position-absolute w-50 w-25 top-100 start-50 translate-middle p-1 text-center d-none fondo-oscuro-gallery
+                                  border border-secondary border-top-0 edit-delete-buttons">
+                                    <a href="#" class="me-3"><i class="fas fa-edit fs-2 text-secondary"></i></a>
+                                    <a href="#"><i class="fas fa-trash-alt fs-2 text-secondary"></i></a>
+                                 </div>
+                            </div>
+    
+                        </div>
+                             
+                       
+                     </div>
+                    <!-- COMIENZO COLUMNA 2 CON X Imagenes -->
+                    <div class="col-lg-4 col-md-12  mb-lg-0 ">
+                        <!-- IMAGEN -->
+                        <div class="pb-4">
+                            <div class="position-relative img-thumbnail-bg ">
+                                <img src="../images/gallery/horizontal-3.jpg" alt="Mueble" class=" w-100 rounded   ">
+                                <!-- TEXTO OCULTO -->
+                                <div
+                                    class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
+                                    <p class=" fs-5 fw-bold">Mueble Restaurado</p>
+    
+    
+                                    <p class="fs-6 lh-sm"> Este mueble es de los años 90, fue restaurado con X y pintado con X...
+                                    </p>
+                                    
+                                </div>
+                            </div>
+    
+                        </div>
+                          <!-- IMAGEN -->
+                          <div class="pb-4">
+                            <div class="position-relative img-thumbnail-bg ">
+                                <img src="../images/gallery/horizontal-3.jpg" alt="Mueble" class=" w-100 rounded   ">
+                                <!-- TEXTO OCULTO -->
+                                <div
+                                    class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
+                                    <p class=" fs-5 fw-bold">Mueble Restaurado</p>
+    
+    
+                                    <p class="fs-6 lh-sm"> Este mueble es de los años 90, fue restaurado con X y pintado con X...
+                                    </p>
+                                  
+                                </div>
+                            </div>
+    
+                        </div>
+                          <!-- IMAGEN -->
+                          <div class="pb-4">
+                            <div class="position-relative img-thumbnail-bg ">
+                                <img src="../images/gallery/modern-stylish-scandinavian-kitchen-interior-with-kitchen-accessories.jpg" alt="Mueble" class=" w-100 rounded   ">
+                                <!-- TEXTO OCULTO -->
+                                <div
+                                    class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
+                                    <p class=" fs-5 fw-bold">Mueble Restaurado</p>
+    
+    
+                                    <p class="fs-6 lh-sm"> Este mueble es de los años 90, fue restaurado con X y pintado con X...
+                                    </p>
+                              
+                                </div>
+                            </div>
+    
+                        </div>
+                       
+
+    
+    
+                       
+    
                     </div>
+                    <!-- COMIENZO COLUMNA 3 CON X Imagenes -->
+                    <div class="col-lg-4 col-md-12  mb-lg-0 ">
+                        <!-- IMAGEN -->
+                        <div class="pb-4">
+                            <div class="position-relative img-thumbnail-bg ">
+                                <img src="../images/gallery/hairdresser-cut-hair-her-client-in-hair-salon.jpg" alt="Mueble" class=" w-100 rounded   ">
+                                <!-- TEXTO OCULTO -->
+                                <div
+                                    class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
+                                    <p class=" fs-5 fw-bold">Mueble Restaurado</p>
+    
+    
+                                    <p class="fs-6 lh-sm"> Este mueble es de los años 90, fue restaurado con X y pintado con X...
+                                    </p>
+                                 
+                                </div>
+                            </div>
+    
+                        </div>
+                          <!-- IMAGEN -->
+                          <div class="pb-4">
+                            <div class="position-relative img-thumbnail-bg ">
+                                <img src="../images/gallery/mid-century-modern-wood-cabinet-by-leafty-wall.jpg" alt="Mueble" class=" w-100 rounded   ">
+                                <!-- TEXTO OCULTO -->
+                                <div
+                                    class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
+                                    <p class=" fs-5 fw-bold">Mueble Restaurado</p>
+    
+    
+                                    <p class="fs-6 lh-sm">Este mueble es de los años 90, fue restaurado con X y pintado con X...
+                                    </p>
+                                   
+                                </div>
+                            </div>
+    
+                        </div>
+                          <!-- IMAGEN -->
+                          <div class="pb-4">
+                            <div class="position-relative img-thumbnail-bg ">
+                                <img src="../images/gallery/room-interior-design.jpg" alt="Mueble" class=" w-100 rounded   ">
+                                <!-- TEXTO OCULTO -->
+                                <div
+                                    class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
+                                    <p class=" fs-5 fw-bold">Mueble Restaurado</p>
+    
+    
+                                    <p class="fs-6 lh-sm">Este mueble es de los años 90, fue restaurado con X y pintado con X...
+                                    </p>
+                                 
+                                </div>
+                            </div>
+    
+                        </div>
+                        
+    
+    
+    
+                       
+    
+                    </div>
+    
+    
                 </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->

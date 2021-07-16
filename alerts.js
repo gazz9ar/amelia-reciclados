@@ -1,4 +1,6 @@
 
+
+
 var form = document.getElementById("form-contacto");
 
 var inputs = document.getElementsByClassName("form-control");

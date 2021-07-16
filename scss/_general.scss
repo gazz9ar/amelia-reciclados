@@ -202,6 +202,7 @@
     transition: all 420ms;
   }
   /* Contenido */
+ 
   .header {
     height: 100vh;
     width: 100%;
@@ -210,7 +211,14 @@
     $text: #f4f4f4;
     $text-inverse:#333;
     $background:transparent;
+
     
+    .login 
+    {
+      z-index: 1000000;
+      top:40px !important;
+      left: 80px !important;
+    }
     .header-nav {
         position: fixed;
         display: flex;
