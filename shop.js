@@ -153,5 +153,13 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 
 
+    // =================================================================================
+    // Cerrar sesión al clickear button con clase  
+    // =================================================================================
 
+function showSignOut()
+{
+  const buttonCerrarSesion = document.getElementById("userSignOut");
+  
+}
 
