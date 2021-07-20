@@ -1,10 +1,15 @@
 // ====================================
 // Elementos para usar firebase storage
 // ====================================
-let uploader = document.getElementById('uploader');
-let fileButton = document.getElementById('fileButton');
+const uploader = document.getElementById('uploader');
+const fileButton = document.getElementById('fileButton');
+const addProducts = document.getElementsByClassName("add-product-input");
+const idInput = document.getElementsByClassName("id-input");
 let storageRef = '';
-let file = '';
+let file = ''; 
+
+//storage Ref Generico
+let downloadRef = ''
 
 // =====================
 //modal añadir producto
@@ -20,6 +25,8 @@ let precioInput = document.getElementById('precioInput');
 let cantidadInput = document.getElementById('cantidadInput');
 let descripcionInput = document.getElementById('descripcionInput');
 
+let productoNuevo = {};
+
 
 
 function abrirNuevoModalProducto()
@@ -31,6 +38,19 @@ function abrirNuevoModalProducto()
       precioInput.value = '';
       cantidadInput.value = '';
       descripcionInput.value = '';
+
+       //border danger a todos los campos
+       precioInput.classList.remove('border');
+       precioInput.classList.remove('border-danger');
+
+       nombreInput.classList.remove('border');
+       nombreInput.classList.remove('border-danger');
+
+       cantidadInput.classList.remove('border');
+       cantidadInput.classList.remove('border-danger');
+
+       descripcionInput.classList.remove('border');
+       descripcionInput.classList.remove('border-danger');
 
 }
 function cerrarNuevoModalProducto()
@@ -48,6 +68,12 @@ fileButton.addEventListener('change', function(e) {
  
 })
 
+
+
+// =====================
+// AÑADIR NUEVO PRODUCTO
+// =====================
+
 function saveProduct()
 {
     if (storageRef === '') {
@@ -56,8 +82,38 @@ function saveProduct()
             icon: 'error',
             title: 'Oops...',
             text: 'No has seleccionado ninguna imagen!'
+          });
+
+
+          fileButton.classList.add('border');
+          fileButton.classList.add('border-danger');
+
+    } else if(precioInput.value == '' || nombreInput.value == '' || cantidadInput.value == '' || descripcionInput.value == '')  //verifico que no haya campos vacios
+    {
+        fileButton.classList.remove('border');
+        fileButton.classList.remove('border-danger');
+        for (const input of addProducts) {
+            
+            console.log(input);
+            if (input.value == '') {
+                
+                input.classList.add('border');
+                input.classList.add('border-danger');
+
+            } else {
+                input.classList.remove('border');
+                input.classList.remove('border-danger');
+            }
+        }
+        
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Completa todos los campos!'
           })
-    } else {
+    }
+    
+    else {
 
         //Upload the file
         let task = storageRef.put(file);    
@@ -89,6 +145,29 @@ function saveProduct()
                   
             }
          );
-    }       
+
+         var today = new Date();
+         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+         productoNuevo = new Producto(idInput.value,nombreInput.value,precioInput.value,cantidadInput.value,date);
+         // Add a new document in collection "cities"
+         saveDocument('products',productoNuevo)        
+        .then(() => {
+            Swal.fire(
+                'Producto registrado!',
+                'Producto ya disponible en la tienda online',
+                'success'
+              )
+        })
+        .catch((error) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: error
+              });
+        });
+
+        tablaStock.innerHTML = '';
+     }       
     
 }

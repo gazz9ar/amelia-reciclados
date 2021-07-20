@@ -104,8 +104,9 @@ const registerLogin = () => {
         var user = userCredential.user;
         console.log(user);
 
-        if (user.uid === 'da2j56RuXxbXP6RQ91tgHYl9zTX2') {
+        if (user.uid == 'da2j56RuXxbXP6RQ91tgHYl9zTX2') {
 
+          // SE LOGEÓ el ADMIN
           Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -151,28 +152,3 @@ const registerLogin = () => {
 
 }
 
-// =======================================================
-// PREGUNTO SI YA TIENE UNA SESION ACTIVA CADA 5 SEGUNDOS
-// =======================================================
-
-var intervalId = window.setInterval(function () {
-
-  
-  
-   // VERIFICO QUE HAYA UNA SESION ACTIVA
-    auth.onAuthStateChanged((user) => {
-      if (!user) {
-          
-          //USUARIO NO LOGEADO, MOSTRAR DESCUENTOS POR EJ.
-          console.log("no hay usuario logeado");
-
-
-      } else if (user.uid === 'da2j56RuXxbXP6RQ91tgHYl9zTX2') {
-
-        window.location.replace("http://127.0.0.1:5500/index.tml");
-          
-      }
-    });
-  
-
-}, 500);

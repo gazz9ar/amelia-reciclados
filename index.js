@@ -46,7 +46,7 @@ const getBlogs = () => {
 
 const getBlog = (id) => {
 
-  const collection = db.collection('blogs');
+      const collection = db.collection('blogs');
 
       return collection.doc(id).get();
   

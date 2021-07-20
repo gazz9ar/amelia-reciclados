@@ -19,7 +19,7 @@
 //  EcmaScript6
 //  =============
 
-export class Producto
+class Producto
 {
     constructor(id,nombre,precio,cantidad,fecha){
 
@@ -32,10 +32,11 @@ export class Producto
 
     }
 
-    get totalDisponibleEnDinero(){
-        return this.precio * this.cantidad;
+    
+    descuento(porcentaje)
+    {
+        this.precio = this.precio * (porcentaje / 100)
     }
-
     agregarCant (cant) 
     {
         this.cantidad += cant;
@@ -52,11 +53,11 @@ export class Producto
         }
         
     }
+    
 
 }
 
-
-export class Usuario
+class Usuario
 {    
     
     constructor(id,nombre,fechaCreacion,fechaNacimiento)
@@ -73,7 +74,7 @@ export class Usuario
     {
         //primero pregunto si el mes es mayor
         if (this.Month > this.fechaNacimiento.getMonth()) {
-            return (this.Year - this.fechaNacimiento.getFullYear()  )
+            return (this.Year - this.fechaNacimiento.getFullYear())
         }else if(this.Month == this.fechaNacimiento.getMonth()){
 
             if (this.day >= this.fechaNacimiento.getDay()) {
