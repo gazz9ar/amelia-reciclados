@@ -94,5 +94,11 @@ class Usuario
 }
 
 
+const guardarLocal = (clave,valor) => {
+
+    localStorage.setItem(clave,valor);
+
+}
+
 
 

@@ -76,7 +76,7 @@ fileButton.addEventListener('change', function(e) {
 
 function saveProduct()
 {
-    if (storageRef === '') {
+    if (storageRef === '' || fileButton.value == '' ) {
         
         Swal.fire({
             icon: 'error',
@@ -146,18 +146,14 @@ function saveProduct()
             }
          );
 
+         //AGREGO NUEVO PRODUCTO
          var today = new Date();
          var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-
          productoNuevo = new Producto(idInput.value,nombreInput.value,precioInput.value,cantidadInput.value,date);
          // Add a new document in collection "cities"
          saveDocument('products',productoNuevo)        
         .then(() => {
-            Swal.fire(
-                'Producto registrado!',
-                'Producto ya disponible en la tienda online',
-                'success'
-              )
+            // no hago nada, muestro la alerta antes, al resolver la promesa de subir la imagen a la BD
         })
         .catch((error) => {
             Swal.fire({
