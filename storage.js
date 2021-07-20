@@ -149,7 +149,11 @@ function saveProduct()
          //AGREGO NUEVO PRODUCTO
          var today = new Date();
          var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-         productoNuevo = new Producto(idInput.value,nombreInput.value,precioInput.value,cantidadInput.value,date);
+         productoNuevo = new Producto(idInput.value,
+            nombreInput.value,
+            precioInput.value,
+            cantidadInput.value,
+            date);
          // Add a new document in collection "cities"
          saveDocument('products',productoNuevo)        
         .then(() => {

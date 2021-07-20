@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged((user) => {
       else 
       {
         // no tiene UID del admin, se redirecciona
-        window.location.replace('http://127.0.0.1:5500/index.html');
+        window.location.replace('https://gazz9ar.github.io/amelia-reciclados/');
       }
       
 
@@ -26,7 +26,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
       
       //no hay usuario logeado
-      window.location.replace('http://127.0.0.1:5500/index.html');
+      window.location.replace('https://gazz9ar.github.io/amelia-reciclados/');
 
     }
   });
