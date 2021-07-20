@@ -159,7 +159,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 function showSignOut()
 {
-  const buttonCerrarSesion = document.getElementById("userSignOut");
-  
+  const userSignOut = document.getElementById("userSignOut");
+ 
 }
 

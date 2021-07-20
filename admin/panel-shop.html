@@ -226,16 +226,11 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="text-dark  nav-link dropdown-toggle waves-effect waves-dark sign" href="javascript:void(0)" onclick="showSignOut()"
+                            <a class="text-dark  nav-link dropdown-toggle waves-effect waves-dark sign" href="#" 
                                 id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="../assets/images/users/1.jpg" alt="user" class="profile-pic me-2" id="userSignOut">Jo Mercadal
-                            </a>
-                            <ul class="dropdown-menu show text-center d-flex justify-content-center align-items-center" aria-labelledby="navbarDropdown">
-                                <li class="d-flex flex-column perfil">                                  
-                                    <p>jomercadal@gmail.com</p>
-                                    <a href="javascript:void(0)" class="text-dark text-center">Cerrar Sesión</a>
-                                </li>
-                            </ul>
+                            </a>      
+                            <ul class="dropdown-menu show waves-effect waves-dark" aria-labelledby="navbarDropdown" onclick="signOut()">Cerrar Sesión</ul>                      
                         </li>
                     </ul>
                 </div>
@@ -659,6 +654,7 @@
     <script  src="../shop.js"></script>
     <script src="./js/auth.js"></script>
     <script src="../storage.js"></script>
+    <script src="../signOut.js"></script>
     
 
    
