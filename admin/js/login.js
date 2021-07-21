@@ -99,7 +99,7 @@ const registerLogin = () => {
   } else {
 
     auth.signInWithEmailAndPassword(email, pass)
-      .then((userCredential) => {
+      .then( async (userCredential) => {
         // Signed in
         var user = userCredential.user;
         console.log(user);
@@ -107,7 +107,7 @@ const registerLogin = () => {
         if (user.uid == 'da2j56RuXxbXP6RQ91tgHYl9zTX2') {
 
           // SE LOGEÓ el ADMIN
-          Swal.fire({
+          await Swal.fire({
             position: 'top-end',
             icon: 'success',
             title: 'Has iniciado sesión correctamente!',
@@ -119,7 +119,7 @@ const registerLogin = () => {
 
         } else {
 
-          Swal.fire({
+          await  Swal.fire({
             position: 'top-end',
             icon: 'success',
             title: 'Has iniciado sesión correctamente!',

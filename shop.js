@@ -9,6 +9,10 @@ const vistaPreviaCantidad = document.getElementById("vista-previa-cantidad");
 const vistaPreviaTitle = document.getElementById("vista-previa-title");
 const vistaPreviaPrecio = document.getElementById("vista-previa-precio");
 
+//DECLARO ARRAY DE OBJETOS DE PRODUCTO
+let products = [ ];
+
+
 const onGetCollection = (collection,callback) => {
 
     const collectionSelected = db.collection(collection);
@@ -80,17 +84,10 @@ function vistaPrevia(uid)
 
 
     // =================================================================================
-    // Al cargar el panel admin/tienda  renderizo tabla con productos cargados 
+    // Al cargar el panel admin/panelShop  renderizo tabla con productos cargados 
     // =================================================================================
 
 window.addEventListener('DOMContentLoaded', async (e) => {
-
-
-  
-
- 
-
-
 
   onGetCollection('products',(querySnapshot => {
 
@@ -116,6 +113,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         let uid = doc.id;
         let product = doc.data();        
         
+        products.push(product);
 
         tablaStock.innerHTML += `
         
@@ -157,9 +155,4 @@ window.addEventListener('DOMContentLoaded', async (e) => {
     // Cerrar sesión al clickear button con clase  
     // =================================================================================
 
-function showSignOut()
-{
-  const userSignOut = document.getElementById("userSignOut");
- 
-}
 
