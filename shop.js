@@ -8,6 +8,7 @@ const imgProduct = document.getElementById("img-product");
 const vistaPreviaCantidad = document.getElementById("vista-previa-cantidad");
 const vistaPreviaTitle = document.getElementById("vista-previa-title");
 const vistaPreviaPrecio = document.getElementById("vista-previa-precio");
+const orderGroup = document.getElementById("orderGroup");
 
 //DECLARO ARRAY DE OBJETOS DE PRODUCTO
 let products = [ ];
@@ -110,10 +111,13 @@ window.addEventListener('DOMContentLoaded', async (e) => {
     querySnapshot.forEach(
       (doc) => {
 
+        //DEBERIA GUARDAR EL UID EN LOCAL STORAGE PARA CUANDO ORDENE EL ARRAY Y RENDERIZE NUEVAMENTE NO SE PIERDA
+        
         let uid = doc.id;
         let product = doc.data();        
         
         products.push(product);
+        
 
         tablaStock.innerHTML += `
         
@@ -121,7 +125,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
             <tr id="product-id-${product.id}">
             <td style="width:50px;" class="fs-4" >${product.id}</td>
             <td class="align-middle">
-                <p>Mueble a barniz</p>
+                <p>${product.nombre}}</p>
             </td>
             <td class="align-middle">${Date.parse(product.fecha)}</td>
             <td class="align-middle">${product.precio}</td>
@@ -144,15 +148,98 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
       }
     );
-  
+    
+    
+   
   }))
   
 })
 
 
 
-    // =================================================================================
-    // Cerrar sesión al clickear button con clase  
-    // =================================================================================
+    // =====================================================================
+    // Metodo para ordenar y renderizar los productos   
+    // =====================================================================
+const orderOptions = document.querySelector('.order-options-select');
 
 
+// Escucho a las selecciones en el ordenamiento
+orderOptions.addEventListener('change', (e) => {
+
+    
+    // capturo el <select></select>
+    let options = e.target;
+
+    //recorro las opciones del <select></select>
+    for (const option of options) {
+      
+        // pregunto cual es el <option></option> seleccionado y llamo al metodo para ordenar los productos
+        if (option.selected) {
+          if (option.innerText == 'Precio') {
+            orderProducts('precio');
+          } else if (option.innerText == 'Unidades') {
+            orderProducts('cantidad');
+          } else {
+            orderProducts('id');
+          }          
+          
+        } 
+        
+    }  
+  
+    
+
+})
+
+function orderProducts(property)
+{
+
+  let arrayOrdenado = products.sort(Producto.dynamicSort(property));
+
+  tablaStock.innerHTML = '';
+  tablaStock.innerHTML = `
+    <table>
+      <thead>
+      <tr>
+          <th class="border-top-0">Nro</th>
+          <th class="border-top-0">Nombre</th>
+          <th class="border-top-0">Fecha Publicación</th>
+          <th class="border-top-0">Precio</th>
+          <th class="border-top-0">Cantidad</th>
+          <th class="border-top-0">Editar/Eliminar</th>
+      </tr>
+      </thead>     
+
+    </table> `;
+
+
+    for (let i = 0; i < arrayOrdenado.length; i++) {
+      
+      tablaStock.innerHTML += `
+        
+      <tbody>
+          <tr id="product-id-${i}">
+          <td style="width:50px;" class="fs-4" >${i}</td>
+          <td class="align-middle">
+              <p>${arrayOrdenado[i].nombre}}</p>
+          </td>
+          <td class="align-middle">${Date.parse(arrayOrdenado[i].fecha)}</td>
+          <td class="align-middle">${arrayOrdenado[i].precio}</td>
+          <td class="align-middle">${arrayOrdenado[i].cantidad}</td>            
+          <td class="align-middle ps-3">
+              <a href="#"  class="me-2 ms-2"><i
+                      class="icon-edit fs-3 far fa-edit"></i></a>
+              <a href="#" class="me-2"><i
+                      class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
+              <a href="javascript:void(0)" data-bs-toggle="modal" onclick="vistaPrevia('')"
+              data-bs-target="#modalVistaPrevia" type="button"><i
+                      class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
+          </td>
+          </tr>
+      </tbody>
+      `      
+    }
+   
+    console.table(arrayOrdenado);
+}
+    

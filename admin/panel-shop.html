@@ -35,6 +35,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <!-- FIREBASE -/ ANALYTICS -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
 
     <!-- Nuevas funcionalidades: CDNs
         https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -329,10 +330,10 @@
                                      type="button" onclick="abrirNuevoModalProducto()"> Añadir producto</a>
                                     <div class="col-md-2 ms-auto">
                                         <p class="me-2">Ordenar por:</p>
-                                        <select class="form-select shadow-none col-md-2 ml-auto">
-                                            <option selected>Mas reciente</option>
-                                            <option value="1">Precio</option>
-                                            <option value="2">Unidades</option>
+                                        <select class="form-select shadow-none col-md-2 ml-auto order-options-select" id="orderGroup">
+                                            <option class="order-option" selected>Mas reciente</option>
+                                            <option class="order-option" value="1">Precio</option>
+                                            <option class="order-option" value="2">Unidades</option>
                                         </select>
                                     </div>
                                 </div>
