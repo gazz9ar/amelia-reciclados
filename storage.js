@@ -149,12 +149,14 @@ function saveProduct()
          //AGREGO NUEVO PRODUCTO
          var today = new Date();
          var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+         //aca deberia obtener el ultimo id de los productos cargados en la BBDD, consultando el local storage
          productoNuevo = new Producto(idInput.value,
             nombreInput.value,
             precioInput.value,
             cantidadInput.value,
             date);
-         // Add a new document in collection "cities"
+         
          saveDocument('products',productoNuevo)        
         .then(() => {
             // no hago nada, muestro la alerta antes, al resolver la promesa de subir la imagen a la BD
@@ -167,6 +169,7 @@ function saveProduct()
               });
         });
 
+        // antes de cerra el modal, reinicio la tabla porque se vuelve a renderizar
         tablaStock.innerHTML = '';
      }       
     

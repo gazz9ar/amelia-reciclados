@@ -10,8 +10,13 @@ const vistaPreviaTitle = document.getElementById("vista-previa-title");
 const vistaPreviaPrecio = document.getElementById("vista-previa-precio");
 const orderGroup = document.getElementById("orderGroup");
 
+const modalVistaPreviaBody = document.getElementById("modal-body");
+const spinnerZ = document.getElementById("spinner-z");
+
 //DECLARO ARRAY DE OBJETOS DE PRODUCTO
 let products = [ ];
+//array que guarda los uid de cada documento
+let productsUid = [];
 
 
 const onGetCollection = (collection,callback) => {
@@ -44,13 +49,16 @@ const saveDocument = (collection,obj) => {
 
 function vistaPrevia(uid)
     { 
+      modalVistaPreviaBody.classList.add('d-none');
+          spinnerZ.classList.remove('d-none');
       
       const collection = db.collection('products');
     
       let docRef = collection.doc(uid);
+
       
      docRef.get()
-     .then((doc) => {
+     .then( (doc) => {
 
         let productDocument = doc.data();
         if (doc.exists) {
@@ -66,13 +74,14 @@ function vistaPrevia(uid)
           vistaPreviaCantidad.innerText = `Stock: ${productDocument.cantidad} ` ;
           vistaPreviaPrecio.innerText = `$ ${productDocument.precio}`;
           vistaPreviaTitle.innerText = ` ${productDocument.nombre}`;
-    
+          modalVistaPreviaBody.classList.remove('d-none');
+          spinnerZ.classList.add('d-none');
         });
         } else {
           
           console.log("No such document!");
         }
-
+        
      })
      .catch((err) => {
 
@@ -111,10 +120,15 @@ window.addEventListener('DOMContentLoaded', async (e) => {
     querySnapshot.forEach(
       (doc) => {
 
+        productsUid.push(doc.id);
         //DEBERIA GUARDAR EL UID EN LOCAL STORAGE PARA CUANDO ORDENE EL ARRAY Y RENDERIZE NUEVAMENTE NO SE PIERDA
-        
+
         let uid = doc.id;
-        let product = doc.data();        
+        let product = doc.data();  
+        //le agrego una propiedad al objeto con el UID del documento
+        product.uid =  uid;
+
+        console.log(product);
         
         products.push(product);
         
@@ -125,7 +139,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
             <tr id="product-id-${product.id}">
             <td style="width:50px;" class="fs-4" >${product.id}</td>
             <td class="align-middle">
-                <p>${product.nombre}}</p>
+                <p>${product.nombre}</p>
             </td>
             <td class="align-middle">${Date.parse(product.fecha)}</td>
             <td class="align-middle">${product.precio}</td>
@@ -148,8 +162,10 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
       }
     );
-    
-    
+      // guardo en local Storage el array de objetos de productos con su respectivo UID
+     localStorage.setItem("productsId",JSON.stringify(products));     
+       // guardo en local Storage array con UID de los productos
+     localStorage.setItem("productsUid",JSON.stringify(productsUid));
    
   }))
   
@@ -191,6 +207,15 @@ orderOptions.addEventListener('change', (e) => {
 
 })
 
+function buscarProducto(uid,currentUid)
+{
+    if (2==2) {
+      
+    } else {
+      
+    }
+}
+
 function orderProducts(property)
 {
 
@@ -218,10 +243,10 @@ function orderProducts(property)
       tablaStock.innerHTML += `
         
       <tbody>
-          <tr id="product-id-${i}">
-          <td style="width:50px;" class="fs-4" >${i}</td>
+          <tr id="product-id-${arrayOrdenado[i].id}">
+          <td style="width:50px;" class="fs-4" >${arrayOrdenado[i].id}</td>
           <td class="align-middle">
-              <p>${arrayOrdenado[i].nombre}}</p>
+              <p>${arrayOrdenado[i].nombre}</p>
           </td>
           <td class="align-middle">${Date.parse(arrayOrdenado[i].fecha)}</td>
           <td class="align-middle">${arrayOrdenado[i].precio}</td>
@@ -231,7 +256,7 @@ function orderProducts(property)
                       class="icon-edit fs-3 far fa-edit"></i></a>
               <a href="#" class="me-2"><i
                       class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-              <a href="javascript:void(0)" data-bs-toggle="modal" onclick="vistaPrevia('')"
+              <a href="javascript:void(0)" data-bs-toggle="modal" onclick="vistaPrevia('${arrayOrdenado[i].uid}')"
               data-bs-target="#modalVistaPrevia" type="button"><i
                       class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
           </td>
@@ -240,6 +265,6 @@ function orderProducts(property)
       `      
     }
    
-    console.table(arrayOrdenado);
+    console.table(arrayOrdenado[0].uid);
 }
     
