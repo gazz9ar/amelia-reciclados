@@ -36,13 +36,32 @@ function getCollection(collection)
 
 
 /* FUNCION PARA AGREGAR NUEVO documento a X coleccion */
-const saveDocument = (collection,obj) => {
+const saveDocument = (collection,obj,products) => {
     // =================================================================================
     // Se usa Object.assign ya que firestore no reconoce un objeto de tipo personalizado
     // =================================================================================
-    db.collection(collection).doc().set(Object.assign({}, obj));
+    db.collection(collection).doc().set(Object.assign({}, obj))
+    .then(() => {
+      localStorage.removeItem('productsId');
+      localStorage.setItem("productsId",JSON.stringify(products.sort(Producto.dynamicSort('id'))));
+    })
+    .catch((err)=>{
+      Swal.fire({
+        icon:'error',
+        title:'Oops...',
+        text:err
+      });
+    });
+    
 
 }
+// EDITAR UN DOCUMENTO CUALQUIERA
+const editDocument = (collection,uid,obj) => {
+
+  db.collection(collection).doc(uid).set(Object.assign({}, obj))
+
+}
+
 
 
 
@@ -100,6 +119,8 @@ function vistaPrevia(uid)
 window.addEventListener('DOMContentLoaded', async (e) => {
 
   onGetCollection('products',(querySnapshot => {
+    
+    products = [];
 
     tablaStock.innerHTML = '';
     tablaStock.innerHTML = `
@@ -120,15 +141,23 @@ window.addEventListener('DOMContentLoaded', async (e) => {
     querySnapshot.forEach(
       (doc) => {
 
+
         productsUid.push(doc.id);
         //DEBERIA GUARDAR EL UID EN LOCAL STORAGE PARA CUANDO ORDENE EL ARRAY Y RENDERIZE NUEVAMENTE NO SE PIERDA
 
         let uid = doc.id;
         let product = doc.data();  
         //le agrego una propiedad al objeto con el UID del documento
-        product.uid =  uid;
+        product.uid =  uid;        
 
-        console.log(product);
+        const milliseconds = product.fecha  // 1575909015000
+
+        const dateObject = new Date(milliseconds)
+
+        const humanDateFormat = dateObject.toLocaleString("en-US", {day: "numeric"}) + '/' + dateObject.toLocaleString("en-US", {month: "numeric"})  + '/' + dateObject.toLocaleString("en-US", {year: "numeric"})
+        
+        product.fecha = humanDateFormat;
+        
         
         products.push(product);
         
@@ -141,11 +170,11 @@ window.addEventListener('DOMContentLoaded', async (e) => {
             <td class="align-middle">
                 <p>${product.nombre}</p>
             </td>
-            <td class="align-middle">${Date.parse(product.fecha)}</td>
+            <td class="align-middle">${product.fecha}</td>
             <td class="align-middle">${product.precio}</td>
             <td class="align-middle">${product.cantidad}</td>            
             <td class="align-middle ps-3">
-                <a href="#"  class="me-2 ms-2"><i
+                <a href="#" onclick="editProduct('${uid}')" class="me-2 ms-2"><i
                         class="icon-edit fs-3 far fa-edit"></i></a>
                 <a href="#" class="me-2"><i
                         class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
@@ -155,15 +184,14 @@ window.addEventListener('DOMContentLoaded', async (e) => {
             </td>
             </tr>
         </tbody>
-        `      
-
-
-       
+        `             
 
       }
     );
       // guardo en local Storage el array de objetos de productos con su respectivo UID
-     localStorage.setItem("productsId",JSON.stringify(products));     
+   
+     localStorage.removeItem("productsId");
+     localStorage.setItem("productsId",JSON.stringify(products.sort(Producto.dynamicSort('id'))));     
        // guardo en local Storage array con UID de los productos
      localStorage.setItem("productsUid",JSON.stringify(productsUid));
    
@@ -207,19 +235,12 @@ orderOptions.addEventListener('change', (e) => {
 
 })
 
-function buscarProducto(uid,currentUid)
-{
-    if (2==2) {
-      
-    } else {
-      
-    }
-}
+
 
 function orderProducts(property)
 {
 
-  let arrayOrdenado = products.sort(Producto.dynamicSort(property));
+  products.sort(Producto.dynamicSort(property));
 
   tablaStock.innerHTML = '';
   tablaStock.innerHTML = `
@@ -238,25 +259,27 @@ function orderProducts(property)
     </table> `;
 
 
-    for (let i = 0; i < arrayOrdenado.length; i++) {
+    for (let i = 0; i < products.length; i++) {
       
+      
+
       tablaStock.innerHTML += `
         
       <tbody>
-          <tr id="product-id-${arrayOrdenado[i].id}">
-          <td style="width:50px;" class="fs-4" >${arrayOrdenado[i].id}</td>
+          <tr id="product-id-${products[i].id}">
+          <td style="width:50px;" class="fs-4" >${products[i].id}</td>
           <td class="align-middle">
-              <p>${arrayOrdenado[i].nombre}</p>
+              <p>${products[i].nombre}</p>
           </td>
-          <td class="align-middle">${Date.parse(arrayOrdenado[i].fecha)}</td>
-          <td class="align-middle">${arrayOrdenado[i].precio}</td>
-          <td class="align-middle">${arrayOrdenado[i].cantidad}</td>            
+          <td class="align-middle">${products[i].fecha}</td>
+          <td class="align-middle">${products[i].precio}</td>
+          <td class="align-middle">${products[i].cantidad}</td>            
           <td class="align-middle ps-3">
-              <a href="#"  class="me-2 ms-2"><i
+              <a href="#" onclick="editProduct('${products[i].uid}')" class="me-2 ms-2"><i
                       class="icon-edit fs-3 far fa-edit"></i></a>
               <a href="#" class="me-2"><i
                       class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
-              <a href="javascript:void(0)" data-bs-toggle="modal" onclick="vistaPrevia('${arrayOrdenado[i].uid}')"
+              <a href="javascript:void(0)" data-bs-toggle="modal" onclick="vistaPrevia('${products[i].uid}')"
               data-bs-target="#modalVistaPrevia" type="button"><i
                       class="text-secondary icon-view fs-3 fas fa-eye"></i></a>
           </td>
@@ -265,6 +288,6 @@ function orderProducts(property)
       `      
     }
    
-    console.table(arrayOrdenado[0].uid);
+    
 }
     

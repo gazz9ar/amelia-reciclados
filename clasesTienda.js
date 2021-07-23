@@ -21,13 +21,15 @@
 
 class Producto
 {
-    constructor(id,nombre,precio,cantidad,fecha){
+    constructor(id,nombre,precio,cantidad,fecha,url,description){
 
      this.id = parseInt(id),
      this.nombre = nombre,
      this.precio = parseFloat(precio),
      this.cantidad = parseInt(cantidad),
      this.fecha = Date.parse(fecha);
+     this.imgUrl = url;
+     this.description = description;
      this.vendido = false;
 
     }

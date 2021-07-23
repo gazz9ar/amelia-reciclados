@@ -80,6 +80,7 @@ body {
 }
 .mini-menu-tienda .selected {
   border-top: 2px solid #0183C1;
+  transition: all 200ms;
 }
 .mini-menu-tienda .selected:hover {
   box-shadow: 0px 3px 1px #ccc inset;

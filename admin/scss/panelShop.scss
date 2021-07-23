@@ -101,6 +101,7 @@ body
     .selected
     {
         border-top: 2px solid #0183C1;
+        transition:  all 200ms;
 
         &:hover
         {

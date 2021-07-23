@@ -1,13 +1,22 @@
 // ====================================
 // Elementos para usar firebase storage
 // ====================================
+
+
+
 const uploader = document.getElementById('uploader');
 const fileButton = document.getElementById('fileButton');
 const addProducts = document.getElementsByClassName("add-product-input");
-const idInput = document.getElementsByClassName("id-input");
+const idInput = document.getElementById("id-input");
 let storageRef = '';
 let file = ''; 
 
+let productsLocalStorage = JSON.parse(localStorage.getItem('productsId'));
+let ultimoProducto = productsLocalStorage.slice(-1);
+
+
+
+idInput.setAttribute('placeholder',( ultimoProducto[0].id + 1 ));        
 //storage Ref Generico
 let downloadRef = ''
 
@@ -27,34 +36,47 @@ let descripcionInput = document.getElementById('descripcionInput');
 
 let productoNuevo = {};
 
+let banderaEdit = false;
 
 
-function abrirNuevoModalProducto()
-{         
-      modalProducto.show();
-      nombreInput.value = '';
-      fileButton.value = '';
-      uploader.value = '';
-      precioInput.value = '';
-      cantidadInput.value = '';
-      descripcionInput.value = '';
 
-       //border danger a todos los campos
-       precioInput.classList.remove('border');
-       precioInput.classList.remove('border-danger');
+function abrirNuevoModalProducto(edit)
+{        
+    if (edit) {
+        
+    } else {
 
-       nombreInput.classList.remove('border');
-       nombreInput.classList.remove('border-danger');
+        modalProducto.show();
+        nombreInput.value = '';
+        fileButton.value = '';
+        uploader.value = '';
+        precioInput.value = '';
+        cantidadInput.value = '';
+        descripcionInput.value = '';
+        storageRef == '';
 
-       cantidadInput.classList.remove('border');
-       cantidadInput.classList.remove('border-danger');
+        // remove border danger a todos los campos
+        precioInput.classList.remove('border');
+        precioInput.classList.remove('border-danger');
 
-       descripcionInput.classList.remove('border');
-       descripcionInput.classList.remove('border-danger');
+        nombreInput.classList.remove('border');
+        nombreInput.classList.remove('border-danger');
+
+        cantidadInput.classList.remove('border');
+        cantidadInput.classList.remove('border-danger');
+
+        descripcionInput.classList.remove('border');
+        descripcionInput.classList.remove('border-danger');
+
+        fileButton.classList.remove('border');
+        fileButton.classList.remove('border-danger');
+    }
+      
 
 }
 function cerrarNuevoModalProducto()
 {   
+     
       modalProducto.hide();
       
 }
@@ -94,7 +116,7 @@ function saveProduct()
         fileButton.classList.remove('border-danger');
         for (const input of addProducts) {
             
-            console.log(input);
+            
             if (input.value == '') {
                 
                 input.classList.add('border');
@@ -134,7 +156,7 @@ function saveProduct()
                     text: `Hubo un error al subir la imagen! ${err}` 
                   })
             },
-            function complete() {
+            async function complete() {
               
                 Swal.fire(
                     'Completo',
@@ -150,27 +172,129 @@ function saveProduct()
          var today = new Date();
          var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
-         //aca deberia obtener el ultimo id de los productos cargados en la BBDD, consultando el local storage
-         productoNuevo = new Producto(idInput.value,
-            nombreInput.value,
-            precioInput.value,
-            cantidadInput.value,
-            date);
+            
+            //OBTENGO EL ID DEL ULTIMO PRODUCTO CARGADO Y LE SUMO +1 // AUTO-INCREMENTAL
          
-         saveDocument('products',productoNuevo)        
-        .then(() => {
-            // no hago nada, muestro la alerta antes, al resolver la promesa de subir la imagen a la BD
-        })
-        .catch((error) => {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: error
-              });
-        });
+         
+         
+         
+         productoNuevo = new Producto((ultimoProducto[0].id + 1), // ID
+            nombreInput.value, // Nombre
+            precioInput.value, // Precio
+            cantidadInput.value, // Cantidad
+            date, // Fecha Al Cargarlo
+            file.name, // Url Imagen
+            descripcionInput.value); // Descripcion
+         
+         saveDocument('products',productoNuevo,products);  
+         idInput.setAttribute('placeholder',( ultimoProducto[0].id + 1 ));        
+       
 
         // antes de cerra el modal, reinicio la tabla porque se vuelve a renderizar
         tablaStock.innerHTML = '';
      }       
     
+}
+
+// ===================
+// EDITAR UN PRODUCTO
+// ===================
+function editProduct()
+{
+    banderaEdit = true;
+    if (storageRef === '' || fileButton.value == '' ) {
+        
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No has seleccionado ninguna imagen!'
+          });
+
+
+          fileButton.classList.add('border');
+          fileButton.classList.add('border-danger');
+
+    } else if(precioInput.value == '' || nombreInput.value == '' || cantidadInput.value == '' || descripcionInput.value == '')  //verifico que no haya campos vacios
+    {
+        fileButton.classList.remove('border');
+        fileButton.classList.remove('border-danger');
+        for (const input of addProducts) {
+            
+            
+            if (input.value == '') {
+                
+                input.classList.add('border');
+                input.classList.add('border-danger');
+
+            } else {
+                input.classList.remove('border');
+                input.classList.remove('border-danger');
+            }
+        }
+        
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Completa todos los campos!'
+          })
+    }
+    
+    else {
+
+        //Upload the file
+        let task = storageRef.put(file);    
+
+       //Update the progress bar
+        task.on('state_changed',
+
+            function progress(snapshot) {
+                
+                let percentage = (snapshot.bytesTransferred /
+                snapshot.totalBytes) * 100;
+                uploader.value = percentage;
+            },
+            function error(err) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `Hubo un error al subir la imagen! ${err}` 
+                  })
+            },
+            async function complete() {
+              
+                Swal.fire(
+                    'Completo',
+                    'Has registrado el nuevo producto correctamente!',
+                    'success'
+                  )
+                  cerrarNuevoModalProducto();
+                  
+            }
+         );
+
+         //AGREGO NUEVO PRODUCTO
+         var today = new Date();
+         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+            
+            //OBTENGO EL ID DEL ULTIMO PRODUCTO CARGADO Y LE SUMO +1 // AUTO-INCREMENTAL
+         
+         
+         
+         
+         productoNuevo = new Producto((ultimoProducto[0].id + 1), // ID
+            nombreInput.value, // Nombre
+            precioInput.value, // Precio
+            cantidadInput.value, // Cantidad
+            date, // Fecha Al Cargarlo
+            file.name, // Url Imagen
+            descripcionInput.value); // Descripcion
+         
+         saveDocument('products',productoNuevo,products);  
+         idInput.setAttribute('placeholder',( ultimoProducto[0].id + 1 ));        
+       
+
+        // antes de cerra el modal, reinicio la tabla porque se vuelve a renderizar
+        tablaStock.innerHTML = '';
+     }       
 }
