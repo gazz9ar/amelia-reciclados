@@ -27,7 +27,7 @@ class Producto
      this.nombre = nombre,
      this.precio = parseFloat(precio),
      this.cantidad = parseInt(cantidad),
-     this.fecha = Date.parse(fecha);
+     this.fecha = fecha;
      this.imgUrl = url;
      this.description = description;
      this.vendido = false;
@@ -64,9 +64,16 @@ class Producto
         return function (a,b) {
             /* next line works with strings and numbers, 
              * and you may want to customize it to your needs
-             */
-            let result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-            return result * sortOrder;
+             */            
+            if (property == 'fecha') {
+                let result = ( b[property] <  a[property]) ? -1 : ( b[property >  a[property] ]) ? 1 : 0;
+                return result;
+            }
+            else {
+                let result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+                return result * sortOrder;
+            }
+           
         }
     }
 

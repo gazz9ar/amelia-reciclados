@@ -40,13 +40,11 @@
     <link rel="stylesheet" href="./css/shop.css">
 
     <script src="./clasesTienda.js"></script>
+
+    
 </head>
 
 <body>
-
-
-
-
 
     <header class="header">
 
@@ -121,229 +119,124 @@
     </header>
 
 
-    <div class="container un-distinto">
+    <div class="container-fluid un-distinto">
 
-        <h1 class="text-center mt-5 mb-5 d-block animate_animated animate__backInUp">   Productos a la venta    </h1>
+        <h1 class="text-center mt-5 mb-5 d-block animate_animated animate__backInUp"> Productos a la venta </h1>
 
-        <p class="position-absolute texto-oculto start-50" id="visita">TExTo OcUlTo</p>
+        <p class="position-absolute texto-oculto start-50" id="visita">If you read this you´ve been hacked</p>
 
 
 
         <!-- 4 COLUMNAS en LARGE /// 2 COLUMNAS en MEDIUM /// 1 COLUMNA en SMALL -->
-        <div class="row" >
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
-                    data-bs-toggle="modal" data-bs-target="#modalProximamente" onclick="add()">
-                    <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
-                    <!-- OCULTO -->
-                    <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
-                        <p>Agregar al Carrito</p>
-                    </div>
+        <div class="row d-flex justify-content-center align-items-center" id="shop-row">
 
+            <div class="col-lg-3 col-md-6 col-sm-12" id="col-1">
+                <div class="item-wrapper">
+                    <a href="#" class="d-block position-relative product-link" type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalProximamente">
+                        <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                        <!-- OCULTO -->
+                        <div
+                            class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
+                            <p>Agregar al Carrito</p>
+                        </div>
+                    </a>
 
-                </a>
+                    <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                    <p class="fs-6 product-text">$650</p>
 
+                </div>
+                <div class="item-wrapper">
+                    <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalProximamente">
+                        <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                        <!-- OCULTO -->
+                        <div
+                            class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
+                            <p>Agregar al Carrito</p>
+                        </div>
 
+                    </a>
 
-                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
-                <p class="fs-6 product-text">$650</p>
+                    <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                    <p class="fs-6 product-text">$650</p>
 
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
-                    data-bs-toggle="modal" data-bs-target="#modalProximamente">
-                    <img src="./images/shop/hero-2.jpeg" alt="Mueble Barniz" class="img-thumbnail">
-                    <!-- OCULTO -->
-                    <div
-                        class="position-absolute text-center w-75  start-50 top-90 agregar translate-middle d-none m-auto">
-                        <p>Comprar</p>
-                    </div>
-
-                </a>
-
-
-
-                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
-                <p class="fs-6 product-text">$650</p>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
-                    data-bs-toggle="modal" data-bs-target="#modalProximamente">
-                    <img src="./images/shop/shop-2.jpg" alt="Mueble Barniz" class="img-thumbnail ">
-                    <!-- OCULTO -->
-                    <div
-                        class="position-absolute text-center w-75  start-50 top-90 agregar translate-middle d-none m-auto">
-                        <p>Comprar</p>
-                    </div>
-
-                </a>
-
-
-
-                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
-                <p class="fs-6 product-text">$650</p>
+                </div>             
 
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
-                    data-bs-toggle="modal" data-bs-target="#modalProximamente">
-                    <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
-                    <!-- OCULTO -->
-                    <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
-                        <p>Comprar</p>
-                    </div>
+            <div class="col-lg-3 col-md-6 col-sm-12" id="col-2">
+                <div class="item-wrapper">
+                    <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalProximamente">
+                        <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                        <!-- OCULTO -->
+                        <div
+                            class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
+                            <p>Agregar al Carrito</p>
+                        </div>
 
-                </a>
+                    </a>
 
+                    <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                    <p class="fs-6 product-text">$650</p>
 
+                </div>
+                <div class="item-wrapper">
+                    <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalProximamente">
+                        <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                        <!-- OCULTO -->
+                        <div
+                            class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
+                            <p>Agregar al Carrito</p>
+                        </div>
 
-                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
-                <p class="fs-6 product-text">$650</p>
+                    </a>
+
+                    <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                    <p class="fs-6 product-text">$650</p>
+
+                </div>             
 
             </div>
+            <div class="col-lg-3 col-md-6 col-sm-12" id="col-3">
+                <div class="item-wrapper">
+                    <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalProximamente">
+                        <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                        <!-- OCULTO -->
+                        <div
+                            class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
+                            <p>Agregar al Carrito</p>
+                        </div>
+
+                    </a>
+
+                    <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                    <p class="fs-6 product-text">$650</p>
+
+                </div>
+                <div class="item-wrapper">
+                    <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
+                        data-bs-toggle="modal" data-bs-target="#modalProximamente">
+                        <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
+                        <!-- OCULTO -->
+                        <div
+                            class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
+                            <p>Agregar al Carrito</p>
+                        </div>
+
+                    </a>
+
+                    <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
+                    <p class="fs-6 product-text">$650</p>
+
+                </div>             
+
+            </div>
+
         </div>
-        <div class="row" >
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
-                    data-bs-toggle="modal" data-bs-target="#modalProximamente">
-                    <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
-                    <!-- OCULTO -->
-                    <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
-                        <p>Comprar</p>
-                    </div>
 
-                </a>
-
-
-
-                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
-                <p class="fs-6 product-text">$650</p>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
-                    data-bs-toggle="modal" data-bs-target="#modalProximamente">
-                    <img src="./images/shop/hero-2.jpeg" alt="Mueble Barniz" class="img-thumbnail">
-                    <!-- OCULTO -->
-                    <div
-                        class="position-absolute text-center w-75  start-50 top-90 agregar translate-middle d-none m-auto">
-                        <p>Comprar</p>
-                    </div>
-
-                </a>
-
-
-
-                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
-                <p class="fs-6 product-text">$650</p>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
-                    data-bs-toggle="modal" data-bs-target="#modalProximamente">
-                    <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
-                    <!-- OCULTO -->
-                    <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
-                        <p>Comprar</p>
-                    </div>
-
-                </a>
-
-
-
-                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
-                <p class="fs-6 product-text">$650</p>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
-                    data-bs-toggle="modal" data-bs-target="#modalProximamente">
-                    <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
-                    <!-- OCULTO -->
-                    <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
-                        <p>Comprar</p>
-                    </div>
-
-                </a>
-
-
-
-                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
-                <p class="fs-6 product-text">$650</p>
-
-            </div>
-        </div>
-        <div class="row" >
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
-                    data-bs-toggle="modal" data-bs-target="#modalProximamente">
-                    <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
-                    <!-- OCULTO -->
-                    <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
-                        <p>Comprar</p>
-                    </div>
-
-                </a>
-
-
-
-                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
-                <p class="fs-6 product-text">$650</p>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
-                    data-bs-toggle="modal" data-bs-target="#modalProximamente">
-                    <img src="./images/shop/hero-2.jpeg" alt="Mueble Barniz" class="img-thumbnail">
-                    <!-- OCULTO -->
-                    <div
-                        class="position-absolute text-center w-75  start-50 top-90 agregar translate-middle d-none m-auto">
-                        <p>Comprar</p>
-                    </div>
-
-                </a>
-
-
-
-                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
-                <p class="fs-6 product-text">$650</p>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
-                    data-bs-toggle="modal" data-bs-target="#modalProximamente">
-                    <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
-                    <!-- OCULTO -->
-                    <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
-                        <p>Comprar</p>
-                    </div>
-
-                </a>
-
-
-
-                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
-                <p class="fs-6 product-text">$650</p>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <a href="shop.html/?productid" class="d-block position-relative product-link" type="button"
-                    data-bs-toggle="modal" data-bs-target="#modalProximamente">
-                    <img src="./images/shop/shop-1.jpg" alt="Mueble Barniz" class="img-thumbnail">
-                    <!-- OCULTO -->
-                    <div class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
-                        <p>Comprar</p>
-                    </div>
-
-                </a>
-
-
-
-                <h3 class="fs-5 product-title"> Mueble reciclado con barniz</h3>
-                <p class="fs-6 product-text">$650</p>
-            </div>
-        </div>
     </div>
 
 
@@ -471,7 +364,7 @@
 
     <!-- ============================================================= -->
     <!-- JS PARA ALERTAS, OBSERVER-NAVBAR  Y ALERTAS ERRORES Y SUCCESS -->
-    <!-- ============================================================= -->    
+    <!-- ============================================================= -->
     <script src="./observer.js"></script>
     <script src="./burger.js"></script>
     <script src="./alerts.js"></script>
@@ -479,10 +372,10 @@
 
     <!-- ============================================================= -->
     <!-- JS PARA SERVICIOS DE FIREBASE -->
-    <!-- ============================================================= -->   
+    <!-- ============================================================= -->
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
     <!-- FIRESTORE -->
-    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>   
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
     <script>
         // Your web app's Firebase configuration
@@ -506,11 +399,12 @@
     <!-- ====================================== -->
     <!-- MODULO CON ARCHIVOS TIENDA ESPECIFICOS -->
     <!-- ====================================== -->
-    
-    <script  src="./shop.js"></script>
-    <script src="./storage.js"></script>
 
-    
+    <!-- <script  src="./shop.js"></script>
+    <script src="./storage.js"></script> -->
+    <script src="./publicShop.js"></script>
+
+
 </body>
 
 </html>

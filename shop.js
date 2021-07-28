@@ -9,7 +9,6 @@ const vistaPreviaCantidad = document.getElementById("vista-previa-cantidad");
 const vistaPreviaTitle = document.getElementById("vista-previa-title");
 const vistaPreviaPrecio = document.getElementById("vista-previa-precio");
 const orderGroup = document.getElementById("orderGroup");
-
 const modalVistaPreviaBody = document.getElementById("modal-body");
 const spinnerZ = document.getElementById("spinner-z");
 
@@ -61,7 +60,23 @@ const editDocument = (collection,uid,obj) => {
   db.collection(collection).doc(uid).set(Object.assign({}, obj))
 
 }
+const deleteDocument = (collection,uid) => {
 
+  db.collection(collection).doc(uid).delete().then(() => {
+    Swal.fire(
+        'Correcto!',
+        'Has eliminar el producto',
+        'success'
+      ) 
+    }).catch((error) => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Algo ha salido mal!'
+          })
+    });;
+
+}
 
 
 
@@ -151,7 +166,8 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         product.uid =  uid;        
 
         const milliseconds = product.fecha  // 1575909015000
-
+        product.fechaMs = milliseconds
+        
         const dateObject = new Date(milliseconds)
 
         const humanDateFormat = dateObject.toLocaleString("en-US", {day: "numeric"}) + '/' + dateObject.toLocaleString("en-US", {month: "numeric"})  + '/' + dateObject.toLocaleString("en-US", {year: "numeric"})
@@ -165,18 +181,18 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         tablaStock.innerHTML += `
         
         <tbody>
-            <tr id="product-id-${product.id}">
+            <tr id="product-id-${uid}">
             <td style="width:50px;" class="fs-4" >${product.id}</td>
             <td class="align-middle">
                 <p>${product.nombre}</p>
             </td>
             <td class="align-middle">${product.fecha}</td>
-            <td class="align-middle">${product.precio}</td>
+            <td class="align-middle">$ ${product.precio}</td>
             <td class="align-middle">${product.cantidad}</td>            
             <td class="align-middle ps-3">
                 <a href="#" onclick="editProduct('${uid}')" class="me-2 ms-2"><i
                         class="icon-edit fs-3 far fa-edit"></i></a>
-                <a href="#" class="me-2"><i
+                <a href="#" class="me-2" onclick="deleteProduct('${uid}')" ><i
                         class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
                 <a href="javascript:void(0)" data-bs-toggle="modal" onclick="vistaPrevia('${uid}')"
                 data-bs-target="#modalVistaPrevia" type="button"><i
@@ -188,18 +204,16 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
       }
     );
-      // guardo en local Storage el array de objetos de productos con su respectivo UID
-   
-     localStorage.removeItem("productsId");
+
+     // guardo en local Storage el array de objetos de productos con su respectivo UID   
+     localStorage.removeItem("productsId");                                    
      localStorage.setItem("productsId",JSON.stringify(products.sort(Producto.dynamicSort('id'))));     
        // guardo en local Storage array con UID de los productos
-     localStorage.setItem("productsUid",JSON.stringify(productsUid));
+     
    
   }))
   
 })
-
-
 
     // =====================================================================
     // Metodo para ordenar y renderizar los productos   
@@ -224,7 +238,7 @@ orderOptions.addEventListener('change', (e) => {
           } else if (option.innerText == 'Unidades') {
             orderProducts('cantidad');
           } else {
-            orderProducts('id');
+            orderProducts('fecha');
           }          
           
         } 
@@ -266,18 +280,18 @@ function orderProducts(property)
       tablaStock.innerHTML += `
         
       <tbody>
-          <tr id="product-id-${products[i].id}">
+          <tr id="product-id-${products[i].uid}">
           <td style="width:50px;" class="fs-4" >${products[i].id}</td>
           <td class="align-middle">
               <p>${products[i].nombre}</p>
           </td>
           <td class="align-middle">${products[i].fecha}</td>
-          <td class="align-middle">${products[i].precio}</td>
+          <td class="align-middle"> $ ${products[i].precio}</td>
           <td class="align-middle">${products[i].cantidad}</td>            
           <td class="align-middle ps-3">
               <a href="#" onclick="editProduct('${products[i].uid}')" class="me-2 ms-2"><i
                       class="icon-edit fs-3 far fa-edit"></i></a>
-              <a href="#" class="me-2"><i
+              <a href="#" class="me-2" onclick="deleteProduct('${products[i].uid}')"><i
                       class="text-danger icon-delete fs-3 far fa-trash-alt"></i></a>
               <a href="javascript:void(0)" data-bs-toggle="modal" onclick="vistaPrevia('${products[i].uid}')"
               data-bs-target="#modalVistaPrevia" type="button"><i
