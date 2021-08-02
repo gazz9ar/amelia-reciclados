@@ -3,7 +3,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: "Roboto", serif !important;
+  font-family: "Roboto", serif;
 }
 
 *:focus {
@@ -144,9 +144,8 @@ body {
 }
 
 .nav-scrolled {
-  background-color: rgba(38, 21, 13, 0.9) !important;
-  border-bottom: 1px solid #acaaaa;
-  box-shadow: 0px 3px 5px gray;
+  background-color: #332E29 !important;
+  box-shadow: 0px 3px 4px gray;
   transition: all 420ms;
 }
 

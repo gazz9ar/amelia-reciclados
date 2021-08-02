@@ -12,6 +12,8 @@ const onGetCollection = (collection,callback) => {
     return collectionSelected.get(); 
 }
 
+let arrayUrls = [];
+
 const col1 = document.getElementById("col-1");
 const col2 = document.getElementById("col-2");
 const col3 = document.getElementById("col-3");
@@ -109,8 +111,8 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 col1.innerHTML += `
             
                   <div class="item-wrapper" id="product-uid-${product.uid}">
-                          <a href="#" class="d-block position-relative product-link" type="button"
-                              data-bs-toggle="modal" data-bs-target="#modalProximamente">
+                          <a href="javascript:void(0)" class="d-block position-relative product-link" type="button"
+                              onclick="agregarCarrito('${product.uid}')">
                               <img src="${url}" alt="Mueble Barniz" class="img-thumbnail">
                               <!-- OCULTO -->
                               <div
@@ -128,6 +130,13 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                   const itemX = document.getElementById(`product-uid-${product.uid}`);
 
                   itemX.setAttribute('onclick',`verProducto('${product.uid}')`);
+
+                  arrayUrls.push({
+                    uid:product.uid,
+                    url:url
+                  })
+                  
+                  localStorage.setItem('productsUrls',JSON.stringify( arrayUrls ));
 
               })
 
@@ -151,8 +160,8 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 col2.innerHTML += `
             
                   <div class="item-wrapper" id="product-uid-${product.uid}">
-                          <a href="#" class="d-block position-relative product-link" type="button"
-                              data-bs-toggle="modal" data-bs-target="#modalProximamente">
+                          <a href="javascript:void(0)" class="d-block position-relative product-link" type="button"
+                              onclick="agregarCarrito('${product.uid}')">
                               <img src="${url}" alt="Mueble Barniz" class="img-thumbnail">
                               <!-- OCULTO -->
                               <div
@@ -170,6 +179,13 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                   const itemX = document.getElementById(`product-uid-${product.uid}`);
 
                   itemX.setAttribute('onclick',`verProducto('${product.uid}')`);
+
+                  arrayUrls.push({
+                    uid:product.uid,
+                    url:url
+                  })
+                  
+                  localStorage.setItem('productsUrls',JSON.stringify( arrayUrls ));
 
               })
 
@@ -190,8 +206,8 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                 col3.innerHTML += `
             
                   <div class="item-wrapper" id="product-uid-${product.uid}">
-                          <a href="#" class="d-block position-relative product-link" type="button"
-                              data-bs-toggle="modal" data-bs-target="#modalProximamente">
+                          <a href="javascript:void(0)" class="d-block position-relative product-link" type="button"
+                              onclick="agregarCarrito('${product.uid}')">
                               <img src="${url}" alt="Mueble Barniz" class="img-thumbnail">
                               <!-- OCULTO -->
                               <div
@@ -209,6 +225,15 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                   const itemX = document.getElementById(`product-uid-${product.uid}`);
 
                   itemX.setAttribute('onclick',`verProducto('${product.uid}')`);
+
+                  arrayUrls.push({
+                    uid:product.uid,
+                    url:url
+                  })
+                  
+                  localStorage.setItem('productsUrls',JSON.stringify( arrayUrls ));
+                  
+                  
 
               })
 

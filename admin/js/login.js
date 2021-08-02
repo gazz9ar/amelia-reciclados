@@ -53,6 +53,7 @@ const openLogin = () => {
 }
 
 
+let urlAnterior = localStorage.getItem('urlAnterior');
 
 //  =============================================================
 //  Metodo que se ejecuta al clickear boton de Ingresar/Registrar
@@ -69,9 +70,8 @@ const registerLogin = () => {
         // Signed in
 
         var user = userCredential.user;
-        console.log(user);
+        let newUser = new UsuarioCompleto(user.email,user.pass);
 
-        // ...
 
         Swal.fire(
           'Buen trabajo!',
@@ -80,7 +80,19 @@ const registerLogin = () => {
         )
         tituloLogin.innerText = 'Iniciar Sesión';
 
+        
+        if (urlAnterior) {
 
+          if (urlAnterior == 'http://127.0.0.1:5500/shop.html#') {
+            window.location.replace(urlAnterior);
+          }
+          
+          
+        } else 
+        {
+          window.location.replace('https://gazz9ar.github.io/amelia-reciclados/');
+        }
+        
 
       })
       .catch((error) => {
@@ -102,9 +114,11 @@ const registerLogin = () => {
       .then( async (userCredential) => {
         // Signed in
         var user = userCredential.user;
-        console.log(user);
+        
 
         if (user.uid == 'da2j56RuXxbXP6RQ91tgHYl9zTX2') {
+
+
 
           // SE LOGEÓ el ADMIN
           await Swal.fire({
@@ -115,10 +129,10 @@ const registerLogin = () => {
             timer: 1500
           })
 
-          window.location.replace("http://127.0.0.1:5500/admin/index.html");
+          window.location.replace("http://127.0.0.1:5500/admin/panel-shop.html");
 
         } else {
-
+          
           await  Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -127,7 +141,21 @@ const registerLogin = () => {
             timer: 1500
           })
 
-          window.location.replace("http://127.0.0.1:5500/index.html");
+          if (urlAnterior) {
+
+            if (urlAnterior == 'http://127.0.0.1:5500/shop.html') {
+              window.location.replace(urlAnterior);
+            }
+            
+            
+          } else 
+          {
+            window.location.replace(urlAnterior);
+          }
+
+          
+
+          
 
         }
 

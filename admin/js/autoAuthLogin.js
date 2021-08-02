@@ -17,7 +17,7 @@ firebase.auth().onAuthStateChanged((user) => {
       {
         // usuario comun, redirecciona al index.html
        
-        window.location.replace('https://gazz9ar.github.io/amelia-reciclados/');
+        window.location.replace(urlAnterior);
 
       }
       

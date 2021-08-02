@@ -79,41 +79,7 @@ class Producto
 
 }
 
-class Usuario
-{    
-    
-    constructor(id,nombre,fechaCreacion,fechaNacimiento)
-    {
-        this.id = parseInt(id);
-        this.nombre = nombre;
-        this.fechaCreacion = new Date(fechaCreacion);
-        this.fechaNacimiento =  new Date(fechaNacimiento);
-        this.Year = new Date().getFullYear();
-        this.Month = new Date().getMonth();
-        this.day = new Date().getDay();
-    }
-    get edad()
-    {
-        //primero pregunto si el mes es mayor
-        if (this.Month > this.fechaNacimiento.getMonth()) {
-            return (this.Year - this.fechaNacimiento.getFullYear())
-        }else if(this.Month == this.fechaNacimiento.getMonth()){
 
-            if (this.day >= this.fechaNacimiento.getDay()) {
-                return (this.Year - this.fechaNacimiento.getFullYear()  );
-            }
-            else {
-                return (this.Year - this.fechaNacimiento.getFullYear() - 1 );
-            }            
-            
-        } else {
-
-            return (this.Year - this.fechaNacimiento.getFullYear() - 1 );
-        }
-     }
-        
-
-}
 
 
 const guardarLocal = (clave,valor) => {

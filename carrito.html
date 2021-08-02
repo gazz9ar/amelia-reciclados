@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+
+    <title>Carrito | Amelia Reciclados </title>
+
+    <link rel="shortcut icon" href="./images/LOGO-AMELIA.png" type="image/x-icon">
+
+
+    <!-- meta description  / 70 a 320 caracteres-->
+    <meta name="description" content="Amelia reciclados es un emprendimiento que se centra en la practica de la restauracion de muebles. Volvé a la vida a tus muebles 
+    deteriorados.">
+
+    <!-- Entre 15 y 20 keywords -->
+    <meta name="keywords" content="Muebles reciclados,Vintage,Venta de muebles reciclados, Restauracion de muebles">
+
+    <!-- OPEN GRAPH / SUPER NECESARIO -->
+    <meta property="og:title" content="Amelia Reciclados">
+    <meta property="og:type" content="Web">
+    <meta property="og:image" content="url imagen principal">
+    <!--  URL PRINCIPAL -->
+    <meta property="og:url" content="https://ameliareciclados.com">
+    <!-- DESCIPTION IGUAL O DIF. A LA META DESCRIPTION -->
+    <meta property="og:description" content="Amelia reciclados es un emprendimiento que se centra en la practica de la restauracion de muebles. Volvé a la vida a tus muebles 
+        deteriorados.">
+    <meta property="og:author" content="GS Solutions">
+    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <link rel="application/javascript" href="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    
+        <!-- Roboto -->
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+     <link rel="stylesheet" href="./css/styles.css">
+     <link rel="stylesheet" href="./css/shop.css">
+     <link rel="stylesheet" href="./css/carrito.css">
+
+     <script src="./js/clasesTienda.js"></script>
+
+     <script src="https://kit.fontawesome.com/6a91abc42f.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header class="header">
+        <div class="header-nav" id="header">
+
+            <nav class="flex-nav nav-scrolled">
+                <img src="./images/LOGO-AMELIA.png" alt="Amelia Reciclados de muebles" class="logo ms-5">
+                <ul class="menu-final-almedio">
+                    <li> <a href="index.html">Inicio</a> </li>
+                    <li> <a href="gallery.html">Galeria</a> </li>
+                    <li> <a href="blog.html">Blog</a> </li>
+                    <li> <a href="#contacto">Contacto</a> </li>
+                    <li class="li-verCarrito"> <a href="carrito.html"><img src="./images/iconos/shopping-cart-menu.png" alt="carrito" class="carrito-icon"></a>
+                        <div class="position-absolute bg-white ver-carrito rounded">
+                            <div class="arrow-up"></div>
+                            <p class="text-dark fs-6 mb-0">Ver  Carrito</p>
+                        </div>
+                        <div class="position-absolute bg-white carrito-number d-none" id="carrito-number">
+                            1
+                        </div>
+                    </li>
+
+                </ul>
+                <ul class="menu">
+                    <li>
+                        <a href="login.html" onclick="openProfileSettings()" class="inicio" id="iniciar-sesion"></a>                        
+                            
+                            <div class="position-absolute hover-profile rounded" id="profile-settings">
+                                <div class="user-info mt-3 d-flex flex-column justify-content-center align-items-center" id="user-info">
+                                    <a href="profile.html" class="ms-0 profile-rounded d-flex flex-row justify-content-center align-items-center">
+                                        <img src="./images/iconos/insert-picture-icon.svg" alt="User Profile Photo Img" class="user-avatar">
+                                    </a>                                    
+                                    <p class="fs-5 text-dark mt-4">Bienvenido, <strong>gazz9ar</strong> </p>
+                                    <p class="fs-6 text-gray mb-3">gazz9ar@gmail.com</p>
+                                </div>
+                                <div class="d-flex flex-column justify-content-center align-items-center">
+                                    <a href="profile.html" class="btn btn-primary ms-0 mb-3">Editar Perfil</a>
+                                    <a href="javascript:void(0)" onclick="signOut()" class="text-dark ms-0 mb-3 fs-6 signOutBtn"> Cerrar sesión </a>
+                                </div>
+                            
+                            </div>
+                       
+                        
+                    </li>
+                   
+                    <li>
+                        <a href="login.html" id="register">Registrarse</a>
+                    </li>
+                    <!-- <li>
+                        <a href="blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="#contacto">Contacto</a>
+                    </li> -->
+                </ul>
+               
+            </nav>
+
+            <ul class="hamburger-menu" id="hamburger-menu">
+                <a href="javascript:void(0);" onclick="closeHamburger()">
+                    <img src="./images/iconos/close-white.png" alt="Close button"
+                        class="position-relative closeHamburger">
+                </a>
+                <li>
+                    <a href="index.html">Inicio</a>
+
+                </li>
+                <li>
+                    <a href="gallery.html">Galeria</a>
+
+                </li>
+                <li>
+                    <a href="blog.html">Blog</a>
+                </li>
+                <li>
+                    <a href="#contacto">Contacto</a>
+                </li>
+            </ul>
+
+            <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()" id="burger">
+                <img src="./images/iconos/square.png" alt="Menu Navegacion">
+            </a>
+        </div>        
+    </header>
+
+
+    <!-- app-carrito-selected -->
+    <!-- MAQUETADO ITEMS EN CARRITO -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="w-100 bg-white carrito-wrapper mb-5 d-flex flex-column justify-content-center align-items-center">
+
+                    <div class="w-75 pt-5  top-carrito">
+                        <h1 class="fs-5 d-inline-block">Carrito</h1> (  <strong class="fs-5">2</strong> ):
+                    </div>
+                    <div class="w-75 h-75 pt-5 items-carrito-wrapper">
+                        <ul class="items-carrito-list">
+                            <li class="item-carrito d-flex flex-row ">
+                                <div class="img-wrapper">
+                                    <img src="./images/gallery/chair-3209341_1920.jpg" alt="Sillon">
+                                </div>
+                                <div class="item-info">
+                                    <p class="fw-bold fs-5 ps-4 mb-1">Nombre del producto</p>
+                                    <p class="fs-6 ps-4 text-dark mb-0">Descripción del producto...</p>
+                                    <p class="fs-6 ps-4 text-secondary">Cantidad disponible: 2</p>
+                                    <a href="javascript:void(0)" class="ps-4">Eliminar</a>                                    
+                                </div>
+                                <div class="quantity-wrapper ms-5 d-flex flex-row justify-content-center align-items-center">
+
+                                    <a href="javascript:void(0)" class="minus-quantity"> <i class="fas fa-minus w-25  text-center"></i></a>                                                       
+                                    <p class="input-quantity fs-5 fw-bold ps-3 pe-3 mb-0 w-25  text-center">1</p>                                  
+                                    <a href="javascript:void(0)" class="add-quantity ps-2"><i class="fas fa-plus w-25 text-center "></i></a>      
+
+                                </div>
+                              
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <footer class="bg-header-footer row footer" id="contacto">
+        <div class="col-lg-6 col-md-12 p-5">
+            <h3 class="text-white text-center fw-bold">Contáctenos</h3>
+
+            <form action="https://formspree.io/f/mnqlvkoq" method="POST" id="form-contacto">
+                <div class="form-group mt-3">
+                    <label for="name" class="text-white w-50  d-block m-auto label-responsive"> Nombre</label>
+                    <input name="name" type="text" class="form-control  mt-3 mb-2 w-50 m-auto"
+                        placeholder=" Ingrese su nombre...">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="text-white w-50  d-block m-auto label-responsive"> Email</label>
+                    <input name="email" type="email" class="form-control mt-2 mb-2  w-50 m-auto"
+                        placeholder=" Ingrese su correo...">
+                </div>
+                <div class="form-group">
+                    <label for="mensaje" class="text-white w-50 d-block m-auto label-responsive"> Mensaje</label>
+                    <input name="mensaje" type="textarea" cols="30" rows="10"
+                        class="form-control mt-2  w-50 h-75 m-auto mensaje" placeholder=" Dejenos su mensaje...">
+                </div>
+                <button type="submit" class="button">Enviar</button>
+            </form>
+
+
+
+        </div>
+        <div class="map col-lg-6 col-md-12">
+            <!-- DATOS DE CONTACTO -->
+            <section class="social-contacto d-flex h-75 flex-column justify-content-center align-items-center mt-5">
+
+
+                <a href="https://www.instagram.com/amelia_reciclados/" target="_blank"
+                    class="social-contacto1-divs w-50  mt-5 border-bottom border-white text-decoration-none">
+                    <img src="./images/iconos/twitter-blanco.png" alt="Twitter" class="d-inline-block ">
+                    <p class="mostrar-redsocial d-inline-block ms-3">/Amelia.Reciclados</p>
+                </a>
+
+                <a href="https://www.instagram.com/amelia_reciclados/" target="_blank"
+                    class="social-contacto1-divs w-50 mt-3 border-bottom border-white text-decoration-none">
+                    <img src="./images/iconos/facebook-blanco.png" alt="Facebook" class="d-inline-block">
+                    <p class="mostrar-redsocial d-inline-block ms-3">/Amelia.fb</p>
+                </a>
+
+                <a href="https://www.instagram.com/amelia_reciclados/" target="_blank"
+                    class="social-contacto1-divs w-50 mt-3 border-bottom border-white text-decoration-none">
+                    <img src="./images/iconos/instagram-blanco.png" alt="Instagram" class="d-inline-block">
+                    <p class="mostrar-redsocial d-inline-block ms-3">/Amelia_Reciclados</p>
+                </a>
+                <a href="https://www.instagram.com/amelia_reciclados/" target="_blank"
+                    class="social-contacto1-divs w-50 mt-3 border-bottom border-white text-decoration-none">
+                    <img src="./images/iconos/phone-white.png" alt="Telefono contacto" class="d-inline-block">
+                    <p class="mostrar-redsocial d-inline-block ms-3">+54 353 4257693</p>
+                </a>
+
+                <a href="https://www.instagram.com/amelia_reciclados/" target="_blank"
+                    class="social-contacto1-divs w-50 mt-3 border-bottom border-white text-decoration-none">
+                    <img src="./images/iconos/email-blanco.png" alt="Correo electronico contacto"
+                        class="d-inline-block">
+                    <p class="mostrar-redsocial d-inline-block ms-3">amelia@reciclados.com</p>
+                </a>
+
+
+
+            </section>
+        </div>
+    </footer>
+
+
+
+    <!--  BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+
+
+        <!-- sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- ============================================================= -->
+    <!-- JS PARA ALERTAS, OBSERVER-NAVBAR  Y ALERTAS ERRORES Y SUCCESS -->
+    <!-- ============================================================= -->
+    <script src="./js/public/observer.js"></script>
+    <script src="./js/public/burger.js"></script>
+    <script src="./js/public/alerts.js"></script>
+
+
+    <!-- ============================================================= -->
+    <!-- JS PARA SERVICIOS DE FIREBASE -->
+    <!-- ============================================================= -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <!-- FIRESTORE -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyD9eLOX6Lz8ySiOH6D9u1DX-zQT4sugby0",
+            authDomain: "amelia-reciclados.firebaseapp.com",
+            databaseURL: "https://amelia-reciclados-default-rtdb.firebaseio.com",
+            projectId: "amelia-reciclados",
+            storageBucket: "amelia-reciclados.appspot.com",
+            messagingSenderId: "382397362766",
+            appId: "1:382397362766:web:ac95943549ae2ec847091f",
+            measurementId: "G-KG9VVNE8XW"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+        <script src="./js/public/authPublic.js"></script>
+        <script src="./js/signOut.js"></script>
+        <script src="./js/public/user.js"></script>
+</body>
+</html>

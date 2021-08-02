@@ -1,0 +1,40 @@
+.header {
+  height: 150px;
+}
+
+.carrito-wrapper {
+  height: 80vh;
+  box-shadow: 0px 0px 5px #ccc;
+}
+.carrito-wrapper .top-carrito {
+  border-bottom: 1px solid #ccc;
+  height: 11%;
+}
+.carrito-wrapper .items-carrito-wrapper .items-carrito-list {
+  padding: 0px !important;
+  list-style: none;
+}
+.carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .quantity-wrapper {
+  border: 1px solid #ccc;
+  height: 80px;
+  width: 11%;
+}
+.carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .quantity-wrapper .input-quantity {
+  border: none;
+}
+.carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .quantity-wrapper .add-quantity {
+  color: #17057c;
+}
+.carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .quantity-wrapper .minus-quantity {
+  color: #17057c;
+}
+.carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .img-wrapper {
+  display: block;
+}
+.carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .img-wrapper img {
+  border-radius: 100px;
+  width: 82px;
+  height: 82px;
+}
+
+/*# sourceMappingURL=carrito.css.map */
