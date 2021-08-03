@@ -7,17 +7,23 @@
   box-shadow: 0px 0px 5px #ccc;
 }
 .carrito-wrapper .top-carrito {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 3px solid #8f8e8e;
   height: 11%;
 }
 .carrito-wrapper .items-carrito-wrapper .items-carrito-list {
   padding: 0px !important;
   list-style: none;
 }
+.carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito {
+  border-bottom: 1px solid #ccc;
+}
+.carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .item-info {
+  width: 25%;
+}
 .carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .quantity-wrapper {
   border: 1px solid #ccc;
   height: 80px;
-  width: 11%;
+  width: 15%;
 }
 .carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .quantity-wrapper .input-quantity {
   border: none;
@@ -30,11 +36,23 @@
 }
 .carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .img-wrapper {
   display: block;
+  width: 10%;
 }
 .carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .img-wrapper img {
   border-radius: 100px;
   width: 82px;
   height: 82px;
+}
+.carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .price-wrapper {
+  width: 25%;
+}
+.carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .price-wrapper strong {
+  color: green;
+  display: inline-block;
+}
+.carrito-wrapper .items-carrito-wrapper .items-carrito-list .item-carrito .price-wrapper .precio-sin-descuento {
+  display: inline-block;
+  text-decoration: line-through;
 }
 
 /*# sourceMappingURL=carrito.css.map */

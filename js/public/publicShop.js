@@ -19,15 +19,6 @@ const col2 = document.getElementById("col-2");
 const col3 = document.getElementById("col-3");
 let products = [];
 
-
-function verProducto(uid){
-
-
-
-
-
-}
-
 window.addEventListener('DOMContentLoaded', async (e) => {
 
     

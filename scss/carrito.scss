@@ -9,7 +9,7 @@
 
     .top-carrito
     {
-        border-bottom: 1px solid #ccc;
+        border-bottom: 3px solid rgb(143, 142, 142);
         height: 11%;
     }
     .items-carrito-wrapper
@@ -21,12 +21,18 @@
 
             .item-carrito
             {
+                border-bottom: 1px solid #ccc;
+
+                .item-info
+                {
+                    width: 25%;
+                }
                
                 .quantity-wrapper
                 {
                     border: 1px solid #ccc;
                     height: 80px;
-                    width: 11%;
+                    width: 15%;
                     .input-quantity
                     {
                         border: none;
@@ -43,12 +49,27 @@
                 .img-wrapper
                 {
                     display: block; 
+                    width: 10%;
 
                     img 
                     {
                         border-radius: 100px;
                         width: 82px;
                         height: 82px;
+                    }
+                }
+                .price-wrapper
+                {
+                    width: 25%;
+                    strong
+                    {
+                        color: green;
+                        display: inline-block;
+                    }
+                    .precio-sin-descuento
+                    {
+                        display: inline-block;
+                        text-decoration:  line-through;
                     }
                 }
             }

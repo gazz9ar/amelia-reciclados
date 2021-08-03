@@ -7,18 +7,14 @@ const notificationWrapper = document.getElementById("notification-wrapper");
 let carrito = [];
 
 function agregarCarrito(uid)
-{
-
-   
-
-
-
+{ 
     let existe = false;
     const productsLs = JSON.parse(localStorage.getItem('productsId'));
     let productoSeleccionado = {};
 
-
+    
         // BUSCAMOS EL PRODUCTO SELECCIONADO, GUARDADO EN EL LOCAL STORAGE
+     
     for (const product of productsLs) {
         
         if (product.uid == uid) {
