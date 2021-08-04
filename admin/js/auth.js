@@ -104,7 +104,7 @@ const registerLogin = () => {
         var user = userCredential.user;
         console.log(user);
 
-        if (user.uid === 'da2j56RuXxbXP6RQ91tgHYl9zTX2') {
+        if (user.uid === 'da2j56RuXxbXP6RQ91tgHYl9zTX2' || 'c6zJrFeW1AgrFe882Eg0E4yYSnp2') {
 
           Swal.fire({
             position: 'top-end',
@@ -114,7 +114,7 @@ const registerLogin = () => {
             timer: 1500
           })
 
-          window.location.replace("http://127.0.0.1:5500/admin/index.html");
+          window.location.replace("https://gazz9ar.github.io/amelia-reciclados/admin/index.html");
 
         } else {
 
@@ -126,7 +126,7 @@ const registerLogin = () => {
             timer: 1500
           })
 
-          window.location.replace("http://127.0.0.1:5500/index.html");
+          window.location.replace("https://gazz9ar.github.io/amelia-reciclados/");
 
         }
 
