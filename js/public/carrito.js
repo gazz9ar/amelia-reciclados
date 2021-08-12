@@ -109,8 +109,5 @@ function agregarCarrito(uid)
                 }, 3000);
         }
         
-    }
-
-
-    console.log(carrito.length);
+    }  
 }

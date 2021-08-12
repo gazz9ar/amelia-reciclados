@@ -196,7 +196,7 @@ function saveProduct(edit,uid)
                 btnAddEdit.classList.add('btn-primary');                 
                 btnAddEdit.setAttribute('onclick',`saveProduct(${banderaEdit},'${uid}')` );
                 titleAddEdit.innerText = 'Agregar un producto nuevo a la tienda';
-                console.log(productoNuevo,products);
+                
                 saveDocument('products', productoNuevo, products);  
                     
                 

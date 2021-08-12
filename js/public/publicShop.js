@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
       );
 
         
-
+       localStorage.setItem('productsId',JSON.stringify(products));
         // PRIMER ARRAY CON EL QUE DEBO RENDERIZXAR COL-1
         let arrayCol1 = [];
         let arrayCol2 = [];
@@ -118,9 +118,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
                       </div>
                   `;
-                  const itemX = document.getElementById(`product-uid-${product.uid}`);
-
-                  itemX.setAttribute('onclick',`verProducto('${product.uid}')`);
+                  
 
                   arrayUrls.push({
                     uid:product.uid,
@@ -167,9 +165,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
                       </div>
                   `;
-                  const itemX = document.getElementById(`product-uid-${product.uid}`);
-
-                  itemX.setAttribute('onclick',`verProducto('${product.uid}')`);
+                  
 
                   arrayUrls.push({
                     uid:product.uid,
@@ -212,10 +208,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                           <p class="fs-6 product-text">$${product.precio}</p>
 
                       </div>
-                  `;
-                  const itemX = document.getElementById(`product-uid-${product.uid}`);
-
-                  itemX.setAttribute('onclick',`verProducto('${product.uid}')`);
+                  `;                  
 
                   arrayUrls.push({
                     uid:product.uid,

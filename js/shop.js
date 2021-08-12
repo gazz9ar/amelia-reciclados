@@ -33,6 +33,10 @@ function getCollection(collection)
     return collectionSelected.get(); 
 }
 
+// function saveDocument(collection,obj)
+// {
+//   return db.collection(collection).doc().set(Object.assign({}, obj));
+// }
 
 /* FUNCION PARA AGREGAR NUEVO documento a X coleccion */
 const saveDocument = (collection,obj,products) => {
@@ -50,8 +54,7 @@ const saveDocument = (collection,obj,products) => {
         title:'Oops...',
         text:err
       });
-    });
-    
+    });    
 
 }
 // EDITAR UN DOCUMENTO CUALQUIERA

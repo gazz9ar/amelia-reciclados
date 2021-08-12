@@ -80,6 +80,22 @@ class Producto
 }
 
 
+class Pago 
+{
+    constructor(id,total,urlPago,userEmail,fecha)
+    {
+        this.id = id;
+        this.total = total;
+        this.urlPago = urlPago;
+        this.userEmail = userEmail;     
+       
+
+        this.fecha = fecha;
+    }
+    
+}
+
+
 
 
 const guardarLocal = (clave,valor) => {
