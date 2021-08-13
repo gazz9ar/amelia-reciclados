@@ -150,29 +150,26 @@
                   <!-- NOMBRE Y APELLIDO -->
                 <div class="input-group mb-3 mt-3 w-75">
                     <span class="input-group-text d-sm-none d-md-block">Nombre y Apellido</span>
-                    <input type="text" aria-label="Nombre" class="form-control" placeholder="Ingrese su nombre...">
-                    <input type="text" aria-label="Apellido" class="form-control" placeholder="Ingrese su apellido...">
+                    <input id="input-nombre" type="text" aria-label="Nombre" class="form-control" placeholder="Ingrese su nombre...">
+                    <input id="input-apellido" type="text" aria-label="Apellido" class="form-control" placeholder="Ingrese su apellido...">
                 </div>
 
                 <!-- Codigo Postal -->
                 <div class="input-group mb-3 w-75">
                     <span class="input-group-text d-sm-none d-md-block" id="basic-addon1">Código Postal</span>
-                    <input type="text" class="form-control" placeholder="Ingrese su codigo postal..." aria-label="Codigo Postal" aria-describedby="basic-addon1">
+                    <input id="input-codigoPostal" type="text" class="form-control" placeholder="Ingrese su codigo postal..." aria-label="Codigo Postal" aria-describedby="basic-addon1">
                 </div>
 
                 <div class="d-flex justify-content-center  align-items-center w-75">
                                 <!-- Provincia -->
-                        <select class="form-select mb-3 me-2 w-100" aria-label="Provincia">
-                            <option selected>Provincia</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select mb-3 me-2 w-100" aria-label="Provincia" id="provincias-dropdown">
+                            <option id="input-provincia" selected>Provincia</option>                            
                         </select>
 
                         <!-- Localidad -->
                         <div class="input-group mb-3 w-100">
                             <span class="input-group-text d-sm-none d-md-block" id="basic-addon1">Localidad</span>
-                            <input type="text" class="form-control" placeholder="Ingrese su Localidad..." aria-label="Localidad" aria-describedby="basic-addon1">
+                            <input id="input-localidad" type="text" class="form-control" placeholder="Ingrese su Localidad..." aria-label="Localidad" aria-describedby="basic-addon1">
                         </div>
                 </div>
 
@@ -181,25 +178,25 @@
                     <!-- Calle -->
                     <div class="input-group mb-3 me-2 w-100">
                         <span class="input-group-text d-sm-none d-md-block" id="basic-addon1">Calle</span>
-                        <input type="text" class="form-control" placeholder="Ingrese su Calle..." aria-label="Calle" aria-describedby="basic-addon1">
+                        <input id="input-calle" type="text" class="form-control" placeholder="Ingrese su Calle..." aria-label="Calle" aria-describedby="basic-addon1">
                     </div>
 
                     <!-- Numero -->
                     <div class="input-group mb-3 w-100">
                         <span class="input-group-text d-sm-none d-md-block" id="basic-addon1">Numero</span>
-                        <input type="text" class="form-control" placeholder="Ingrese la altura de la calle..." aria-label="Numero" aria-describedby="basic-addon1">
+                        <input id="input-numeroCalle" type="text" class="form-control" placeholder="Ingrese la altura de la calle..." aria-label="Numero" aria-describedby="basic-addon1">
                     </div>
                 </div>
 
                  <!-- Piso/Departamento -->
                  <div class="input-group mb-3 w-75">
                     <span class="input-group-text d-sm-none d-md-block" id="basic-addon1">Piso/Departamento <strong class="text-opcional ps-1"> (opcional) </strong> </span>
-                    <input type="text" class="form-control" placeholder="Ingrese su Piso/Departamento/Torre ..." aria-label="Piso" aria-describedby="basic-addon1">
+                    <input id="input-dpto" type="text" class="form-control" placeholder="Ingrese su Piso/Departamento/Torre ..." aria-label="Piso" aria-describedby="basic-addon1">
                 </div>
 
                 <div class="input-group mb-5 w-75">
                     <span class="input-group-text">Información Adicional <strong class="text-opcional ps-1"> (opcional) </strong></span>
-                    <textarea class="form-control" aria-label="With textarea" placeholder="Ingrese indicaciones específicas..."></textarea>
+                    <textarea id="input-infoAdicional" class="form-control" aria-label="With textarea" placeholder="Ingrese indicaciones específicas..."></textarea>
                 </div>
             
 
@@ -248,7 +245,7 @@
                                  <div class="d-flex justify-content-center align-items-center">
                                       <button type="button" id="btnEnvio" class="fs-6 fw-bold btn btn-outline-primary text-dark">
                                         Completar datos Envío
-                                        </button>
+                                      </button>
                                  </div>
                              
                                  <div>
