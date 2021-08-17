@@ -4,7 +4,7 @@ let carrito = '';
 try {
      carrito = JSON.parse(localStorage.getItem('carrito'));
 } catch (error) {
-    window.location.replace('http://127.0.0.1:5500/shop.html');
+    window.location.replace( window.location.host + 'shop'); 
 }
 
 

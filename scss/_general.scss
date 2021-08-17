@@ -701,9 +701,7 @@
   .servicios
   {
     display: block;
-    height: 250px;
-    padding-top: 60px;
-    margin-bottom: 90px;
+    height: 250px;    
     .servicios-title
     {
       width: 30%;
@@ -1003,7 +1001,17 @@
     a{
       background-color: $color-primary;
       border-color: rgb(172, 170, 170);
-      
+      border: 5px solid;
+      transition: all 420ms;
+      &:hover
+      {
+        border-color: rgb(143, 143, 143) !important;
+        box-shadow: 0px 0px 23px rgb(143, 143, 143) inset
+      }
+      &:focus 
+      {
+        border-color: rgb(143, 143, 143) !important;
+      }
   
     }
   }
@@ -1019,7 +1027,16 @@
     a{
       background-color: $color-primary;
       border-color: rgb(172, 170, 170);
-      
+      border: 5px solid;
+      &:hover
+      {
+        border-color: rgb(143, 143, 143) !important;
+        box-shadow: 0px 0px 23px rgb(143, 143, 143) inset
+      }
+      &:focus 
+      {
+        border-color: rgb(143, 143, 143) !important;
+      }
   
     }
   }
@@ -1034,6 +1051,17 @@
     a{
       background-color: $color-primary;
       border-color: rgb(172, 170, 170);
+      border: 5px solid;
+      
+      &:hover
+      {
+        border-color: rgb(143, 143, 143) !important;
+        box-shadow: 0px 0px 23px rgb(143, 143, 143) inset
+      }
+      &:focus 
+      {
+        border-color: rgb(143, 143, 143) !important;
+      }
       
   
     }

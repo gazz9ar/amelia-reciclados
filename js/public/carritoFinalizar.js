@@ -85,7 +85,7 @@ $(document).ready((e) => {
     
                                         </div>
                                         <div class="price-wrapper d-flex flex-column">
-                                            <p class="precio-sin-descuento "><strong> 15% </strong> $ ${productoCarrito.precio}</p>
+                                            <p class="precio-sin-descuento "><strong> 15% </strong> $ ${productoCarrito.precio + (productoCarrito.precio * 0.15)}</p>
                                             <p class="precio-final fw-bold fs-5 mb-5" id="subtotal-${producto.uid}">$ ${productoCarrito.precio}</p>
                                         </div>
                                     
@@ -162,13 +162,8 @@ $(document).ready((e) => {
                         modalEnvio.show();
                 
                     });
-                    $('#finalizar-compra').click((e) => {
-
-        
-                        localStorage.setItem('totalPago',total);
-                
-                        window.location.replace('http://127.0.0.1:5500/pago.html');
-                     });
+                    
+                    validarEnvio();
                     if (producto.cantidad !== contenido) {
                         botonMas.addClass('add-quantity');
                         botonMas.removeClass('add-quantity-disabled');
@@ -242,14 +237,7 @@ $(document).ready((e) => {
                         modalEnvio.show();
                 
                     });
-                    $('#finalizar-compra').click((e) => {
-
-        
-                        localStorage.setItem('totalPago',total);
-                
-                        window.location.replace('http://127.0.0.1:5500/pago.html');
-
-                     });
+                    validarEnvio();
                     botonMas.addClass('add-quantity');
                     botonMas.removeClass('add-quantity-disabled');
                     if (producto.cantidad === contenido) {
@@ -297,17 +285,9 @@ $(document).ready((e) => {
             modalEnvio.show();
     
         });
-    }
-  
-
-    
-     $('#finalizar-compra').click((e) => {
-
-        
-        localStorage.setItem('totalPago',total);
-
-        window.location.replace('http://127.0.0.1:5500/pago.html');
-     });
+    }    
+     
+    validarEnvio();
 })
 
 function buscarURL(uid)
@@ -317,6 +297,66 @@ function buscarURL(uid)
             return url.url;
         }
     }
+}
+
+function validarEnvio()
+{
+    $('#finalizar-compra').click((e) => {
+
+        let nombreCargado =  $(`#input-nombre`);
+        let apellidoCargado =  $(`#input-apellido`);
+        let codigoPostalCargado =  $(`#input-codigoPostal`);
+        let localidadCargado =  $(`#input-localidad`);
+        let calleCargado =  $(`#input-calle`);
+        let numeroCalleCargado =  $(`#input-numeroCalle`);
+        let provincia =  $(`#input-provincia`);
+
+        // Para validar la provincia deberia chequear si la opción "pronvincia" contiene el atributo selected
+
+        if (nombreCargado.val() == '' || apellidoCargado.val() == '' || codigoPostalCargado.val() == '' || localidadCargado.val() == '' || calleCargado.val() == '' || numeroCalleCargado.val() == '') {
+            
+
+            nombreCargado.addClass('border border-danger');
+            apellidoCargado.addClass('border border-danger');
+            codigoPostalCargado.addClass('border border-danger');
+            localidadCargado.addClass('border border-danger');
+            calleCargado.addClass('border border-danger');
+            numeroCalleCargado.addClass('border border-danger');
+
+            if (nombreCargado.val() != '') {
+                nombreCargado.removeClass('border border-danger');
+            }
+             if(apellidoCargado.val() != '') {
+                apellidoCargado.removeClass('border border-danger');
+            } 
+             if (codigoPostalCargado.val() != '') {
+                codigoPostalCargado.removeClass('border border-danger');
+            } 
+             if (localidadCargado.val() != '') {
+                localidadCargado.removeClass('border border-danger');
+            } 
+             if (calleCargado.val() != '') {
+                calleCargado.removeClass('border border-danger');
+            } 
+             if (numeroCalleCargado.val() != '') {
+                numeroCalleCargado.removeClass('border border-danger');
+            }
+            
+
+            
+
+            var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+                    modalEnvio.show();
+
+        } else {
+            
+            localStorage.setItem('totalPago',total);
+
+            window.location.replace( window.location.host + 'pago');    
+        }
+
+       
+     });
 }
 
 
@@ -392,6 +432,7 @@ function eliminarDelCarrito(uid)
 
                 $('#carritoLenght').html(carrito.length);
 
+                validarEnvio();
                
 
        

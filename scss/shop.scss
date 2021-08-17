@@ -134,10 +134,12 @@
                        // color: transparent;
                        // -webkit-background-clip: text;
                         transition: all 420ms;
+                        
 
                         &:hover {
                           
                           color: #ccc;
+                         
                         }
                        
                   }
@@ -244,8 +246,8 @@
   .ver-carrito
   {
     width: 90px;
-    margin-top: 15px;
-    margin-left: 15px;
+    right: -35px;
+    top: 35px;
     text-align: center;
     display: none;
     p

@@ -83,14 +83,14 @@ const registerLogin = () => {
         
         if (urlAnterior) {
 
-          if (urlAnterior == 'http://127.0.0.1:5500/shop.html#') {
+          if (urlAnterior == window.location.host + 'shop') { 
             window.location.replace(urlAnterior);
           }
           
           
         } else 
         {
-          window.location.replace('https://gazz9ar.github.io/amelia-reciclados/');
+          window.location.replace(window.location.host + '/');
         }
         
 
@@ -129,7 +129,7 @@ const registerLogin = () => {
             timer: 1500
           })
 
-          window.location.replace("http://127.0.0.1:5500/admin/panel-shop.html");
+          window.location.replace(window.location.host + "/admin/panel-shop.html");
 
         } else {
           
@@ -143,7 +143,7 @@ const registerLogin = () => {
 
           if (urlAnterior) {
 
-            if (urlAnterior == 'http://127.0.0.1:5500/shop.html') {
+            if (urlAnterior == window.location.host + 'shop') {
               window.location.replace(urlAnterior);
             }
             
