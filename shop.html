@@ -47,7 +47,8 @@
 
     <script src="./js/clasesTienda.js"></script>
 
-    
+    <!--  JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 
@@ -55,7 +56,7 @@
 <body>
 
     <header class="header">
-        <div class="header-nav" id="header">
+        <div class="header-nav nav-scrolled" id="header">
 
             <nav class="flex-nav">
                 <img src="./images/LOGO-AMELIA.png" alt="Amelia Reciclados de muebles" class="logo ms-5">
@@ -79,20 +80,20 @@
                     <li>
                         <a href="login.html" onclick="openProfileSettings()" class="inicio" id="iniciar-sesion"></a>                        
                             
-                            <div class="position-absolute hover-profile rounded" id="profile-settings">
-                                <div class="user-info mt-3 d-flex flex-column justify-content-center align-items-center" id="user-info">
-                                    <a href="profile.html" class="ms-0 profile-rounded d-flex flex-row justify-content-center align-items-center">
-                                        <img src="./images/iconos/insert-picture-icon.svg" alt="User Profile Photo Img" class="user-avatar">
-                                    </a>                                    
-                                    <p class="fs-5 text-dark mt-4">Bienvenido, <strong>gazz9ar</strong> </p>
-                                    <p class="fs-6 text-gray mb-3">gazz9ar@gmail.com</p>
-                                </div>
-                                <div class="d-flex flex-column justify-content-center align-items-center">
-                                    <a href="profile.html" class="btn btn-primary ms-0 mb-3">Editar Perfil</a>
-                                    <a href="javascript:void(0)" onclick="signOut()" class="text-dark ms-0 mb-3 fs-6 signOutBtn"> Cerrar sesión </a>
-                                </div>
-                            
+                        <div class="position-absolute hover-profile rounded" id="profile-settings">
+                            <div class="user-info mt-3 d-flex flex-column justify-content-center align-items-center" id="user-info">
+                                <a href="profile.html" class="ms-0 profile-rounded d-flex flex-row justify-content-center align-items-center">
+                                    <img src="./images/iconos/insert-picture-icon.svg" alt="User Profile Photo Img" class="user-avatar">
+                                </a>                                    
+                                <p class="fs-5 text-dark mt-4">Bienvenido, <strong id="username">Anónimo</strong> </p>
+                                <p class="fs-6 text-gray mb-3">gazz9ar@gmail.com</p>
                             </div>
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                <a href="profile.html" class="btn btn-primary ms-0 mb-3">Editar Perfil</a>
+                                <a href="javascript:void(0)" onclick="signOut()" class="text-dark ms-0 mb-3 fs-6 signOutBtn"> Cerrar sesión </a>
+                            </div>
+                        
+                        </div>
                        
                         
                     </li>
@@ -396,10 +397,12 @@
     <!-- ====================================== -->
 
 
+    
     <script src="./js/public/publicShop.js"></script>
     <script src="./js/public/authPublic.js"></script>
     <script src="./js/signOut.js"></script>
     <script src="./js/public/user.js"></script>
+    <script src="./js/firebaseFunctions.js"></script>
     <script src="https://kit.fontawesome.com/6a91abc42f.js" crossorigin="anonymous"></script>
     <script src="./js/public/carrito.js"></script>
 

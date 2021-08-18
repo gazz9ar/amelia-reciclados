@@ -1,4 +1,4 @@
-const db = firebase.firestore();
+
 const onGetCollection = (collection,callback) => {
 
     const collectionSelected = db.collection(collection);
@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                           <h3 class="fs-5 product-title mb-1 mt-2"> ${product.nombre}</h3>
                           <p class="fs-6 product-text mt-0 mb-1">${product.description}</p>
                           <p class="fs-6 product-text">$${product.precio}</p>
-
+                          <p class="fs-6 text-secondary product-text mt-2">Stock: ${product.cantidad}</p>
                       </div>
                   `;
                   
@@ -162,7 +162,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                           <h3 class="fs-5 product-title mb-1 mt-2"> ${product.nombre}</h3>
                           <p class="fs-6 product-text mt-0 mb-1">${product.description}</p>
                           <p class="fs-6 product-text">$${product.precio}</p>
-
+                          <p class="fs-6 text-secondary product-text mt-2">Stock: ${product.cantidad}</p>
                       </div>
                   `;
                   
@@ -206,7 +206,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
                           <h3 class="fs-5 product-title mb-1 mt-2"> ${product.nombre}</h3>
                           <p class="fs-6 product-text mt-0 mb-1">${product.description}</p>
                           <p class="fs-6 product-text">$${product.precio}</p>
-
+                          <p class="fs-6 text-secondary product-text mt-2">Stock: ${product.cantidad}</p>
                       </div>
                   `;                  
 

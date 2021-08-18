@@ -2,23 +2,41 @@
 let carrito =  '';
 let total = 0;
 let provincias = '';
+let usuarioLogeado = '';
 const urlProvincias = 'https://apis.datos.gob.ar/georef/api/provincias';
 
 try {
     carrito = JSON.parse(localStorage.getItem('carrito'));
 } catch (error) {
     $('#total-wrapper').html(``);
+    console.log(error);
 }
 
 const productUrls = JSON.parse(localStorage.getItem('productsUrls'));
 
 
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        usuarioLogeado = user;
+       
+        validarEnvio(true);
 
+    } else {
+        usuarioLogeado = '';
+        validarEnvio(false);
+    }
+})
 
 $(document).ready((e) => {   
 
     
-   
+    $('#btnEnvio').click((e) => {
+
+        
+        var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+        modalEnvio.show();
+
+    });
     $('#carritoLenght').html(carrito.length);
     $('#carrito-list').html('');
 
@@ -38,9 +56,6 @@ $(document).ready((e) => {
             }
         }
     });
-
-    
-    
 
     if (carrito.length == 0) {
         
@@ -94,8 +109,6 @@ $(document).ready((e) => {
             
             `);  
 
-             
-         
 
             let botonMenos = $(`#product-li-${producto.uid} #minus-${producto.uid}`);
             let botonMas = $(`#product-li-${producto.uid} #add-${producto.uid}`); 
@@ -155,15 +168,11 @@ $(document).ready((e) => {
                             <a class="btn btn-primary mb-3 me-1" href="javascript:void(0)" id="finalizar-compra">Finalizar Compra</a>
                      </div>`
                     );
-                    $('#btnEnvio').click((e) => {
-
-        
-                        var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
-                        modalEnvio.show();
-                
-                    });
+                   
                     
-                    validarEnvio();
+                    
+                        validarEnvio(true);
+                    
                     if (producto.cantidad !== contenido) {
                         botonMas.addClass('add-quantity');
                         botonMas.removeClass('add-quantity-disabled');
@@ -237,7 +246,10 @@ $(document).ready((e) => {
                         modalEnvio.show();
                 
                     });
-                    validarEnvio();
+                    
+                    
+                        validarEnvio(true);
+                    
                     botonMas.addClass('add-quantity');
                     botonMas.removeClass('add-quantity-disabled');
                     if (producto.cantidad === contenido) {
@@ -287,7 +299,10 @@ $(document).ready((e) => {
         });
     }    
      
-    validarEnvio();
+    console.log(usuarioLogeado);
+    validarEnvio(true);
+    
+    
 })
 
 function buscarURL(uid)
@@ -299,8 +314,26 @@ function buscarURL(uid)
     }
 }
 
-function validarEnvio()
+ function validarEnvio(user)
 {
+
+    let emailCargado =  $(`#input-email`);
+    let ingresarEmail =  $(`#ingresarEmail`);
+    
+    if (user) {
+        
+        emailCargado.add('d-none');
+        ingresarEmail.add('d-none');
+    } else {     
+    
+        emailCargado.removeClass('d-none');
+        ingresarEmail.removeClass('d-none');
+    }
+    
+    // ELIMINO EL METODO CLICK PARA AGREGARLO DE NUEVO YA QUE SE EJECUTA **SIEMPRE** Y SE VUELVE A EJECUTAR CUANDO FIREBASE AUTENTICA AL USUARIO
+    // LO QUE PROVOCABA QUE EL MODAL SE ABRA 2 VECES AL CLICKEAR "FINALIZAR COMPRA"
+
+    $('#finalizar-compra').unbind('click');
     $('#finalizar-compra').click((e) => {
 
         let nombreCargado =  $(`#input-nombre`);
@@ -309,51 +342,104 @@ function validarEnvio()
         let localidadCargado =  $(`#input-localidad`);
         let calleCargado =  $(`#input-calle`);
         let numeroCalleCargado =  $(`#input-numeroCalle`);
+        
         let provincia =  $(`#input-provincia`);
 
         // Para validar la provincia deberia chequear si la opción "pronvincia" contiene el atributo selected
 
-        if (nombreCargado.val() == '' || apellidoCargado.val() == '' || codigoPostalCargado.val() == '' || localidadCargado.val() == '' || calleCargado.val() == '' || numeroCalleCargado.val() == '') {
+        if (user) {
+            if (nombreCargado.val() == '' || apellidoCargado.val() == '' || codigoPostalCargado.val() == '' || localidadCargado.val() == '' || calleCargado.val() == '' || numeroCalleCargado.val() == '') {
             
 
-            nombreCargado.addClass('border border-danger');
-            apellidoCargado.addClass('border border-danger');
-            codigoPostalCargado.addClass('border border-danger');
-            localidadCargado.addClass('border border-danger');
-            calleCargado.addClass('border border-danger');
-            numeroCalleCargado.addClass('border border-danger');
-
-            if (nombreCargado.val() != '') {
-                nombreCargado.removeClass('border border-danger');
+                nombreCargado.addClass('border border-danger');
+                apellidoCargado.addClass('border border-danger');
+                codigoPostalCargado.addClass('border border-danger');
+                localidadCargado.addClass('border border-danger');
+                calleCargado.addClass('border border-danger');
+                numeroCalleCargado.addClass('border border-danger');
+    
+                if (nombreCargado.val() != '') {
+                    nombreCargado.removeClass('border border-danger');
+                }
+                 if(apellidoCargado.val() != '') {
+                    apellidoCargado.removeClass('border border-danger');
+                } 
+                 if (codigoPostalCargado.val() != '') {
+                    codigoPostalCargado.removeClass('border border-danger');
+                } 
+                 if (localidadCargado.val() != '') {
+                    localidadCargado.removeClass('border border-danger');
+                } 
+                 if (calleCargado.val() != '') {
+                    calleCargado.removeClass('border border-danger');
+                } 
+                 if (numeroCalleCargado.val() != '') {
+                    numeroCalleCargado.removeClass('border border-danger');
+                }           
+    
+                var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+                        modalEnvio.show();
+    
+            } else {
+                
+                localStorage.setItem('totalPago',total);
+    
+                window.location.replace('pago.html');    
             }
-             if(apellidoCargado.val() != '') {
-                apellidoCargado.removeClass('border border-danger');
-            } 
-             if (codigoPostalCargado.val() != '') {
-                codigoPostalCargado.removeClass('border border-danger');
-            } 
-             if (localidadCargado.val() != '') {
-                localidadCargado.removeClass('border border-danger');
-            } 
-             if (calleCargado.val() != '') {
-                calleCargado.removeClass('border border-danger');
-            } 
-             if (numeroCalleCargado.val() != '') {
-                numeroCalleCargado.removeClass('border border-danger');
-            }
-            
-
-            
-
-            var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
-                    modalEnvio.show();
-
+        
         } else {
+            if (nombreCargado.val() == '' || apellidoCargado.val() == '' || codigoPostalCargado.val() == ''
+             || localidadCargado.val() == '' || calleCargado.val() == '' || numeroCalleCargado.val() == '' || emailCargado.val() == '') {
             
-            localStorage.setItem('totalPago',total);
 
-            window.location.replace( window.location.host + 'pago');    
+                nombreCargado.addClass('border border-danger');
+                apellidoCargado.addClass('border border-danger');
+                codigoPostalCargado.addClass('border border-danger');
+                localidadCargado.addClass('border border-danger');
+                calleCargado.addClass('border border-danger');
+                numeroCalleCargado.addClass('border border-danger');
+                emailCargado.addClass('border border-danger');
+    
+                if (nombreCargado.val() != '') {
+                    nombreCargado.removeClass('border border-danger');
+                }
+                 if(apellidoCargado.val() != '') {
+                    apellidoCargado.removeClass('border border-danger');
+                } 
+                 if (codigoPostalCargado.val() != '') {
+                    codigoPostalCargado.removeClass('border border-danger');
+                } 
+                 if (localidadCargado.val() != '') {
+                    localidadCargado.removeClass('border border-danger');
+                } 
+                 if (calleCargado.val() != '') {
+                    calleCargado.removeClass('border border-danger');
+                } 
+                 if (numeroCalleCargado.val() != '') {
+                    numeroCalleCargado.removeClass('border border-danger');
+                }           
+                if (emailCargado.val() != '') {
+                    emailCargado.removeClass('border border-danger');
+                }           
+                
+    
+                var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+                        modalEnvio.show();
+    
+            } else {
+                
+                localStorage.setItem('totalPago',total);
+    
+                window.location.replace('pago.html');    
+            }
+        
         }
+
+           
+      
+       
+           
+        
 
        
      });
@@ -432,7 +518,9 @@ function eliminarDelCarrito(uid)
 
                 $('#carritoLenght').html(carrito.length);
 
-                validarEnvio();
+                
+                    validarEnvio(true);
+                
                
 
        
@@ -457,3 +545,5 @@ function addDeleteHtml(id,html,array)
     }
 
 }
+
+

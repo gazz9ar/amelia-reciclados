@@ -146,28 +146,28 @@
         </div>
         <div class="modal-body bg-white">
          
-           <div class="d-flex flex-column justify-content-center align-items-center">
+           <div class="d-flex flex-column justify-content-center align-items-center" id="inputsEnvio">
                   <!-- NOMBRE Y APELLIDO -->
-                <div class="input-group mb-3 mt-3 w-75">
+                <div class="input-group border border-danger mb-3 mt-3 w-75">
                     <span class="input-group-text d-sm-none d-md-block">Nombre y Apellido</span>
                     <input id="input-nombre" type="text" aria-label="Nombre" class="form-control" placeholder="Ingrese su nombre...">
                     <input id="input-apellido" type="text" aria-label="Apellido" class="form-control" placeholder="Ingrese su apellido...">
                 </div>
 
                 <!-- Codigo Postal -->
-                <div class="input-group mb-3 w-75">
+                <div class="input-group border border-danger mb-3 w-75">
                     <span class="input-group-text d-sm-none d-md-block" id="basic-addon1">Código Postal</span>
                     <input id="input-codigoPostal" type="text" class="form-control" placeholder="Ingrese su codigo postal..." aria-label="Codigo Postal" aria-describedby="basic-addon1">
                 </div>
 
-                <div class="d-flex justify-content-center  align-items-center w-75">
+                <div class="d-flex justify-content-center align-items-center w-75">
                                 <!-- Provincia -->
-                        <select class="form-select mb-3 me-2 w-100" aria-label="Provincia" id="provincias-dropdown">
+                        <select class="form-select border border-danger mb-3 me-2 w-100" aria-label="Provincia" id="provincias-dropdown">
                             <option id="input-provincia" selected>Provincia</option>                            
                         </select>
 
                         <!-- Localidad -->
-                        <div class="input-group mb-3 w-100">
+                        <div class="input-group border border-danger mb-3 w-100">
                             <span class="input-group-text d-sm-none d-md-block" id="basic-addon1">Localidad</span>
                             <input id="input-localidad" type="text" class="form-control" placeholder="Ingrese su Localidad..." aria-label="Localidad" aria-describedby="basic-addon1">
                         </div>
@@ -176,13 +176,13 @@
                 <div class="d-flex justify-content-center  align-items-center w-75">
 
                     <!-- Calle -->
-                    <div class="input-group mb-3 me-2 w-100">
+                    <div class="input-group border border-danger mb-3 me-2 w-100">
                         <span class="input-group-text d-sm-none d-md-block" id="basic-addon1">Calle</span>
                         <input id="input-calle" type="text" class="form-control" placeholder="Ingrese su Calle..." aria-label="Calle" aria-describedby="basic-addon1">
                     </div>
 
                     <!-- Numero -->
-                    <div class="input-group mb-3 w-100">
+                    <div class="input-group border border-danger mb-3 w-100">
                         <span class="input-group-text d-sm-none d-md-block" id="basic-addon1">Numero</span>
                         <input id="input-numeroCalle" type="text" class="form-control" placeholder="Ingrese la altura de la calle..." aria-label="Numero" aria-describedby="basic-addon1">
                     </div>
@@ -200,13 +200,17 @@
                 </div>
             
                 <p class="fs-6 text-danger"> * Los campos en <strong>rojo</strong>  son obligatorios</p>
+
+                <p class="fs-6 fw-bold text-dark d-none" id="ingresarEmail"> ** Ingrese su correo electronico o inicie sesión para que podamos enviarle su código de seguimiento</p>
+                <input id="input-email" type="text" class="form-control mb-5 w-75 d-none" placeholder="Ingrese su Correo Electronico" aria-label="Email" aria-describedby="basic-addon1">
+                
                
            </div>
         
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </div>
     </div>
@@ -373,8 +377,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
     <script>
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        // Your web app's Firebase configuration       
         var firebaseConfig = {
             apiKey: "AIzaSyD9eLOX6Lz8ySiOH6D9u1DX-zQT4sugby0",
             authDomain: "amelia-reciclados.firebaseapp.com",
@@ -396,6 +399,7 @@
             <script src="./js/public/authPublic.js"></script>
             <script src="./js/signOut.js"></script>
             <script src="./js/public/user.js"></script>
+            <script src="./js/firebaseFunctions.js"></script>
             <script src="./js/public/carritoFinalizar.js"></script>
 </body>
 </html>

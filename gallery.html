@@ -25,6 +25,9 @@
      deteriorados.">
      <meta property="og:author" content="GS Solutions">
 
+     <link rel="stylesheet" href="./css/styles.css">
+     <link rel="stylesheet" href="./css/shop.css">
+     <link rel="stylesheet" href="./css/carrito.css">
 
      <!-- Roboto -->
      <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -33,19 +36,77 @@
 
 </head>
 
-<body>
+<body class="bg-light">
 
 
-    <div class="header-nav nav-scrolled" id="header">            
-        <nav class="flex-nav">
-            <img src="./images/LOGO-AMELIA.png" alt="Amelia Reciclados de muebles" class="logo">
-            <ul class="menu">
+    <header class="header">
+        <div class="header-nav" id="header">
+
+            <nav class="flex-nav nav-scrolled">
+                <img src="./images/LOGO-AMELIA.png" alt="Amelia Reciclados de muebles" class="logo ms-5">
+                <ul class="menu-final-almedio">
+                    <li> <a href="index.html">Inicio</a> </li>
+                    <li> <a href="gallery.html">Galeria</a> </li>
+                    <li> <a href="blog.html">Blog</a> </li>
+                    <li class="li-verCarrito"> <a href="shop.html#visita">Tienda</a>
+                        <!-- <div class="position-absolute bg-white ver-carrito rounded">
+                            <div class="arrow-up"></div>
+                            <p class="text-dark fs-6 mb-0" style="cursor: pointer;" onclick="goToShop()">Ver  Carrito</p>
+                        </div>
+                        <div class="position-absolute bg-white carrito-number d-none" id="carrito-number">
+                            1
+                        </div> -->
+                    </li>
+                    <li> <a href="#contacto">Contacto</a> </li>
+                  
+
+                </ul>
+                <ul class="menu">
+                    <li>
+                        <a href="login.html" onclick="openProfileSettings()" class="inicio" id="iniciar-sesion"></a>                        
+                            
+                            <div class="position-absolute hover-profile rounded" id="profile-settings">
+                                <div class="user-info mt-3 d-flex flex-column justify-content-center align-items-center" id="user-info">
+                                    <a href="profile.html" class="ms-0 profile-rounded d-flex flex-row justify-content-center align-items-center">
+                                        <img src="./images/iconos/insert-picture-icon.svg" alt="User Profile Photo Img" class="user-avatar">
+                                    </a>                                    
+                                    <p class="fs-5 text-dark mt-4">Bienvenido, <strong id="username">gazz9ar</strong> </p>
+                                    <p class="fs-6 text-gray mb-3">gazz9ar@gmail.com</p>
+                                </div>
+                                <div class="d-flex flex-column justify-content-center align-items-center">
+                                    <a href="profile.html" class="btn btn-primary ms-0 mb-3">Editar Perfil</a>
+                                    <a href="javascript:void(0)" onclick="signOut()" class="text-dark ms-0 mb-3 fs-6 signOutBtn"> Cerrar sesión </a>
+                                </div>
+                            
+                            </div>
+                       
+                        
+                    </li>
+                   
+                    <li>
+                        <a href="login.html" id="register">Registrarse</a>
+                    </li>
+                    <!-- <li>
+                        <a href="blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="#contacto">Contacto</a>
+                    </li> -->
+                </ul>
+               
+            </nav>
+
+            <ul class="hamburger-menu" id="hamburger-menu">
+                <a href="javascript:void(0);" onclick="closeHamburger()">
+                    <img src="./images/iconos/close-white.png" alt="Close button"
+                        class="position-relative closeHamburger">
+                </a>
                 <li>
-                    <a href="index.html" class="inicio">Inicio</a>
+                    <a href="index.html">Inicio</a>
 
                 </li>
                 <li>
-                    <a href="shop.html#visita">Tienda</a>
+                    <a href="gallery.html">Galeria</a>
 
                 </li>
                 <li>
@@ -55,36 +116,12 @@
                     <a href="#contacto">Contacto</a>
                 </li>
             </ul>
-        </nav>
 
-        <ul class="hamburger-menu" id="hamburger-menu">
-            <a href="javascript:void(0);" onclick="closeHamburger()">
-                <img src="./images/iconos/close-white.png" alt="Close button" class="position-relative closeHamburger">
+            <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()" id="burger">
+                <img src="./images/iconos/square.png" alt="Menu Navegacion">
             </a>
-            
-                
-        
-            
-            <li>
-                <a href="index.html">Inicio</a>
-
-            </li>
-            <li>
-                <a href="shop.html#visita">Tienda</a>
-
-            </li>
-            <li>
-                <a href="blog.html">Blog</a>
-            </li>
-            <li>
-                <a href="#contacto">Contacto</a>
-            </li>
-        </ul>
-
-        <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()" id="burger">
-            <img src="./images/iconos/square.png" alt="Menu Navegacion" >
-        </a>
-    </div>
+        </div>        
+    </header>
 
 
 
@@ -149,7 +186,7 @@
                       <!-- IMAGEN -->
                       <div class="pb-4">
                         <div class="position-relative img-thumbnail-bg ">
-                            <img src="./images/gallery/modern-stylish-scandinavian-kitchen-interior-with-kitchen-accessories.jpg" alt="Mueble" class=" w-100 rounded   ">
+                            <img src="./images/gallery/chair-3209341_1920.jpg" alt="Mueble" class=" w-100 rounded   ">
                             <!-- TEXTO OCULTO -->
                             <div
                                 class="position-absolute w-100 w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
@@ -208,7 +245,7 @@
                       <!-- IMAGEN -->
                       <div class="pb-4">
                         <div class="position-relative img-thumbnail-bg ">
-                            <img src="./images/gallery/modern-stylish-scandinavian-kitchen-interior-with-kitchen-accessories.jpg" alt="Mueble" class=" w-100 rounded   ">
+                            <img src="./images/gallery/chair-3209341_1920.jpg" alt="Mueble" class=" w-100 rounded   ">
                             <!-- TEXTO OCULTO -->
                             <div
                                 class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
@@ -233,7 +270,7 @@
                     <!-- IMAGEN -->
                     <div class="pb-4">
                         <div class="position-relative img-thumbnail-bg ">
-                            <img src="./images/gallery/hairdresser-cut-hair-her-client-in-hair-salon.jpg" alt="Mueble" class=" w-100 rounded   ">
+                            <img src="./images/gallery/chair-3209341_1920.jpg" alt="Mueble" class=" w-100 rounded   ">
                             <!-- TEXTO OCULTO -->
                             <div
                                 class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
@@ -267,7 +304,7 @@
                       <!-- IMAGEN -->
                       <div class="pb-4">
                         <div class="position-relative img-thumbnail-bg ">
-                            <img src="./images/gallery/room-interior-design.jpg" alt="Mueble" class=" w-100 rounded   ">
+                            <img src="./images/gallery/chair-3209341_1920.jpg" alt="Mueble" class=" w-100 rounded   ">
                             <!-- TEXTO OCULTO -->
                             <div
                                 class="position-absolute w-100 top-50 start-50 translate-middle text-white p-1 text-center d-none fondo-oscuro-gallery">
@@ -363,7 +400,7 @@
     </footer>
 
 
-    <script src="./burger.js"></script>
+    <script src="./js/public/burger.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>
@@ -371,9 +408,44 @@
         integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
         crossorigin="anonymous"></script>
 
+        <!-- ============================================================= -->
+    <!--                JS PARA SERVICIOS DE FIREBASE                  -->
+    <!-- ============================================================= -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <!-- FIRESTORE -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+    
+    <script>
+        // Your web app's Firebase configuration       
+        var firebaseConfig = {
+            apiKey: "AIzaSyD9eLOX6Lz8ySiOH6D9u1DX-zQT4sugby0",
+            authDomain: "amelia-reciclados.firebaseapp.com",
+            databaseURL: "https://amelia-reciclados-default-rtdb.firebaseio.com",
+            projectId: "amelia-reciclados",
+            storageBucket: "amelia-reciclados.appspot.com",
+            messagingSenderId: "382397362766",
+            appId: "1:382397362766:web:ac95943549ae2ec847091f",
+            measurementId: "G-KG9VVNE8XW"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+        <!--  JQUERY -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
            <!-- sweet alert -->
            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="./alerts.js"></script>
+        <script src="./js/public/alerts.js"></script>
+
+        <script src="./js/public/authPublic.js"></script>
+    <script src="./js/signOut.js"></script>
+    <script src="./js/public/user.js"></script>
+    <script src="./js/firebaseFunctions.js"></script>
      
 </body>
 

@@ -8,7 +8,7 @@ const userInfo = document.getElementById("user-info");
 
 
 
-userInfo.innerHTML  
+
 firebase.auth().onAuthStateChanged((user) => {
   
     if (user) {     

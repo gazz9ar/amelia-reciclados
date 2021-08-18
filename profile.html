@@ -44,8 +44,10 @@
      <link rel="stylesheet" href="./css/styles.css">
      <link rel="stylesheet" href="./css/shop.css">
      <link rel="stylesheet" href="./css/carrito.css">
+     <link rel="stylesheet" href="./admin/css/panelShop.css">
 
      <script src="./js/clasesTienda.js"></script>
+    
 
      <script src="https://kit.fontawesome.com/6a91abc42f.js" crossorigin="anonymous"></script>
 
@@ -83,7 +85,7 @@
                                     <a href="profile.html" class="ms-0 profile-rounded d-flex flex-row justify-content-center align-items-center">
                                         <img src="./images/iconos/insert-picture-icon.svg" alt="User Profile Photo Img" class="user-avatar">
                                     </a>                                    
-                                    <p class="fs-5 text-dark mt-4">Bienvenido, <strong>gazz9ar</strong> </p>
+                                    <p class="fs-5 text-dark mt-4">Bienvenido, <strong id="username">Anónimo</strong> </p>
                                     <p class="fs-6 text-gray mb-3">gazz9ar@gmail.com</p>
                                 </div>
                                 <div class="d-flex flex-column justify-content-center align-items-center">
@@ -143,36 +145,53 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="w-100 h-auto bg-white mb-5 d-flex flex-column justify-content-center align-items-center">
+                <div  id="spinner-z" class="preloader-vistaprevia w-100 bg-white mb-5 d-flex flex-column justify-content-center align-items-center" style="height: 500px;">
+                    <img class="preloader-body-vistaprevia" src="../images/iconos/spinner.svg" alt="Spinner">
+                 </div>
+                <div class="w-100 h-auto bg-white mb-5 d-flex flex-column justify-content-center align-items-center" id="content">
                     <div class="w-75 pt-5">
                         <h1 class="fs-5 fw-bold d-inline-block">Mis Datos</h1> 
                     </div>
                     <div class="w-75 h-75 pt-5">
                         <ul class="d-flex flex-column justify-content-center align-items-center">
-                            <li class="w-100 item-carrito d-flex flex-row justify-content-center mb-3">  
-                                <input type="text" class="form-control" placeholder="Nick" aria-label="Nick">                            
+                            <li class="w-100 item-carrito d-flex flex-column justify-content-center mb-3">  
+                                <label for="nickname" class="fs-6 fw-bold">Nickname:</label>
+                                <input type="text" id="nickname" class="form-control" placeholder="Nick" aria-label="Nick">
+                                                           
                              </li>  
-                             <li class="w-100 item-carrito d-flex flex-row justify-content-center mb-3">  
-                                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre">                            
+                             <li class="w-100 item-carrito d-flex flex-column justify-content-center mb-3">  
+                                <label for="nickname" class="fs-6 fw-bold">Nombre:</label>
+                                <input type="text" id="nombre" class="form-control" placeholder="Nombre" aria-label="Nombre">                            
                              </li>  
-                             <li class="w-100 item-carrito d-flex flex-row justify-content-center mb-3">  
-                                <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido">                            
+                             <li class="w-100 item-carrito d-flex flex-column justify-content-center mb-3">  
+                                <label for="nickname" class="fs-6 fw-bold">Apellido:</label>
+                                <input type="text" id="apellido" class="form-control" placeholder="Apellido" aria-label="Apellido">                            
                              </li>   
-                             <li class="w-100 item-carrito d-flex flex-row justify-content-center mb-3">  
-                                <select class="form-select " aria-label="Provincia" id="provincias-dropdown">
+                             <li class="w-100 item-carrito d-flex flex-column justify-content-center mb-3">  
+                                <label for="nickname" class="fs-6 fw-bold">Provincia:</label>
+                                <select class="form-select" id="provincia" aria-label="Provincia" id="provincias-dropdown">
                                     <option id="input-provincia" selected>Provincia</option>                            
                                 </select>                            
                              </li>   
-                             <li class="w-100 item-carrito d-flex flex-row justify-content-center mb-3">  
-                                <input type="text" class="form-control" placeholder="Ciudad" aria-label="Ciudad">                            
+                             <li class="w-100 item-carrito d-flex flex-column justify-content-center mb-3"> 
+                                <label for="nickname" class="fs-6 fw-bold">Ciudad:</label> 
+                                <input type="text" id="ciudad" class="form-control" placeholder="Ciudad" aria-label="Ciudad">                            
                              </li>    
-                             <li class="w-100 item-carrito d-flex flex-row justify-content-center mb-3">  
-                                <input type="text" class="form-control" placeholder="Telefono" aria-label="Telefono">                            
+                             <li class="w-100 item-carrito d-flex flex-column justify-content-center mb-4">  
+                                <label for="nickname" class="fs-6 fw-bold">Telefono:</label>
+                                <input type="text" id="telefono" class="form-control" placeholder="Telefono" aria-label="Telefono">                            
                              </li>         
                         </ul>
+
+                        <div class="d-flex justify-content-center align-items-center mb-5">
+                            <a href="javascript:void(0)" class="btn btn-outline-primary w-50" id="guardarCambiosPerfil">Guardar</a>
+                        </div>
                                                
                        
                     </div>
+
+
+                    
                     
                 </div>
             </div>
@@ -305,6 +324,9 @@
             <script src="./js/public/authPublic.js"></script>
             <script src="./js/signOut.js"></script>
             <script src="./js/public/user.js"></script>
+            <script src="./js/firebaseFunctions.js"></script>
             <script src="./js/profile.js"></script>
+            
+           
 </body>
 </html>
