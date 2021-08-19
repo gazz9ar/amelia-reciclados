@@ -4,7 +4,7 @@ let carrito = '';
 try {
      carrito = JSON.parse(localStorage.getItem('carrito'));
 } catch (error) {
-    window.location.replace( window.location.host + 'shop'); 
+    window.location.replace('shop.html'); 
 }
 
 
@@ -78,7 +78,7 @@ $(document).ready(
 
                             <p class="fs-4 mt-2 mb-3">  Has comprado: </p>
 
-                            <ul id="lista-compra" class="list-group">
+                            <ul id="lista-compra" class="list-group mb-5">
                                                                                        
                             </ul>
 

@@ -83,14 +83,14 @@ const registerLogin = () => {
         
         if (urlAnterior) {
 
-          if (urlAnterior == window.location.host + 'shop') { 
+          if (urlAnterior == window.location.host + '/shop.html') { 
             window.location.replace(urlAnterior);
           }
           
           
         } else 
         {
-          window.location.replace(window.location.host + '/');
+          window.location.replace('/');
         }
         
 
@@ -129,7 +129,7 @@ const registerLogin = () => {
             timer: 1500
           })
 
-          window.location.replace(window.location.host + "/admin/panel-shop.html");
+          window.location.replace("/admin/panel-shop.html");
 
         } else {
           
@@ -143,7 +143,7 @@ const registerLogin = () => {
 
           if (urlAnterior) {
 
-            if (urlAnterior == window.location.host + 'shop') {
+            if (urlAnterior == window.location.host + '/shop.html') {
               window.location.replace(urlAnterior);
             }
             

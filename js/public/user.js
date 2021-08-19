@@ -8,6 +8,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
         userEmail.html(user.email);
         getCollection('users',user.email).then((p) => {
+
             
              usuarioLogeado = p.data();
              if (usuarioLogeado.nick == '') {

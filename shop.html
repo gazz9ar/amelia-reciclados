@@ -114,22 +114,45 @@
             <ul class="hamburger-menu" id="hamburger-menu">
                 <a href="javascript:void(0);" onclick="closeHamburger()">
                     <img src="./images/iconos/close-white.png" alt="Close button"
-                        class="position-relative closeHamburger">
+                        class="closeHamburger">
                 </a>
-                <li>
-                    <a href="index.html">Inicio</a>
+                <li class="w-100 d-flex flex-row justify-content-center align-items-center">
+                    <a href="index.html" class="img-icon-menu">
+                        <img src="./images/iconos/home.svg" alt="Home Inicio" class="mini-img-menu me-3">
+                        <a href="index.html" class="text-icon-menu w-100">Inicio</a>
+                    </a>       
 
                 </li>
-                <li>
-                    <a href="gallery.html">Galeria</a>
+                <li class="w-100 d-flex flex-row justify-content-center align-items-center">
+
+                    <a href="profile.html" class="img-icon-menu">
+                        <img src="./images/iconos/user.svg" alt="Perfil" class="mini-img-menu me-3">
+                        <a href="profile.html" class="text-icon-menu w-100">Perfil</a>
+                    </a>       
 
                 </li>
-                <li>
-                    <a href="blog.html">Blog</a>
+                <li class=" w-100 d-flex flex-row justify-content-start align-items-center">
+
+                        <a href="carrito.html" class="img-icon-menu">
+                            <img src="./images/iconos/shopping-cart.png" alt="Carrito" class="mini-img-menu me-3">
+                            <a href="carrito.html" class="text-icon-menu w-100">Carrito</a>
+                        </a>                    
+                  
                 </li>
-                <li>
-                    <a href="#contacto">Contacto</a>
+                <li class="w-100 d-flex flex-row justify-content-center align-items-center">
+                    <a href="gallery.html" class="img-icon-menu">
+                        <img src="./images/iconos/gallery-icon.svg" alt="Galeria" class="mini-img-menu me-3">
+                        <a href="gallery.html" class="text-icon-menu w-100">Galeria</a>
+                    </a>       
+
                 </li>
+                <li class="w-100 d-flex flex-row justify-content-center align-items-center">
+                    <a href="blog.html" class="img-icon-menu">
+                        <img src="./images/iconos/small-letter.svg" alt="Blog" class="mini-img-menu me-3">
+                        <a href="blog.html" class="text-icon-menu w-100">Blog</a>
+                    </a>       
+                </li>
+                
             </ul>
 
             <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()" id="burger">
@@ -397,12 +420,12 @@
     <!-- ====================================== -->
 
 
-    
+    <script src="./js/firebaseFunctions.js"></script>
     <script src="./js/public/publicShop.js"></script>
     <script src="./js/public/authPublic.js"></script>
     <script src="./js/signOut.js"></script>
     <script src="./js/public/user.js"></script>
-    <script src="./js/firebaseFunctions.js"></script>
+    
     <script src="https://kit.fontawesome.com/6a91abc42f.js" crossorigin="anonymous"></script>
     <script src="./js/public/carrito.js"></script>
 

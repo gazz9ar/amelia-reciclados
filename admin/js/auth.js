@@ -114,7 +114,7 @@ const registerLogin = () => {
             timer: 1500
           })
 
-          window.location.replace("https://gazz9ar.github.io/amelia-reciclados/admin/index.html");
+          window.location.replace("/admin/index.html");
 
         } else {
 
@@ -126,7 +126,7 @@ const registerLogin = () => {
             timer: 1500
           })
 
-          window.location.replace("https://gazz9ar.github.io/amelia-reciclados/");
+          window.location.replace("/");
 
         }
 

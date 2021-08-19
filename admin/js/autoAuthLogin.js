@@ -10,7 +10,7 @@ firebase.auth().onAuthStateChanged((user) => {
         
         // admin logged in
       
-        window.location.replace('https://gazz9ar.github.io/amelia-reciclados/admin/panel-shop.html');
+        window.location.replace('/admin/panel-shop.html');
         
       }
       else 
