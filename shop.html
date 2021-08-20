@@ -58,7 +58,7 @@
     <header class="header">
         <div class="header-nav nav-scrolled" id="header">
 
-            <nav class="flex-nav">
+            <nav class="flex-nav" id="flex-nav">
                 <img src="./images/LOGO-AMELIA.png" alt="Amelia Reciclados de muebles" class="logo ms-5">
                 <ul class="menu-final-almedio">
                     <li> <a href="index.html">Inicio</a> </li>
@@ -111,53 +111,76 @@
                
             </nav>
 
-            <ul class="hamburger-menu" id="hamburger-menu">
-                <a href="javascript:void(0);" onclick="closeHamburger()">
-                    <img src="./images/iconos/close-white.png" alt="Close button"
-                        class="closeHamburger">
-                </a>
-                <li class="w-100 d-flex flex-row justify-content-center align-items-center">
-                    <a href="index.html" class="img-icon-menu">
-                        <img src="./images/iconos/home.svg" alt="Home Inicio" class="mini-img-menu me-3">
-                        <a href="index.html" class="text-icon-menu w-100">Inicio</a>
-                    </a>       
+            <div class="hamburger-menu" id="hamburger-menu">
+                <ul class=" p-0  d-flex flex-column justify-content-end align-items-center">
+                    <a href="javascript:void(0);" onclick="closeHamburger()">
+                        <img src="./images/iconos/close-white.png" alt="Close button"
+                            class="closeHamburger">
+                         
+                    </a>
+                    <li class=" d-flex flex-column justify-content-center align-items-center">
+                        <a href="profile.html" class="img-icon-menu">
+                            <div class="user-pic">
+                                <img src="./images/iconos/user.svg" alt="Usuario">
+                            </div>
+                            <!-- <img src="./images/iconos/home.svg" alt="Home Inicio" class="mini-img-menu me-3"> -->
+                            <a href="#" class="fw-bold fs-5 text-icon-menu w-100" style="letter-spacing: 1px;" id="username-mobile">Anónimo</a>
+                        </a>       
+    
+                    </li>
 
-                </li>
-                <li class="w-100 d-flex flex-row justify-content-center align-items-center">
-
-                    <a href="profile.html" class="img-icon-menu">
-                        <img src="./images/iconos/user.svg" alt="Perfil" class="mini-img-menu me-3">
-                        <a href="profile.html" class="text-icon-menu w-100">Perfil</a>
-                    </a>       
-
-                </li>
-                <li class=" w-100 d-flex flex-row justify-content-start align-items-center">
-
-                        <a href="carrito.html" class="img-icon-menu">
-                            <img src="./images/iconos/shopping-cart.png" alt="Carrito" class="mini-img-menu me-3">
-                            <a href="carrito.html" class="text-icon-menu w-100">Carrito</a>
-                        </a>                    
-                  
-                </li>
-                <li class="w-100 d-flex flex-row justify-content-center align-items-center">
-                    <a href="gallery.html" class="img-icon-menu">
-                        <img src="./images/iconos/gallery-icon.svg" alt="Galeria" class="mini-img-menu me-3">
-                        <a href="gallery.html" class="text-icon-menu w-100">Galeria</a>
-                    </a>       
-
-                </li>
-                <li class="w-100 d-flex flex-row justify-content-center align-items-center">
-                    <a href="blog.html" class="img-icon-menu">
-                        <img src="./images/iconos/small-letter.svg" alt="Blog" class="mini-img-menu me-3">
-                        <a href="blog.html" class="text-icon-menu w-100">Blog</a>
-                    </a>       
-                </li>
-                
-            </ul>
+                    <li class=" d-flex flex-row justify-content-center align-items-center">
+                        <a href="index.html" class="img-icon-menu">
+                            <img src="./images/iconos/home.svg" alt="Home Inicio" class="mini-img-menu me-3">
+                            <a href="index.html" class="text-icon-menu w-100">Inicio</a>
+                        </a>       
+                        <i class="fas fa-chevron-right arrow-menu-burger"></i>
+    
+                    </li>
+                    <li class=" d-flex flex-row justify-content-center align-items-center">
+    
+                        <a href="profile.html" class="img-icon-menu">
+                            <img src="./images/iconos/user.svg" alt="Perfil" class="mini-img-menu me-3">
+                            <a href="profile.html" class="text-icon-menu w-100">Perfil</a>
+                        </a>   
+                        <i class="fas fa-chevron-right arrow-menu-burger"></i>    
+    
+                    </li>
+                    <li class="  d-flex flex-row justify-content-start align-items-center">
+    
+                            <a href="carrito.html" class="img-icon-menu">
+                                <img src="./images/iconos/shopping-cart.png" alt="Carrito" class="mini-img-menu me-3">
+                                <a href="shop.html" class="text-icon-menu w-100">Tienda</a>
+                            </a>     
+                            <i class="fas fa-chevron-right arrow-menu-burger"></i>               
+                      
+                    </li>
+                    <li class=" d-flex flex-row justify-content-center align-items-center">
+                        <a href="gallery.html" class="img-icon-menu">
+                            <img src="./images/iconos/gallery-icon.svg" alt="Galeria" class="mini-img-menu me-3">
+                            <a href="gallery.html" class="text-icon-menu w-100">Galeria</a>
+                        </a>       
+                        <i class="fas fa-chevron-right arrow-menu-burger"></i>
+    
+                    </li>
+                    <li class=" d-flex flex-row justify-content-center align-items-center">
+                        <a href="blog.html" class="img-icon-menu">
+                            <img src="./images/iconos/small-letter.svg" alt="Blog" class="mini-img-menu me-3">
+                            <a href="blog.html" class="text-icon-menu w-100">Blog</a>
+                        </a>     
+                        <i class="fas fa-chevron-right arrow-menu-burger"></i>  
+                    </li>
+                    
+                </ul>
+            </div>
+           
 
             <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()" id="burger">
-                <img src="./images/iconos/square.png" alt="Menu Navegacion">
+                <!-- <img src="./images/iconos/square.png" alt="Menu Navegacion"> -->
+                <i class="fas fa-bars hamb-nuevo d-none"></i>
             </a>
+            <p class=" fs-5 logo-mobile">Amelia</p>
+            <a href="carrito.html"><i class="fas fa-shopping-cart carrito-mobile  d-none" id="carrito-mobile"></i></a> 
         </div>
         <!-- CAROUSEL HERO -->
         <div id="carouselExampleSlidesOnly" class="carousel slide h-100">
@@ -206,7 +229,7 @@
 
 
         <!-- 4 COLUMNAS en LARGE /// 2 COLUMNAS en MEDIUM /// 1 COLUMNA en SMALL -->
-        <div class="row d-flex justify-content-center align-items-center mb-5" id="shop-row">
+        <div class="row d-flex flex-row justify-content-center align-items-center mb-5" id="shop-row">
 
             <!-- // FILTROS -->
             <!-- <div class="col-lg-2 col-md-6 col-sm-12 align-self-start me-5" >
@@ -232,18 +255,18 @@
                
             </div> -->
 
-            <div class="col-lg-3 col-md-6 col-sm-12" id="col-1">                       
+            <div class="col-6 col-lg-3 " id="col-1">                       
                 <div  id="spinner-z" class="preloader-vistaprevia d-flex justify-content-center align-items-center">
                     <img class="preloader-body-vistaprevia" src="../images/iconos/spinner.svg" alt="Spinner">
                  </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12" id="col-2">             
+            <div class="col-6 col-lg-3" id="col-2">             
                       
                 <div  id="spinner-z" class="preloader-vistaprevia">
                     <img class="preloader-body-vistaprevia" src="../images/iconos/spinner.svg" alt="Spinner">
                  </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12" id="col-3">               
+            <div class="col-6 col-lg-3 " id="col-3">               
 
                
                 <div  id="spinner-z" class="preloader-vistaprevia">
@@ -361,7 +384,7 @@
         </div>
     </footer>
 
-    <section class="whatsapp-section">
+    <section class="whatsapp-section" id="whatsapp-logo">
         <a href="https://api.whatsapp.com/send?phone=543534258397&text=Hola%20Amelia%20Reciclados!,%20me%20gustar%C3%ADa%20saber%20sobre..."
             class="whatsapp" target="_blank"></a>
     </section>
@@ -382,7 +405,7 @@
     <!-- ============================================================= -->
     <!-- JS PARA ALERTAS, OBSERVER-NAVBAR  Y ALERTAS ERRORES Y SUCCESS -->
     <!-- ============================================================= -->
-    <script src="./js/public/observer.js"></script>
+    
     <script src="./js/public/burger.js"></script>
     <script src="./js/public/alerts.js"></script>
 

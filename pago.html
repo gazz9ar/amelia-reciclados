@@ -79,6 +79,9 @@
 
      <script src="https://kit.fontawesome.com/6a91abc42f.js" crossorigin="anonymous"></script>
 
+      <!--  JQUERY -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <header class="header">
@@ -137,30 +140,76 @@
                
             </nav>
 
-            <ul class="hamburger-menu" id="hamburger-menu">
-                <a href="javascript:void(0);" onclick="closeHamburger()">
-                    <img src="./images/iconos/close-white.png" alt="Close button"
-                        class="position-relative closeHamburger">
+            <div class="hamburger-menu" id="hamburger-menu">
+                <ul class=" p-0  d-flex flex-column justify-content-end align-items-center">
+                    <a href="javascript:void(0);" onclick="closeHamburger()">
+                        <img src="./images/iconos/close-white.png" alt="Close button"
+                            class="closeHamburger">
+                         
+                    </a>
+                    <li class=" d-flex flex-column justify-content-center align-items-center">
+                        <a href="profile.html" class="img-icon-menu">
+                            <div class="user-pic">
+                                <img src="./images/iconos/user.svg" alt="Usuario">
+                            </div>
+                            <!-- <img src="./images/iconos/home.svg" alt="Home Inicio" class="mini-img-menu me-3"> -->
+                            <a href="#" class="fw-bold fs-5 text-icon-menu w-100" style="letter-spacing: 1px;" id="username-mobile">Anónimo</a>
+                        </a>       
+    
+                    </li>
+
+                    <li class=" d-flex flex-row justify-content-center align-items-center">
+                        <a href="index.html" class="img-icon-menu">
+                            <img src="./images/iconos/home.svg" alt="Home Inicio" class="mini-img-menu me-3">
+                            <a href="index.html" class="text-icon-menu w-100">Inicio</a>
+                        </a>       
+                        <i class="fas fa-chevron-right arrow-menu-burger"></i>
+    
+                    </li>
+                    <li class=" d-flex flex-row justify-content-center align-items-center">
+    
+                        <a href="profile.html" class="img-icon-menu">
+                            <img src="./images/iconos/user.svg" alt="Perfil" class="mini-img-menu me-3">
+                            <a href="profile.html" class="text-icon-menu w-100">Perfil</a>
+                        </a>   
+                        <i class="fas fa-chevron-right arrow-menu-burger"></i>    
+    
+                    </li>
+                    <li class="  d-flex flex-row justify-content-start align-items-center">
+    
+                            <a href="shop.html" class="img-icon-menu">
+                                <img src="./images/iconos/shopping-cart.png" alt="Carrito" class="mini-img-menu me-3">
+                                <a href="shop.html" class="text-icon-menu w-100">Tienda</a>
+                            </a>     
+                            <i class="fas fa-chevron-right arrow-menu-burger"></i>               
+                      
+                    </li>
+                    <li class=" d-flex flex-row justify-content-center align-items-center">
+                        <a href="gallery.html" class="img-icon-menu">
+                            <img src="./images/iconos/gallery-icon.svg" alt="Galeria" class="mini-img-menu me-3">
+                            <a href="gallery.html" class="text-icon-menu w-100">Galeria</a>
+                        </a>       
+                        <i class="fas fa-chevron-right arrow-menu-burger"></i>
+    
+                    </li>
+                    <li class=" d-flex flex-row justify-content-center align-items-center">
+                        <a href="blog.html" class="img-icon-menu">
+                            <img src="./images/iconos/small-letter.svg" alt="Blog" class="mini-img-menu me-3">
+                            <a href="blog.html" class="text-icon-menu w-100">Blog</a>
+                        </a>     
+                        <i class="fas fa-chevron-right arrow-menu-burger"></i>  
+                    </li>
+                    
+                </ul>
+            </div>
+
+          
+                <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()" id="burger">
+                    <!-- <img src="./images/iconos/square.png" alt="Menu Navegacion"> -->
+                    <i class="fas fa-bars hamb-nuevo d-none"></i>
                 </a>
-                <li>
-                    <a href="index.html">Inicio</a>
-
-                </li>
-                <li>
-                    <a href="gallery.html">Galeria</a>
-
-                </li>
-                <li>
-                    <a href="blog.html">Blog</a>
-                </li>
-                <li>
-                    <a href="#contacto">Contacto</a>
-                </li>
-            </ul>
-
-            <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()" id="burger">
-                <img src="./images/iconos/square.png" alt="Menu Navegacion">
-            </a>
+                <p class=" fs-5 logo-mobile">Amelia</p>
+                <i class="fas fa-shopping-cart carrito-mobile  d-none" id="carrito-mobile"></i>
         </div>        
     </header>
 
@@ -312,8 +361,7 @@
 
 
     
-        <!--  JQUERY -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+       
 
             <script src="./js/public/authPublic.js"></script>
             <script src="./js/signOut.js"></script>

@@ -265,7 +265,9 @@ $(document).ready((e) => {
             });
 
             
-        }       
+        }      
+        
+        
         $('#total-wrapper').html(`
         <div class="envio border-bottom mb-3 pb-3 w-50 d-flex flex-row justify-content-around align-items-center">
                             <div>

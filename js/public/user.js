@@ -1,5 +1,6 @@
 const profileSettings = document.getElementById("profile-settings");
 const username = $('#username');
+const usernameMobile = $('#username-mobile');
 const userEmail = $('#user-email');
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -12,9 +13,13 @@ firebase.auth().onAuthStateChanged((user) => {
             
              usuarioLogeado = p.data();
              if (usuarioLogeado.nick == '') {
-            
+                
+                username.html(user.email);
+                usernameMobile.html(user.email);
             } else {
+                
                 username.html(usuarioLogeado.nick);
+                usernameMobile.html(usuarioLogeado.nick);
             }
         }).catch();
         

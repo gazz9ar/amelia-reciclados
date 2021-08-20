@@ -37,7 +37,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-
+        <script src="https://kit.fontawesome.com/6a91abc42f.js" crossorigin="anonymous"></script>
     
     <link  href="./css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/shop.css">
@@ -76,7 +76,7 @@
         
         <div class="header-nav" id="header">       
              
-            <nav class="flex-nav nav-scrolled">
+            <nav class="flex-nav nav-scrolled" id="flex-nav">
                 <img src="./images/LOGO-AMELIA.png" alt="Amelia Reciclados de muebles" class="logo ms-5">
                 <ul class="menu-final-almedio">
                     <li> <a href="index.html">Inicio</a> </li>
@@ -131,38 +131,84 @@
             </nav>     
             
 
-            <ul class="hamburger-menu" id="hamburger-menu">
-                <a href="javascript:void(0);" onclick="closeHamburger()">
-                    <img src="./images/iconos/close-white.png" alt="Close button" class="position-relative closeHamburger">
-                </a>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <ul class=" p-0  d-flex flex-column justify-content-end align-items-center">
+                    <a href="javascript:void(0);" onclick="closeHamburger()">
+                        <img src="./images/iconos/close-white.png" alt="Close button"
+                            class="closeHamburger">
+                         
+                    </a>
+                    <li class=" d-flex flex-column justify-content-center align-items-center">
+                        <a href="profile.html" class="img-icon-menu">
+                            <div class="user-pic">
+                                <img src="./images/iconos/user.svg" alt="Usuario" id="foto-perfil">
+                            </div>
+                            <!-- <img src="./images/iconos/home.svg" alt="Home Inicio" class="mini-img-menu me-3"> -->
+                            <a href="#" class="fw-bold fs-5 text-icon-menu w-100" style="letter-spacing: 1px;" id="username-mobile">Anónimo</a>
+                        </a>       
+    
+                    </li>
+
+                    <li class=" d-flex flex-row justify-content-center align-items-center">
+                        <a href="index.html" class="img-icon-menu">
+                            <img src="./images/iconos/home.svg" alt="Home Inicio" class="mini-img-menu me-3">
+                            <a href="index.html" class="text-icon-menu w-100">Inicio</a>
+                        </a>       
+                        <i class="fas fa-chevron-right arrow-menu-burger"></i>
+    
+                    </li>
+                    <li class=" d-flex flex-row justify-content-center align-items-center">
+    
+                        <a href="profile.html" class="img-icon-menu">
+                            <img src="./images/iconos/user.svg" alt="Perfil" class="mini-img-menu me-3">
+                            <a href="profile.html" class="text-icon-menu w-100">Perfil</a>
+                        </a>   
+                        <i class="fas fa-chevron-right arrow-menu-burger"></i>    
+    
+                    </li>
+                    <li class="  d-flex flex-row justify-content-start align-items-center">
+    
+                            <a href="shop.html" class="img-icon-menu">
+                                <img src="./images/iconos/shopping-cart.png" alt="Carrito" class="mini-img-menu me-3">
+                                <a href="carrito.html" class="text-icon-menu w-100">Tienda</a>
+                            </a>     
+                            <i class="fas fa-chevron-right arrow-menu-burger"></i>               
+                      
+                    </li>
+                    <li class=" d-flex flex-row justify-content-center align-items-center">
+                        <a href="gallery.html" class="img-icon-menu">
+                            <img src="./images/iconos/gallery-icon.svg" alt="Galeria" class="mini-img-menu me-3">
+                            <a href="gallery.html" class="text-icon-menu w-100">Galeria</a>
+                        </a>       
+                        <i class="fas fa-chevron-right arrow-menu-burger"></i>
+    
+                    </li>
+                    <li class=" d-flex flex-row justify-content-center align-items-center">
+                        <a href="blog.html" class="img-icon-menu">
+                            <img src="./images/iconos/small-letter.svg" alt="Blog" class="mini-img-menu me-3">
+                            <a href="blog.html" class="text-icon-menu w-100">Blog</a>
+                        </a>     
+                        <i class="fas fa-chevron-right arrow-menu-burger"></i>  
+                    </li>
                     
+                </ul>
+            </div>
+
+          
+                <a href="javascript:void(0);" class="hamburger d-none" onclick="OpenCloseHamburger()" id="burger">
+                    <!-- <img src="./images/iconos/square.png" alt="Menu Navegacion"> -->
+                    <i class="fas fa-bars hamb-nuevo d-none"></i>
+                </a>
+                <p class=" fs-5 logo-mobile">Amelia</p>
+                <i class="fas fa-shopping-cart carrito-mobile  d-none" id="carrito-mobile"></i>
             
-                
-                <li>
-                    <a href="shop.html#visita">Tienda</a>
-
-                </li>
-                <li>
-                    <a href="gallery.html">Galeria</a>
-
-                </li>
-                <li>
-                    <a href="blog.html">Blog</a>
-                </li>
-                <li>
-                    <a href="#contacto">Contacto</a>
-                </li>
-            </ul>
-
-            <a href="javascript:void(0);" class="hamburger d-none ocultar" onclick="OpenCloseHamburger()" id="burger">
-                <img src="./images/iconos/square.png" alt="Menu Navegacion" >
-            </a>
+            
         </div>
         <!-- CAROUSEL HERO -->
         <div id="carouselExampleSlidesOnly" class="carousel slide h-100" data-bs-ride="carousel">
             <div class="carousel-inner h-100 " id="heroSection">
                 <div class="carousel-item  img-thumbnail-bg-hero position-relative h-100 active">
-                    <img src="./images/hero-2.jpg" class="d-block w-100" alt=" Mueble fondo 1">
+                    <img src="./images/hero-2.jpg" class="d-block w-100 h-100" alt=" Mueble fondo 1">
                     <!-- TEXTO ::BEFORE -->
                     <div
                         class="position-absolute w-50 top-50 start-0 text-white  p-5 pt-0 mb-5  fondo-oscuro  ">
@@ -176,7 +222,7 @@
                     </div>
                 </div>
                 <div class="carousel-item img-thumbnail-bg-hero position-relative h-100">
-                    <img src="./images/hero-1.jpg" class="d-block w-100" alt="Mueble fondo 2">
+                    <img src="./images/hero-1.jpg" class="d-block w-100 h-100" alt="Mueble fondo 2">
                     <!-- TEXTO ::BEFORE -->
                     <div
                         class="position-absolute w-50 top-50 start-0 text-white p-5 pt-0 mb-5  fondo-oscuro animate__animated animate__fadeIn">
@@ -329,7 +375,7 @@
 
     <!-- BOTON WHATSAPP -->
    
-    <section class="whatsapp-section">
+    <section class="whatsapp-section" id="whatsapp-logo">
         <a href="https://api.whatsapp.com/send?phone=543534258397&text=Hola%20Amelia%20Reciclados!,%20me%20gustar%C3%ADa%20saber%20sobre..."
             class="whatsapp" target="_blank"></a>
     </section>
@@ -448,7 +494,7 @@
        <!-- sweet alert -->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        <script src="./js/firebaseFunctions.js"></script>
+    <script src="./js/firebaseFunctions.js"></script>
     <script src="./js/public/burger.js"></script>
     <script src="./js/public/observer.js"></script>
     <script src="./js/public/alerts.js"></script>

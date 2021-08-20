@@ -65,6 +65,9 @@
     }
     .hamburger
         {
+            left: 14px;
+            top: 11px;
+            width: 30px;
             display: block !important;
         }
         .menu
@@ -402,17 +405,18 @@
 
         left: 55px;
     }
-    .hamburger img {
-        width: 42px;
-        height: 42px;        
-    }
+    
     .hamburger {
       
-      
-          
-        top: 26px;
+        
+        left: 14px;
+        top: 11px;
+        width: 30px;
+        
+        
         
     }
+    
     .blog 
     {
         flex-flow: column wrap;
@@ -475,10 +479,11 @@
         }
         .header-nav
         {
-            height: 94px !important;
+            height: 50px !important;
         }
         .logo 
         {
+            display: none;
             width: 80px !important;
             height: 80px !important;
         }

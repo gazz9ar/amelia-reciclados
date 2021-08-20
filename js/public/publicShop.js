@@ -19,9 +19,12 @@ const col2 = document.getElementById("col-2");
 const col3 = document.getElementById("col-3");
 let products = [];
 
-$(document).load(
+$(document).ready(
 
   onGetCollection('products',( querySnapshot => {
+
+
+    
       
     products = [];
 

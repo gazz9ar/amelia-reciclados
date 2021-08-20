@@ -1,83 +1,99 @@
 /* BOTON menu hamburgesa mobile */
-function OpenCloseHamburger() {
+var _docHeight = 0;
+let menu = document.getElementById("hamburger-menu");
+let burger = document.getElementById("burger");
+const whatsappLogo = $('#whatsapp-logo')
 
-    let menu = document.getElementById("hamburger-menu");
-    let burger = document.getElementById("burger");
+const carritoBtnMobile = $('#carrito-mobile');
 
-    // AÑADO FONDO OSCURO
-    document.styleSheets[0].insertRule(`section::after { content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.3);
-    height: 5074px;
-    z-index: 99; }`, 0);
-    document.styleSheets[0].insertRule(`.un-distinto::after { content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.3);
-    height: 9035px;
-    z-index: 99; }`, 0);
+function getDocHeigth() {
+
+  
+    var _docHeight = (document.height !== undefined) ? document.height : document.body.offsetHeight;
+    
+    return _docHeight;
+  
+  
+  
+}
+
+async function OpenCloseHamburger() {
+
+    let _docHeight = 0;
+    _docHeight = await getDocHeigth();
 
 
     
     
+    whatsappLogo.addClass('d-none');
+     $('#flex-nav').addClass('color-grisOscuro-flexnav');
 
-    burger.classList.remove("hamburger");
-    burger.classList.add("ocultar");
+    document.styleSheets[0].insertRule(`body::before { content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
+      height: ${_docHeight}px;
+      z-index: 99; }`, 0);
+      
+      burger.classList.remove("hamburger");
+      burger.classList.add("ocultar");
 
-    if (menu.style.display === "flex") {
-      menu.style.display = "none";
-    } else {
-      menu.style.display = "flex";
-    }    
+      carritoBtnMobile.addClass('carrito-mobile-ocultar');
+
+      if (menu.style.display === "flex") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "flex";
+      }    
+
+      menu.classList.remove('animate__animated');
+    menu.classList.remove('animate__slideOutLeft');
+
+    menu.classList.add('animate__animated');
+    menu.classList.add('animate__slideInLeft');
+    
      
   }
 
 
   function closeHamburger()
   {
-    let burger = document.getElementById("burger");
-    let menu = document.getElementById("hamburger-menu");
+    
 
+    whatsappLogo.removeClass('d-none');
     burger.classList.add("hamburger");
     burger.classList.remove("ocultar");
-    menu.style.display = "none";
+    menu.classList.remove('animate__animated');
+    menu.classList.remove('animate__slideInLeft');
+    menu.classList.add('animate__animated');
+    menu.classList.add('animate__slideOutLeft');
 
-    document.styleSheets[0].removeRule(`section::after { content: '';
+    
+    if (menu.style.display === "flex") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "flex";
+    }   
+    
+    carritoBtnMobile.removeClass('carrito-mobile-ocultar');
+    $('#flex-nav').removeClass('color-grisOscuro-flexnav');
+    
+
+    document.styleSheets[0].removeRule(`body::before { content: '';
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.3);
-    height: 5074px;
+    background: rgba(0,0,0,0.7);
+    height: ${_docHeight}px;
     z-index: 99; }`, 0);
-    document.styleSheets[0].removeRule(`.un-distinto::after { content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.3);
-    height: 9035px;
-    z-index: 99; }`, 0);
+   
 
-    let styleSheet = getStylesheet("./css/styles.css");
-
-    styleSheet.removeRule();
-
-    for (let i=0; i<styleSheet.cssRules.length; i++) {
-      if (styleSheet.cssRules[i].selectorText === 'section::after') {        
-         
-          sheet.deleteRule (i);
-      }
-  }  
+   
 
   }
 

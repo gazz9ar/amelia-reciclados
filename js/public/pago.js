@@ -94,7 +94,7 @@ $(document).ready(
                         }
                         $('#lista-compra').append(`
                             
-                        <p class="fw-bold"> Pronto nos contactaremos contigo via correo electronico para enviarte tu código de seguimiento!</p>
+                        <p class="fw-bold mt-5"> Pronto nos contactaremos contigo via correo electronico para enviarte tu código de seguimiento!</p>
                           `);                          
                         
                         localStorage.setItem('carrito',[]);

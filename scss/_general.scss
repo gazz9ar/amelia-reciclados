@@ -6,7 +6,7 @@
  $font: 'Roboto';
  $font-normal-size: 16px;
  $background-ts:transparent;
- $color-footer: #332E29;
+ $color-footer: #9D6A3B;
 
 
 /* Estilos Generales */
@@ -197,9 +197,9 @@
   {
     
     // background-color: rgba(38, 21, 13, 1) !important;
-    background-color: #332E29 !important;
+    background-color: $color-footer !important;
    
-    box-shadow: 0px 3px 4px gray;
+    // box-shadow: 0px 3px 4px gray;
     transition: all 420ms;
   }
   /* Contenido */
@@ -306,50 +306,82 @@
   .hamburger-menu {
   
     display: none;
-    width: 100%;
+    width: 80%;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
-    height: auto;
+    height: 100%;
     position: fixed;
     top: 0px;
     list-style: none;
-    background-color: $color-footer;    
+    background-color: #9D6A3B;
     text-align: center;
     padding-left: 0px !important;
-
-    
-
-    
-    li 
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 99999;
+    ul 
     {
-      height: 35px;
-      width: 35%;
-      margin-bottom: 12px;
-      &:first-of-type
+        width: 100%;
+        height: 95%;
+        li 
       {
-        margin-top: 15px;
-      }
-      &:last-of-type
-      {
-        margin-bottom: 15px;
-      }
-      a{
-        color: white;
-        font-size: 1rem;
-        margin-bottom: 10px;
-        margin-left: 5px;
-        text-decoration: none;
-        width: 25%;
+        height: 35px;
+        width: 85%; 
+        border: 2px solid white;
+        border-radius: 5px;
+        padding: 30px;
+        margin: 10px;
+        margin-bottom: 17px;
+        margin-top: 0px;
+        &:first-of-type
+        {
+          margin-top: 15px;
+          margin-bottom: 70px;
+
+          border: 0px solid white;
+          border-radius: 0px;
+          a 
+          {
+            text-align: center;
+            width: 81%;
+            margin-top: 10px;
+            .user-pic
+            {
+              
+              width: 124px;
+              height: 124px;
+              border-radius: 100px;  
+              margin: 0px auto;            
+              img 
+              { 
+                width: 124px;
+                height: 124px;
+                
+              }
+            }
+          }
+        }
+        &:last-of-type
+        {
+          margin-bottom: 15px;
+        }
+        a{
+          color: white;
+          font-size: 1rem;
+          margin-bottom: 0px;
+          margin-left: 5px;
+          text-decoration: none;
+          width: 25%;
+          
         
-       
+        }
+        .mini-img-menu
+        {
+          width: 32px;
+          height: 32px;
+        }
       }
-      .mini-img-menu
-      {
-        width: 32px;
-        height: 32px;
-      }
-    }
     .closeHamburger 
     {
       width: 26px;
@@ -358,6 +390,8 @@
       right: 15px;
       position: absolute
     }
+    }
+    
     
   }
 
@@ -408,7 +442,7 @@
     height: 600px;
     margin-left: 0px !important;
     margin-right: 0px !important;
-    background-color: $color-footer !important;
+    background-color: #9D6A3B !important;
 
     .mensaje 
     {
@@ -1108,4 +1142,60 @@
   }
 
 
-  
+  .logo-mobile
+  {
+    display: none;
+    width: 50%;
+    margin: 0px auto;
+    text-align: center;
+    color: white;
+    letter-spacing: 0.7px;
+    z-index: 9999;
+    @media (max-width:1248px) 
+    {
+      display: block;
+     
+    }
+  }
+  .carrito-mobile
+  {
+    display: none;
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    right: 15px;
+    top: 13px;
+
+    @media (max-width:1248px) 
+    {
+      display: block !important;     
+    }
+  }
+  .carrito-mobile-ocultar
+  {
+    display: none !important;
+  }
+
+
+  .arrow-menu-burger
+  {
+    color: white;
+  }
+
+
+  .hamb-nuevo
+        {
+            display: none !important;
+            position: relative;
+            left: 0px;
+            font-size: 30px;
+            color: white;
+            z-index: 9999;
+            @media (max-width:1248px) 
+            {
+              display: block !important;     
+            }
+        }
+
+
+      

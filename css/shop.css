@@ -41,6 +41,9 @@
   }
 
   .hamburger {
+    left: 14px;
+    top: 11px;
+    width: 30px;
     display: block !important;
   }
 
@@ -347,13 +350,10 @@
     left: 55px;
   }
 
-  .hamburger img {
-    width: 42px;
-    height: 42px;
-  }
-
   .hamburger {
-    top: 26px;
+    left: 14px;
+    top: 11px;
+    width: 30px;
   }
 
   .blog {
@@ -424,10 +424,11 @@
   }
 
   .header-nav {
-    height: 94px !important;
+    height: 50px !important;
   }
 
   .logo {
+    display: none;
     width: 80px !important;
     height: 80px !important;
   }
@@ -497,6 +498,8 @@
 
 .product-link {
   overflow: hidden;
+  width: 150px;
+  height: 150px;
 }
 .product-link:hover .agregar {
   display: block !important;
@@ -530,7 +533,7 @@
 }
 @media (max-width: 1250px) {
   .header .header-nav {
-    height: 101px;
+    height: 50px !important;
   }
 }
 .header .header-nav .flex-nav {
@@ -569,6 +572,11 @@
   height: 90px;
   align-self: CENTER;
   top: 1px;
+}
+@media (max-width: 1250px) {
+  .header .header-nav .flex-nav .logo {
+    display: none !important;
+  }
 }
 
 .mercadoPago:hover {
@@ -725,6 +733,10 @@
   width: 21px;
   height: 20px;
   text-align: center;
+}
+
+.color-grisOscuro-flexnav {
+  background-color: #615e5e !important;
 }
 
 /*# sourceMappingURL=shop.css.map */
