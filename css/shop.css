@@ -896,8 +896,17 @@
 .col-desktop {
   display: none;
 }
-@media (min-width: 660px) {
+@media (min-width: 1000px) {
   .col-desktop {
+    display: block;
+  }
+}
+
+.col-mobile {
+  display: none;
+}
+@media (max-width: 1000px) {
+  .col-mobile {
     display: block;
   }
 }

@@ -96,6 +96,9 @@ $(document).ready(
         
          arrayCol3 = products.slice(( products.length - Math.ceil(products.length / 3 ) + 1), products.length);
       }
+      for (const product of products) {
+        
+      }
       
       for (const product of arrayCol1) {
         
@@ -137,33 +140,7 @@ $(document).ready(
                     </div>
                 `;
 
-              $('#col-1-mobile').html(`
-              
-              <div class="item-wrapper " id="product-uid-${product.uid}">
-                        
-                        <a href="javascript:void(0)" class="d-block position-relative product-link" type="button"
-                            onclick="agregarCarrito('${product.uid}')" id="a-col-${contadorProductosCol1}">
-
-                           
-
-                            <img src="${url}" alt="${product.description}" class="img-thumbnail">
-                            
-                            
-                            <!-- OCULTO -->
-                            <div
-                                class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
-                                <p>Agregar al Carrito</p>
-                            </div>
-                           
-
-                        </a>
-
-                        <div class="item-info-shop">
-
-                          <h3 class="fs-5 product-title mb-1 pt-2"> ${product.nombre}</h3>                        
-                          <p class="fs-6 fw-bold product-text">$${product.precio}</p>
-                        </div>                       
-                    </div>`);
+             
 
                 
 
