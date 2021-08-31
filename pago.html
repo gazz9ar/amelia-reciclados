@@ -209,7 +209,12 @@
                     <i class="fas fa-bars hamb-nuevo d-none"></i>
                 </a>
                 <p class=" fs-5 logo-mobile">Amelia</p>
-                <i class="fas fa-shopping-cart carrito-mobile  d-none" id="carrito-mobile"></i>
+                <a href="carrito.html">
+                    <div class="position-relative cant-agregada-mobile d-none" id="cant-agregada-mobile">
+                        <p class="fw-bold text-white" id="cant-agregada-mobile-num">1</p>
+                    </div>
+                    <i class="fas fa-shopping-cart carrito-mobile  d-none" id="carrito-mobile"></i>
+                </a> 
         </div>        
     </header>
 
@@ -224,13 +229,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="w-100 h-auto bg-white carrito-wrapper mb-5 d-flex flex-column justify-content-center align-items-center" id="content-center">
+                <div class="w-100 h-auto bg-white carrito-wrapper mb-2 d-flex flex-column justify-content-center align-items-center" id="content-center">
                    
-                    <h1 class="fs-3 fw-bold mt-3 mb-5">Finalizar Compra</h1>
+                    <h1 class="fs-3 fw-bold mt-3 mb-5 finalizar-mobile">Finalizar Compra</h1>
 
-                    <div class="d-flex flex-row justify-content-center align-items-center">
+                    <div class="d-flex flex-row justify-content-center align-items-center content-mobile ">
 
-                        <div class="d-flex flex-column justify-content-center align-items-center border p-3 mb-3 me-5 shadow">
+                        <div class="d-flex flex-column justify-content-center align-items-center border p-3 mb-3 me-5 shadow transferencia-mobile">
                             <p class="fs-5 pb-4">Datos de pago:</p>
                             
                             <p class="fs-6 text-secondary mb-1">Alias de CBU</p>
@@ -244,25 +249,22 @@
                         </div>
 
                         <div class="">
-                            <p class="fs-5">Sigue los siguientes pasos:</p>
-                            <ul class="list-group mb-3">
-                                <li class="list-group-item"><strong class="pe-1">1.</strong>  Realiza la transferencia bancaria por el monto de <strong id="total-pago">$90.000</strong>  a la cuenta indicada</li>
+                            <p class="fs-5 pasos-title">Sigue los siguientes pasos:</p>
+                            <ul class="list-group mb-3 pasos-lista">
+                                <li class="list-group-item"><strong class="pe-1">1.</strong>  Realice la transferencia bancaria por el monto de <strong id="total-pago">$90.000</strong>  a la cuenta indicada</li>
                                 <li class="list-group-item"><strong class="pe-1">2.</strong> Adjunta el comprobante haciendo click en <strong>"Seleccionar Archivo"</strong>  </li>
                                 <li class="list-group-item"><strong class="pe-1">3.</strong> Clickeá en <strong>"Finalizar Compra"</strong> </li>
                             </ul>
 
-                            <div class="input-group mb-5">                                
+                            <div class="input-group mb-2 input-comprobante">                                
                                 <input type="file" class="form-control" id="comprobante">
                             </div>
-
-                            <a href="#" class="btn btn-primary mb-5" id="finalizar-compra">Finalizar Compra</a>
-                            
-
-                           
+                            <a href="javascript:void(0)" class="btn btn-primary btn-finalizar-pago-desktop mb-5" id="finalizar-compra">Finalizar Compra</a>
                         </div>
                     </div>
                     
                 </div>
+                <a href="javascript:void(0)" class="btn btn-primary btn-finalizar-pago mb-5" id="finalizar-compra-mobile">Finalizar Compra</a>
             </div>
         </div>
     </div>
@@ -367,6 +369,7 @@
             <script src="./js/signOut.js"></script>
             <script src="./js/public/user.js"></script>
             <script src="./js/public/pago.js"></script>
+            <script src="./js/public/carrito.js"></script>
           
 </body>
 </html>

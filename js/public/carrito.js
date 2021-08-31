@@ -5,13 +5,48 @@
 const carritoNumber = document.getElementById("carrito-number");
 const notificationWrapper = document.getElementById("notification-wrapper");
 let carrito = [];
+try {
+     carrito = JSON.parse(localStorage.getItem('carrito'));
+} catch (error) {
+    console.log(error)
+}
+
+
+// MOSTRAMOS EL NUMERO ACTUAL EN EL CARRITO
+
+if (carrito == null || carrito == []) {
+
+    // no existe carrrito o esta vacio
+    
+} else if (carrito.length == 0) 
+{
+    // no hay articulos cargados en elc arrito
+} else {
+
+    
+    $('#cant-agregada-mobile').removeClass('d-none'); 
+    $('#cant-agregada-mobile-num').html(carrito.length);
+}
+
 
 function agregarCarrito(uid)
 { 
     let existe = false;
+    let carrito = [];
+   
     const productsLs = JSON.parse(localStorage.getItem('productsId'));
-    let productoSeleccionado = {};
+    
 
+    try {
+        carrito = JSON.parse(localStorage.getItem('carrito'));
+    } catch (error) {
+        console.log(error)
+    }
+   
+
+   
+    let productoSeleccionado = {};
+    
     
         // BUSCAMOS EL PRODUCTO SELECCIONADO, GUARDADO EN EL LOCAL STORAGE
      
@@ -20,15 +55,15 @@ function agregarCarrito(uid)
         if (product.uid == uid) {
 
             productoSeleccionado = product;
-         
-
+            
+           
             for (const product of carrito) {
 
                 // ASEGURAMOS QUE EN EL CARRITO NO EXISTA EL PRODUCTO SELECCIONADO
 
                 if (product.uid == uid) {
                     Swal.fire({
-                        title: 'Ya agregaste este producto al carrito! \n Ingresa al carrito y elige la cantidad que necesites!',
+                        title: 'Ya agregaste este producto al carrito!',
                         showClass: {
                           popup: 'animate__animated animate__fadeInDown'
                         },
@@ -48,6 +83,7 @@ function agregarCarrito(uid)
 
     if (!existe) {
 
+        
         carrito.push(productoSeleccionado); 
         
         localStorage.setItem('carrito',JSON.stringify(carrito));
@@ -91,7 +127,8 @@ function agregarCarrito(uid)
                   `;
 
             // Muestro notificación
-            notificationWrapper.classList.remove('d-none','animate__fadeOutUp','animate__animated');     
+
+            notificationWrapper.classList.remove('d-none','animate__fadeOutUp','animate__animated');                  
             notificationWrapper.classList.add('d-block','animate__animated', 'animate__fadeInDown');
             
 
@@ -101,12 +138,23 @@ function agregarCarrito(uid)
             carritoNumber.classList.add('d-block');
             carritoNumber.innerText = carrito.length;
 
+            $('#cant-agregada-mobile').removeClass('d-none'); 
+            $('#cant-agregada-mobile-num').html(carrito.length);
+
             // Al pasar 5 segundos se borra la notificacion
             setTimeout(
                 function() {
-                    notificationWrapper.classList.remove('animate__animated', 'animate__fadeInDown'); 
+                     notificationWrapper.classList.remove('d-block', 'animate__animated', 'animate__fadeInDown'); 
                     notificationWrapper.classList.add('animate__animated', 'animate__fadeOutUp');
+
+                    setTimeout(function () {
+
+                        notificationWrapper.innerHTML = '';
+                        notificationWrapper.classList.add( 'd-none');
+
+                    },800)
                 }, 3000);
+                
         }
         
     }  

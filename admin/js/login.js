@@ -72,6 +72,7 @@ const registerLogin = () => {
         var user = userCredential.user;
         let newUser = new UsuarioCompleto(user.email,user.pass);
 
+        
 
         Swal.fire(
           'Buen trabajo!',

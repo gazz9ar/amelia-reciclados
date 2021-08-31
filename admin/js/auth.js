@@ -104,7 +104,7 @@ const registerLogin = () => {
         var user = userCredential.user;
         console.log(user);
 
-        if (user.uid === 'da2j56RuXxbXP6RQ91tgHYl9zTX2' || 'c6zJrFeW1AgrFe882Eg0E4yYSnp2') {
+        if (user.uid === 'da2j56RuXxbXP6RQ91tgHYl9zTX2' || 'c6zJrFeW1AgrFe882Eg0E4yYSnp2' || 'b5ug3q7FkwOWtnWBHbmh2pvu3Rt1') {
 
           Swal.fire({
             position: 'top-end',

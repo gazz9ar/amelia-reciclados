@@ -170,7 +170,7 @@
     
                             <a href="shop.html" class="img-icon-menu">
                                 <img src="./images/iconos/shopping-cart.png" alt="Carrito" class="mini-img-menu me-3">
-                                <a href="carrito.html" class="text-icon-menu w-100">Tienda</a>
+                                <a href="shop.html" class="text-icon-menu w-100">Tienda</a>
                             </a>     
                             <i class="fas fa-chevron-right arrow-menu-burger"></i>               
                       
@@ -200,7 +200,12 @@
                     <i class="fas fa-bars hamb-nuevo d-none"></i>
                 </a>
                 <p class=" fs-5 logo-mobile">Amelia</p>
-                <i class="fas fa-shopping-cart carrito-mobile  d-none" id="carrito-mobile"></i>
+                <a href="carrito.html">
+                    <div class="position-relative cant-agregada-mobile d-none" id="cant-agregada-mobile">
+                        <p class="fw-bold text-white" id="cant-agregada-mobile-num">1</p>
+                    </div>
+                    <i class="fas fa-shopping-cart carrito-mobile  d-none" id="carrito-mobile"></i>
+                </a> 
             
             
         </div>
@@ -501,6 +506,7 @@
     <script src="./js/signOut.js"></script>
     <script src="./js/public/authPublic.js"></script>
     <script src="./js/public/user.js"></script>
+    <script src="./js/public/carrito.js"></script>
 
 </body>
 

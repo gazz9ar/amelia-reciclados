@@ -27,10 +27,31 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 })
 
+
+
 $(document).ready((e) => {   
 
+    $('#nombre-envio').html('Anónimo');
+    $('#domicilio').html('Calle 123');
+    $('#ciudad').html('Villa María');
+    $('#provincia').html(`Argentina`);
     
+    guardarDatosEnvio();
+
+    $('#guardar-datos-envio').click((e) => {
+
+        guardarDatosEnvio();
+
+
+    });
     $('#btnEnvio').click((e) => {
+
+        
+        var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+        modalEnvio.show();
+
+    });
+    $('#btn-editar-envio').click((e) => {
 
         
         var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
@@ -82,25 +103,37 @@ $(document).ready((e) => {
             let productoCarrito = new Producto(producto.id,producto.nombre,producto.precio,producto.cantidad,producto.fecha,producto.url,producto.description);
             $('#carrito-list').append( `
     
-                <li class="item-carrito d-flex flex-row justify-content-between mb-3 pb-5" id="product-li-${producto.uid}">
-                                        <div class="img-wrapper">
+                <li class="item-carrito d-flex flex-row justify-content-between mb-3 pb-5 position-relative" id="product-li-${producto.uid}">
+                                        <div class="position-absolute eliminar-circle-mobile" onclick="eliminarDelCarrito('${producto.uid}')">
+                                         <i class="far fa-times-circle"></i>
+                                        </div>
+                                        <div class="img-wrapper" >
                                             <img src="${productoUrl}" alt="Sillon">
                                         </div>
                                         <div class="item-info">
-                                            <p class="fw-bold fs-5 ps-4 mb-1">${productoCarrito.nombre}</p>
+                                            <p class="fw-bold fs-5 ps-4 mb-1 nombre-producto">${productoCarrito.nombre}</p>
                                             <p class="fs-6 ps-4 text-dark mb-0">${productoCarrito.description}</p>
-                                            <p class="fs-6 ps-4 text-secondary">Cantidad disponible: ${productoCarrito.cantidad}</p>
-                                            <a href="javascript:void(0)" id="eliminar-carrito" onclick="eliminarDelCarrito('${producto.uid}')" class="ps-4">Eliminar</a>                                    
+                                            <p class="fs-6 ps-4 text-secondary">Stock: ${productoCarrito.cantidad}</p>
+                                            <div class="d-flex ps-4 flex-row justify-content-start align-items-center quantity-mobile">
+                                                <div id="minus-${producto.uid}" class="btn-quantity-mobile">
+                                                   <i class="fas fa-minus"></i>
+                                                </div>
+                                                <p class="input-quantity fs-5 fw-bold ps-3 pe-3 mb-0 w-25 text-center" id="quantity-${producto.uid}">1</p>
+                                                <div id="add-${producto.uid}" class="btn-quantity-mobile">
+                                                   <i class="fas fa-plus"></i>
+                                                </div>
+                                            </div>
+                                            <a href="javascript:void(0)" id="eliminar-carrito" class="eliminar-btn-carrito" onclick="eliminarDelCarrito('${producto.uid}')" class="ps-4">Eliminar</a>                                    
                                         </div>
                                         <div class="quantity-wrapper ms-5 d-flex flex-row justify-content-center align-items-center">
     
-                                            <a href="javascript:void(0)" class="minus-quantity" id="minus-${producto.uid}"> <i class="w-100 h-100 fas fa-minus w-25  text-center"></i></a>                                                       
-                                            <p class="input-quantity fs-5 fw-bold ps-3 pe-3 mb-0 w-25  text-center" id="quantity-${producto.uid}">1</p>                                  
-                                            <a href="javascript:void(0)" class="add-quantity ps-2" id="add-${producto.uid}"><i class="w-100 h-100 fas fa-plus w-25 text-center "></i></a>      
+                                            <a href="javascript:void(0)" class="minus-quantity" id="minus-${producto.uid}"> <i class="w-100 font-primary h-100 fas fa-minus w-25  text-center"></i></a>                                                       
+                                            <p class="input-quantity fs-5 fw-bold ps-3 pe-3 mb-0 w-25  text-center" id="quantity-${producto.uid}-desktop">1</p>                                  
+                                            <a href="javascript:void(0)" class="add-quantity ps-2" id="add-${producto.uid}"><i class="w-100 font-primary h-100 fas fa-plus w-25 text-center "></i></a>      
     
                                         </div>
                                         <div class="price-wrapper d-flex flex-column">
-                                            <p class="precio-sin-descuento "><strong> 15% </strong> $ ${productoCarrito.precio + (productoCarrito.precio * 0.15)}</p>
+                                            
                                             <p class="precio-final fw-bold fs-5 mb-5" id="subtotal-${producto.uid}">$ ${productoCarrito.precio}</p>
                                         </div>
                                     
@@ -138,6 +171,7 @@ $(document).ready((e) => {
                     contenido--;  
                     total -= producto.precio;
                     $(`#quantity-${producto.uid}`).html(contenido);
+                    $(`#quantity-${producto.uid}-desktop`).html(contenido);
                     // ==================================================================================
                     // MODIFICAMOS SUBTOTAL DE CADA PRODUCTO CADA VEZ QUE CAMBIE LA CANTIDAD SELECCIONADA
                     // ==================================================================================
@@ -156,6 +190,17 @@ $(document).ready((e) => {
                                             <p class="fs-6 mb-0 fw-bold text-success">Envío Gratis</p>
                                         </div>                                
                       </div>
+                      <p class="titulo-envio">Datos de Envío</p>
+                      <div class="envio-wrapper d-flex flex-column">
+                      <div class="nombre-wrapper">
+                          <p class="fs-6 fw-bold" id="nombre-envio">Anónimo</p>
+                          <a href="javascript:void(0)" id="btn-editar-envio"><i class="far fa-edit lapiz font-primary"></i></a> 
+                      </div>
+                      <div class="datos-wrapper">
+                          <p class="fs-6 text-secondary"> <span id="domicilio">Calle 123,</span>  <span id="ciudad">Villa Maria,</span> 
+                           <span id="provincia">Córdoba,</span>  <span id="pais"> Argentina</span> </p>
+                      </div>
+                </div>
                     <div class="total mb-4 w-50 d-flex flex-row justify-content-around align-items-center">
                                         <div class="me-2">
                                             <p class="fs-5 fw-bold m-0">Total con envío</p>  
@@ -164,13 +209,13 @@ $(document).ready((e) => {
                                             <p class="fs-5 fw-bold m-0">$ ${total},<strong class="fs-6">00</strong> </p>  
                                         </div>
                      </div>
-                     <div class="d-flex flex-row justify-content-end align-items-center">
-                            <a class="btn btn-primary mb-3 me-1" href="javascript:void(0)" id="finalizar-compra">Finalizar Compra</a>
+                     <div class="d-flex flex-row justify-content-end align-items-center btn-envio-wrapper">
+                            <a class="btn btn-primary mb-3 me-1 btn-finalizar" href="javascript:void(0)" id="finalizar-compra">Siguiente</a>
                      </div>`
                     );
-                   
+                    guardarDatosEnvio();
                     
-                    
+
                         validarEnvio(true);
                     
                     if (producto.cantidad !== contenido) {
@@ -186,7 +231,7 @@ $(document).ready((e) => {
 
             });
 
-
+            
              // AGREGAMOS EL EVENTO CLICK AL + (más)
             $(`#product-li-${producto.uid} #add-${producto.uid}`).click((e) => {
 
@@ -204,7 +249,8 @@ $(document).ready((e) => {
                          botonMenos.removeClass('minus-quantity-disabled');
                      }
                     contenido++;
-                    $(`#quantity-${producto.uid}`).html(contenido);       
+                    $(`#quantity-${producto.uid}`).html(contenido); 
+                    $(`#quantity-${producto.uid}-desktop`).html(contenido);       
 
                     // ==================================================================================
                     // MODIFICAMOS SUBTOTAL DE CADA PRODUCTO CADA VEZ QUE CAMBIE LA CANTIDAD SELECCIONADA
@@ -227,6 +273,17 @@ $(document).ready((e) => {
                                             <p class="fs-6 mb-0 fw-bold text-success">Envío Gratis</p>
                                         </div>                                
                       </div>
+                      <p class="titulo-envio">Datos de Envío</p>
+                      <div class="envio-wrapper d-flex flex-column">
+                        <div class="nombre-wrapper">
+                            <p class="fs-6 fw-bold" id="nombre-envio">Anónimo</p>
+                            <a href="javascript:void(0)" id="btn-editar-envio"><i class="far fa-edit lapiz font-primary"></i></a> 
+                        </div>
+                        <div class="datos-wrapper">
+                            <p class="fs-6 text-secondary"> <span id="domicilio">Calle 123,</span>  <span id="ciudad">Villa Maria,</span> 
+                             <span id="provincia">Córdoba,</span>  <span id="pais"> Argentina</span> </p>
+                        </div>
+                  </div>
                     <div class="total mb-4 w-50 d-flex flex-row justify-content-around align-items-center">
                                         <div class="me-2">
                                             <p class="fs-5 fw-bold m-0">Total con envío</p>  
@@ -235,11 +292,20 @@ $(document).ready((e) => {
                                             <p class="fs-5 fw-bold m-0">$ ${total},<strong class="fs-6">00</strong> </p>  
                                         </div>
                      </div>
-                     <div class="d-flex flex-row justify-content-end align-items-center">
-                            <a class="btn btn-primary mb-3 me-1" href="javascript:void(0)" id="finalizar-compra" >Finalizar Compra</a>
+                     <div class="d-flex flex-row justify-content-end align-items-center btn-envio-wrapper">
+                            <a class="btn btn-primary mb-3 me-1 btn-finalizar" href="javascript:void(0)" id="finalizar-compra" >Siguiente</a>
                      </div>`
                     );
+
+                    guardarDatosEnvio();
                     $('#btnEnvio').click((e) => {
+
+        
+                        var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+                        modalEnvio.show();
+                
+                    });
+                    $('#btn-editar-envio').click((e) => {
 
         
                         var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
@@ -279,6 +345,17 @@ $(document).ready((e) => {
                                 <p class="fs-6 mb-0 fw-bold text-success">Envío Gratis</p>
                             </div>                                
           </div>
+          <p class="titulo-envio">Datos de Envío</p>
+          <div class="envio-wrapper d-flex flex-column">
+                        <div class="nombre-wrapper">
+                            <p class="fs-6 fw-bold" id="nombre-envio">Anónimo</p>
+                            <a href="javascript:void(0)" id="btn-editar-envio"><i class="far fa-edit lapiz font-primary"></i></a> 
+                        </div>
+                        <div class="datos-wrapper">
+                            <p class="fs-6 text-secondary"> <span id="domicilio">Calle 123,</span>  <span id="ciudad">Villa Maria,</span> 
+                             <span id="provincia">Córdoba,</span>  <span id="pais"> Argentina</span> </p>
+                        </div>
+                  </div>
         <div class="total mb-4 w-50 d-flex flex-row justify-content-around align-items-center">
                             <div class="me-2">
                                 <p class="fs-5 fw-bold m-0">Total con envío</p>  
@@ -287,8 +364,8 @@ $(document).ready((e) => {
                                 <p class="fs-5 fw-bold m-0">$ ${total},<strong class="fs-6">00</strong> </p>  
                             </div>
          </div>
-         <div class="d-flex flex-row justify-content-end align-items-center">
-                <a class="btn btn-primary mb-3 me-1" href="javascript:void(0)" id="finalizar-compra" >Finalizar Compra</a>
+         <div class="d-flex flex-row justify-content-end align-items-center btn-envio-wrapper">
+                <a class="btn btn-primary mb-3 me-1 btn-finalizar" href="javascript:void(0)" id="finalizar-compra" >Siguiente</a>
          </div>`
         );
 
@@ -299,9 +376,16 @@ $(document).ready((e) => {
             modalEnvio.show();
     
         });
+        $('#btn-editar-envio').click((e) => {
+
+        
+            var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+            modalEnvio.show();
+    
+        });
     }    
      
-    console.log(usuarioLogeado);
+    
     validarEnvio(true);
     
     
@@ -437,11 +521,6 @@ function buscarURL(uid)
         
         }
 
-           
-      
-       
-           
-        
 
        
      });
@@ -497,6 +576,17 @@ function eliminarDelCarrito(uid)
                                         <p class="fs-6 mb-0 fw-bold text-success">Envío Gratis</p>
                                     </div>                                
                   </div>
+                  <p class="titulo-envio">Datos de Envío</p>
+                  <div class="envio-wrapper d-flex flex-column">
+                        <div class="nombre-wrapper">
+                            <p class="fs-6 fw-bold" id="nombre-envio">Anónimo</p>
+                            <a href="javascript:void(0)" id="btn-editar-envio"><i class="far fa-edit lapiz font-primary"></i></a> 
+                        </div>
+                        <div class="datos-wrapper">
+                            <p class="fs-6 text-secondary"> <span id="domicilio">Calle 123,</span>  <span id="ciudad">Villa Maria,</span> 
+                             <span id="provincia">Córdoba,</span>  <span id="pais"> Argentina</span> </p>
+                        </div>
+                  </div>
                 <div class="total mb-4 w-50 d-flex flex-row justify-content-around align-items-center">
                                     <div class="me-2">
                                         <p class="fs-5 fw-bold m-0">Total con envío</p>  
@@ -505,12 +595,19 @@ function eliminarDelCarrito(uid)
                                         <p class="fs-5 fw-bold m-0">$ ${total},<strong class="fs-6">00</strong> </p>  
                                     </div>
                  </div>
-                 <div class="d-flex flex-row justify-content-end align-items-center">
-                        <a class="btn btn-primary mb-3 me-1" href="javascript:void(0)" id="finalizar-compra">Finalizar Compra</a>
+                 <div class="d-flex flex-row justify-content-end align-items-center btn-envio-wrapper">
+                        <a class="btn btn-primary mb-3 me-1 btn-finalizar" href="javascript:void(0)" id="finalizar-compra">Siguiente</a>
                  </div>`
                 );
 
                 $('#btnEnvio').click((e) => {
+
+        
+                    var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+                    modalEnvio.show();
+            
+                });
+                $('#btn-editar-envio').click((e) => {
 
         
                     var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
@@ -549,3 +646,26 @@ function addDeleteHtml(id,html,array)
 }
 
 
+function guardarDatosEnvio() 
+{
+
+    let nombreCargado =  $(`#input-nombre`).val();
+    let apellidoCargado =  $(`#input-apellido`).val();
+    let codigoPostalCargado =  $(`#input-codigoPostal`).val();
+    let localidadCargado =  $(`#input-localidad`).val();
+    let calleCargado =  $(`#input-calle`).val();
+    let numeroCalleCargado =  $(`#input-numeroCalle`).val();
+    let provinciaCargado =  $(`#provincias-dropdown`).val();
+
+    
+        $('#nombre-envio').html(`${nombreCargado +  " " + apellidoCargado}`);
+        $('#domicilio').html(`${calleCargado + " " + numeroCalleCargado}, `);
+        $('#ciudad').html(`${localidadCargado}, `);
+        $('#provincia').html(`${provinciaCargado}, `);
+    
+       
+
+
+
+        
+}

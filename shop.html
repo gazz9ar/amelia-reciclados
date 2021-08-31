@@ -180,7 +180,12 @@
                 <i class="fas fa-bars hamb-nuevo d-none"></i>
             </a>
             <p class=" fs-5 logo-mobile">Amelia</p>
-            <a href="carrito.html"><i class="fas fa-shopping-cart carrito-mobile  d-none" id="carrito-mobile"></i></a> 
+            <a href="carrito.html">
+                <!-- <div class="position-relative cant-agregada-mobile d-none" id="cant-agregada-mobile">
+                    <p class="fw-bold text-white" id="cant-agregada-mobile-num">1</p>
+                </div> -->
+                <i class="fas fa-shopping-cart carrito-mobile  d-none" id="carrito-mobile"></i>
+            </a> 
         </div>
         <!-- CAROUSEL HERO -->
         <div id="carouselExampleSlidesOnly" class="carousel slide h-100">
@@ -229,44 +234,24 @@
 
 
         <!-- 4 COLUMNAS en LARGE /// 2 COLUMNAS en MEDIUM /// 1 COLUMNA en SMALL -->
-        <div class="row d-flex flex-row justify-content-center align-items-center mb-5" id="shop-row">
+        <div class="row mb-5" id="shop-row">
 
-            <!-- // FILTROS -->
-            <!-- <div class="col-lg-2 col-md-6 col-sm-12 align-self-start me-5" >
-                <label for="rango-precio">Precio:</label>
-                <input
-                    type="range"
-                    min="0"                    // default 0
-                    max="90000"                  // default 100
-                    step="1"                   // default 1
-                    value="90000"                 // default min + (max-min)/2
-                    data-orientation="vertical" // default horizontal
-                    name="rango-precio"
-                    id="rango-precio"
-                    class="form-range"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    title="60000"
-                >
-                <div class="w-100 d-flex flex-row justify-content-between">
-                    <p id="starting-value">$ 0</p>
-                    <p id="limit-value">$ 90000</p>                   
-                </div>
-               
-            </div> -->
+            <!-- // COLUMNAS DESKTOP -->
+            
+             
 
-            <div class="col-6 col-lg-3 " id="col-1">                       
+            <div class="col-6 col-lg-4 col-desktop" id="col-1">                       
                 <div  id="spinner-z" class="preloader-vistaprevia d-flex justify-content-center align-items-center">
                     <img class="preloader-body-vistaprevia" src="../images/iconos/spinner.svg" alt="Spinner">
                  </div>
             </div>
-            <div class="col-6 col-lg-3" id="col-2">             
+            <div class="col-6 col-lg-4 col-desktop" id="col-2">             
                       
                 <div  id="spinner-z" class="preloader-vistaprevia">
                     <img class="preloader-body-vistaprevia" src="../images/iconos/spinner.svg" alt="Spinner">
                  </div>
             </div>
-            <div class="col-6 col-lg-3 " id="col-3">               
+            <div class="col-6 col-lg-4 col-desktop" id="col-3">               
 
                
                 <div  id="spinner-z" class="preloader-vistaprevia">
@@ -275,47 +260,29 @@
              
             </div>
 
-        </div>
-
-    </div>
-
-
-
-
-
-
-    <!-- Modal Link a mercado pago -->
-    <div class="modal fade" id="modalProximamente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered w-50 modal-responsive">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold fs-4" id="staticBackdropLabel">Comprar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-
-                        <div class="col-12">
-                            <p class="fs-5 text-center">Ingresa a Mercado pago para finalizar la compra!</p>
-                            <a href="https://mpago.la/2kXccZZ" class="d-block w-50 h-75 m-auto mt-3 mercadoPago border"
-                                target="_blank">
-
-                                <img src="./images/MP.png" alt="Mercado Pago" class="img-fluid w-50 d-block m-auto">
-                            </a>
-                        </div>
-                    </div>
-
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-
-                </div>
+            <!-- COLUMNAS MOBILE -->
+            <div class="col-6" id="col-1-mobile">                       
+                <div  id="spinner-z" class="preloader-vistaprevia d-flex justify-content-center align-items-center">
+                    <img class="preloader-body-vistaprevia" src="../images/iconos/spinner.svg" alt="Spinner">
+                 </div>
             </div>
+
+            <div class="col-6" id="col-2-mobile">                       
+                <div  id="spinner-z" class="preloader-vistaprevia d-flex justify-content-center align-items-center">
+                    <img class="preloader-body-vistaprevia" src="../images/iconos/spinner.svg" alt="Spinner">
+                 </div>
+            </div>
+
         </div>
+
     </div>
+
+
+
+
+
+
+    
 
     <footer class="bg-header-footer row footer" id="contacto">
         <div class="col-lg-6 col-md-12 p-5">

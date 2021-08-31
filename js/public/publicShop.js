@@ -6,6 +6,10 @@ const onGetCollection = (collection,callback) => {
   
   }
 
+  let contadorProductosCol1 = 0;
+    let contadorProductosCol2 = 0;
+    let contadorProductosCol3 = 0;
+
 //   function getCollection(collection)
 // {
 //     let collectionSelected = db.collection(collection);  
@@ -27,6 +31,7 @@ $(document).ready(
     
       
     products = [];
+    
 
     col1.innerHTML = '';
     col2.innerHTML = '';
@@ -71,6 +76,8 @@ $(document).ready(
       // MAQUETADO DISEÑADO EN 3 COLUMNAS COMO INSTAGRAM, NO IMPORTA LA CANT  DE PRODUCTOS, SE DEBEN IR CARGANDO DE IZQ  A DERECHA EN LAS 3 COLUMNAS
       // ============================================================================================================================================
 
+      
+
       // Si la cant de productos es divisible por 3
       if (products.length % 3 == 0) {
 
@@ -100,27 +107,73 @@ $(document).ready(
             let storageRef  = firebase.storage().ref(); 
             storageRef.child('shopImages/' + productDocument.imgUrl).getDownloadURL()
             .then(function(url){
+              
               col1.innerHTML += `
           
-                <div class="item-wrapper" id="product-uid-${product.uid}">
+                <div class="item-wrapper " id="product-uid-${product.uid}">
+                        
                         <a href="javascript:void(0)" class="d-block position-relative product-link" type="button"
-                            onclick="agregarCarrito('${product.uid}')">
-                            <img src="${url}" alt="Mueble Barniz" class="img-thumbnail">
+                            onclick="agregarCarrito('${product.uid}')" id="a-col-${contadorProductosCol1}">
+
+                           
+
+                            <img src="${url}" alt="${product.description}" class="img-thumbnail">
+                            
+                            
                             <!-- OCULTO -->
                             <div
                                 class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
                                 <p>Agregar al Carrito</p>
                             </div>
+                           
+
                         </a>
 
-                        <h3 class="fs-5 product-title mb-1 mt-2"> ${product.nombre}</h3>
-                        <p class="fs-6 product-text mt-0 mb-1">${product.description}</p>
-                        <p class="fs-6 product-text">$${product.precio}</p>
-                        <p class="fs-6 text-secondary product-text mt-2">Stock: ${product.cantidad}</p>
+                        <div class="item-info-shop">
+
+                          <h3 class="fs-5 product-title mb-1 pt-2"> ${product.nombre}</h3>                        
+                          <p class="fs-6 fw-bold product-text">$${product.precio}</p>
+                        </div>                       
                     </div>
                 `;
+
+              $('#col-1-mobile').html(`
+              
+              <div class="item-wrapper " id="product-uid-${product.uid}">
+                        
+                        <a href="javascript:void(0)" class="d-block position-relative product-link" type="button"
+                            onclick="agregarCarrito('${product.uid}')" id="a-col-${contadorProductosCol1}">
+
+                           
+
+                            <img src="${url}" alt="${product.description}" class="img-thumbnail">
+                            
+                            
+                            <!-- OCULTO -->
+                            <div
+                                class="position-absolute text-center w-75  start-50 agregar translate-middle d-none m-auto">
+                                <p>Agregar al Carrito</p>
+                            </div>
+                           
+
+                        </a>
+
+                        <div class="item-info-shop">
+
+                          <h3 class="fs-5 product-title mb-1 pt-2"> ${product.nombre}</h3>                        
+                          <p class="fs-6 fw-bold product-text">$${product.precio}</p>
+                        </div>                       
+                    </div>`);
+
                 
 
+                $(`#a-col-${contadorProductosCol1}`).append(`
+                <div class="position-absolute shopping-bag-mobile">
+                    <a class="shopping-bag-mobile-link" ><i class="fas fa-shopping-bag"></i></a>
+                </div>
+                `);
+
+                contadorProductosCol1++;
                 arrayUrls.push({
                   uid:product.uid,
                   url:url
@@ -149,9 +202,10 @@ $(document).ready(
             .then(function(url){
               col2.innerHTML += `
           
-                <div class="item-wrapper" id="product-uid-${product.uid}">
+              <div class="item-wrapper" id="product-uid-${product.uid}">
+                    
                         <a href="javascript:void(0)" class="d-block position-relative product-link" type="button"
-                            onclick="agregarCarrito('${product.uid}')">
+                            onclick="agregarCarrito('${product.uid}')" id="a-col-${contadorProductosCol2}">
                             <img src="${url}" alt="Mueble Barniz" class="img-thumbnail">
                             <!-- OCULTO -->
                             <div
@@ -160,14 +214,20 @@ $(document).ready(
                             </div>
                         </a>
 
-                        <h3 class="fs-5 product-title mb-1 mt-2"> ${product.nombre}</h3>
-                        <p class="fs-6 product-text mt-0 mb-1">${product.description}</p>
-                        <p class="fs-6 product-text">$${product.precio}</p>
-                        <p class="fs-6 text-secondary product-text mt-2">Stock: ${product.cantidad}</p>
+                        <div class="item-info-shop">
+
+                          <h3 class="fs-5 product-title mb-1 pt-2"> ${product.nombre}</h3>                        
+                          <p class="fs-6 fw-bold product-text">$${product.precio}</p>
+                        </div>
                     </div>
                 `;
                 
 
+                $(`#a-col-${contadorProductosCol2}`).append(`
+                <div class="position-absolute shopping-bag-mobile">
+                    <a class="shopping-bag-mobile-link"><i class="fas fa-shopping-bag"></i></a>
+                </div>
+                `);
                 arrayUrls.push({
                   uid:product.uid,
                   url:url
@@ -193,9 +253,10 @@ $(document).ready(
             .then(function(url){
               col3.innerHTML += `
           
-                <div class="item-wrapper" id="product-uid-${product.uid}">
+              <div class="item-wrapper" id="product-uid-${product.uid}">
+                    
                         <a href="javascript:void(0)" class="d-block position-relative product-link" type="button"
-                            onclick="agregarCarrito('${product.uid}')">
+                            onclick="agregarCarrito('${product.uid}')" id="a-col-${contadorProductosCol3}">
                             <img src="${url}" alt="Mueble Barniz" class="img-thumbnail">
                             <!-- OCULTO -->
                             <div
@@ -203,13 +264,20 @@ $(document).ready(
                                 <p>Agregar al Carrito</p>
                             </div>
                         </a>
+                        <div class="item-info-shop">
 
-                        <h3 class="fs-5 product-title mb-1 mt-2"> ${product.nombre}</h3>
-                        <p class="fs-6 product-text mt-0 mb-1">${product.description}</p>
-                        <p class="fs-6 product-text">$${product.precio}</p>
-                        <p class="fs-6 text-secondary product-text mt-2">Stock: ${product.cantidad}</p>
+                          <h3 class="fs-5 product-title mb-1 pt-2"> ${product.nombre}</h3>                        
+                          <p class="fs-6 fw-bold product-text">$${product.precio}</p>
+                        </div>
+                          
                     </div>
                 `;                  
+
+                $(`#a-col-${contadorProductosCol3}`).append(`
+                <div class="position-absolute shopping-bag-mobile">
+                    <a class="shopping-bag-mobile-link"><i class="fas fa-shopping-bag"></i></a>
+                </div>
+                `);
 
                 arrayUrls.push({
                   uid:product.uid,
@@ -231,10 +299,3 @@ $(document).ready(
   }))
 )
 
-window.addEventListener('DOMContentLoaded', async (e) => {
-
-    
-
-   
-    
-  })

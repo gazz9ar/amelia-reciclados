@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged((user) => {
   
     if (user) {     
       const userlogged = firebase.auth().currentUser;
-      if (userlogged.uid == 'da2j56RuXxbXP6RQ91tgHYl9zTX2' || userlogged.uid == '4kJInL9WegV9sB4XWoUqUspAkfq2' || userlogged.uid == '4kJInL9WegV9sB4XWoUqUspAkfq2') {        
+      if (userlogged.uid == 'da2j56RuXxbXP6RQ91tgHYl9zTX2' || userlogged.uid == 'b5ug3q7FkwOWtnWBHbmh2pvu3Rt1' || userlogged.uid == '4kJInL9WegV9sB4XWoUqUspAkfq2') {        
         
         
         

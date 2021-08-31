@@ -3,16 +3,20 @@ const username = $('#username');
 const usernameMobile = $('#username-mobile');
 const userEmail = $('#user-email');
 
+
+
+
 firebase.auth().onAuthStateChanged((user) => {
 
     if (user) {
 
+        
         userEmail.html(user.email);
         getCollection('users',user.email).then((p) => {
 
             
              usuarioLogeado = p.data();
-             if (usuarioLogeado.nick == '') {
+             if (usuarioLogeado.nick == '' || usuarioLogeado.nick == undefined) {
                 
                 username.html(user.email);
                 usernameMobile.html(user.email);
