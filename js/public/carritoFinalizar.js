@@ -79,18 +79,25 @@ $(document).ready((e) => {
     });
 
     if (carrito.length == 0) {
+
+        $('#items-carrito-wrapper').removeClass('pt-5');
         
         $('#carrito-list').html(` <li class="w-100 item-carrito d-flex flex-row justify-content-center mb-3 pb-5" >
                                 
-        <div class="carrito-vacio d-flex flex-column justify-content-center align-items-center">
+        <div class="carrito-vacio d-flex flex-column justify-content-between align-items-center">
     
-                    <h2 class="">Tu carrito está vacío</h2>
-                     <a href="shop.html#visita" class="btn btn-outline-secondary">Visitá nuestra Tienda</a>
-                     <img src="./images/iconos/lonely.svg" alt="Triste">  
+
+                     <img src="./images/carrito-vacio.svg" class="img-tilde" alt="Carrito vacío">  
+                    <h2 class="fs-5">Tu carrito está vacío</h2>
+                     <a href="shop.html#visita" class="btn btn-volver-tienda">Ir a la tienda</a>
+                    
+                   
         
         </div>
     
      </li>     `);
+
+
 
      $('#total-wrapper').html(``);
     } else {
@@ -547,13 +554,16 @@ function eliminarDelCarrito(uid)
         $('#subtotal').html('');
         $('#total-wrapper').html(``);
         $('#carritoLenght').html(carrito.length);
+        $('#items-carrito-wrapper').removeClass('pt-5');
         $('#carrito-list').html(` <li class="w-100 item-carrito d-flex flex-row justify-content-center mb-3 pb-5" >
                                 
-        <div class="carrito-vacio d-flex flex-column justify-content-center align-items-center">
-    
-                    <h2 class="">Tu carrito está vacío</h2>
-                     <a href="shop.html#visita" class="btn btn-outline-secondary">Visitá nuestra Tienda</a>
-                     <img src="./images/iconos/lonely.svg" alt="Triste">  
+        <div class="carrito-vacio d-flex flex-column justify-content-between align-items-center">
+
+
+                      <img src="./images/carrito-vacio.svg" class="img-tilde" alt="Carrito vacío">  
+                       <h2 class="fs-6">Tu carrito está vacío</h2>
+                     <a href="shop.html#visita" class="btn btn-volver-tienda">Ir a la Tienda</a>                      
+                     
         
         </div>
     

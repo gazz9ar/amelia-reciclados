@@ -74,9 +74,13 @@ $(document).ready(
                         
                         <h1 class="fs-3 fw-bold mt-3 mb-5 compra-finalizada-title text-center" >Compra finalizada</h1>
 
-                        <img src="./images/iconos/comprobado.svg" alt="Compra exitosa" class="img-tilde">
-    
-                        <p class="fs-4 mt-2 mb-3 text-secondary text-center">  Su pedido sera enviado pronto \n Gracias por elegirnos!</p>
+                    <img src="./images/finalizacion.svg" class="img-tilde" alt="Compra Finalizada">
+
+                    <p class="fs-5 mt-2  text-secondary text-center" style="margin-bottom: 0px;">  Su pedido sera enviado pronto </p>
+                    
+                    <p class="fs-5  mb-3 text-secondary text-center">Gracias por elegirnos!</p>
+
+                    <a href="shop.html" class="btn btn-volver-tienda">Volver a la tienda</a>
     
                         
 
@@ -186,9 +190,13 @@ $(document).ready(
                 
                     <h1 class="fs-3 fw-bold mt-3 mb-5 compra-finalizada-title text-center" >Compra finalizada</h1>
 
-                    <img src="./images/iconos/comprobado.svg" alt="Compra exitosa" class="img-tilde">
+                    <img src="./images/finalizacion.svg" class="img-tilde" alt="Compra Finalizada">
 
-                    <p class="fs-4 mt-2 mb-3 text-secondary text-center">  Su pedido sera enviado pronto \n Gracias por elegirnos!</p>
+                    <p class="fs-5 mt-2 pb-1  text-secondary text-center">  Su pedido sera enviado pronto </p>
+                    
+                    <p class="fs-5  mb-3 text-secondary text-center">Gracias por elegirnos!</p>
+
+                    <a href="shop.html" class="btn btn-volver-tienda">Volver a la tienda</a>
 
                     
 

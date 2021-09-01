@@ -958,4 +958,15 @@
   }
 }
 
+.btn-volver-tienda {
+  color: white;
+  background-color: #9D6A3B;
+  margin-bottom: 17px;
+}
+@media (max-width: 800px) {
+  .btn-volver-tienda {
+    width: 98%;
+  }
+}
+
 /*# sourceMappingURL=shop.css.map */
