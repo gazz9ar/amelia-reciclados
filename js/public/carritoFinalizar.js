@@ -213,6 +213,14 @@ $(document).ready((e) => {
                             <a class="btn btn-primary mb-3 me-1 btn-finalizar" href="javascript:void(0)" id="finalizar-compra">Siguiente</a>
                      </div>`
                     );
+
+                    $('#btn-editar-envio').click((e) => {
+
+        
+                        var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+                        modalEnvio.show();
+                
+                    });
                     guardarDatosEnvio();
                     
 
