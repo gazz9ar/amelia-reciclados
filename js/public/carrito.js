@@ -4,11 +4,11 @@
 
 const carritoNumber = document.getElementById("carrito-number");
 const notificationWrapper = document.getElementById("notification-wrapper");
-let carrito = [];
+
 try {
      carrito = JSON.parse(localStorage.getItem('carrito'));
 } catch (error) {
-    console.log(error)
+   
 }
 
 
@@ -40,7 +40,7 @@ function agregarCarrito(uid)
     try {
         carrito = JSON.parse(localStorage.getItem('carrito'));
     } catch (error) {
-        console.log(error)
+        
     }
    
 
