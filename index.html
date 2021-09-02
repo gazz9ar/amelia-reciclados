@@ -66,9 +66,11 @@
 
 
 
-<body class="bg-light bg-gradient">
+<body class="bg-light bg-gradient" >
     <!-- HEADER  siempre visible // app-header -->
 
+    <div id="overlay" onclick="closeHamburger()"></div>
+    
     <!-- app-header -->
     <header class="header position-relative" id="header">
         
@@ -248,46 +250,6 @@
     </header>
 
 
-
-
-
-    <!-- app-home -->
-     <!-- Botones redondes -->
-     <!-- <div class="container-fluid">
-        <div class="row d-lg-flex d-md-none d-sm-none d-none">
-            <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center
-             start-circle position-relative animate__animated animate__backInUp ">
-              
-                <a href="shop.html#visita" class="btn btn-dark rounded-circle big-circle ">
-                    <img src="./images/iconos/shopping-cart.png" alt="Tienda">
-                </a>
-                <p class="fs-3 fw-bold mt-3">Ir a la Tienda</p>
-            </div>
-            <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center
-             mid-circle position-relative animate__animated animate__backInUp ">
-                
-                <a href="blog.html" class="btn btn-dark rounded-circle big-circle ">
-                    <img src="./images/iconos/blog.png" alt="Blog">
-                </a>
-                <p class="fs-3 fw-bold mt-3">Ir al blog</p>
-            </div>
-            <div class="col-lg-4 d-flex flex-column justify -content-center align-items-center
-             end-circle position-relative animate__animated animate__backInUp">
-               
-                <a href="gallery.html" class="btn btn-dark rounded-circle big-circle">
-                    <img src="./images/iconos/gallery-white.png" alt="Galeria Muebles">
-                </a>
-                <p class="fs-3 fw-bold mt-3">Ir a la galería</p>
-            </div>              
-    
-            
-        </div>
-     </div> -->
-     
-
-        
-   
-
     <!-- router-outlet -->
     <!-- app-home -->
     <section class="servicios bg-light bg-gradient pt-5 mt-5" id="servicios">
@@ -352,11 +314,6 @@
         </ul>
     </section>
 
-    <!-- HACER UNA MINI GALERIA QUE LLEVE A GALLERY / CON BOOTSRAP -->
-    <!-- app-home -->
-    <section class="mini-gallery">
-
-    </section>
 
     <!-- app-home -->
     <section class="blog ">
@@ -388,10 +345,6 @@
 
 
     <!-- app-footer -->
-
-
-
-    
     <footer class="bg-header-footer row footer" id="contacto">
         <div class="col-lg-6 col-md-12 p-5">
             <h3 class="text-white text-center fw-bold">Contáctenos</h3>

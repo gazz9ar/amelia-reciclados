@@ -16,14 +16,22 @@ function getDocHeigth() {
   
   
 }
+function on() {
+  document.getElementById("overlay").style.display = "block";
+}
 
+function off() {
+  document.getElementById("overlay").style.display = "none";
+}
 async function OpenCloseHamburger() {
 
     let _docHeight = 0;
     _docHeight = await getDocHeigth();
 
-
+      on();
     whatsappLogo.addClass('d-none');
+    
+    
     $('#cant-agregada-mobile').addClass('d-none')
      $('#flex-nav').addClass('color-grisOscuro-flexnav');
 
@@ -63,7 +71,7 @@ async function OpenCloseHamburger() {
   function closeHamburger()
   {
     
-
+    off();
     whatsappLogo.removeClass('d-none');
     $('#cant-agregada-mobile').removeClass('d-none')
     burger.classList.add("hamburger");
