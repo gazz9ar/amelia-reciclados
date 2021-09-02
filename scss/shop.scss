@@ -475,6 +475,10 @@
 
   .cant-agregada-mobile
   {
+    display:  none;
+    @media (max-width: 1200px) {
+        display: block;
+    }
     width: 16px;
     height: 16px;
     background-color: #FF7A00;
@@ -488,6 +492,14 @@
     {
       line-height: 15px;
     }
+  }
+  .carousel-item img 
+  {
+
+    @media (max-width: 500px) {
+      height: 100% !important;
+       }
+    
   }
 
   .content-mobile

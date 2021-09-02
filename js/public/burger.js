@@ -23,10 +23,11 @@ async function OpenCloseHamburger() {
     _docHeight = await getDocHeigth();
 
 
-    
-    
     whatsappLogo.addClass('d-none');
+    $('#cant-agregada-mobile').addClass('d-none')
      $('#flex-nav').addClass('color-grisOscuro-flexnav');
+
+     
 
     document.styleSheets[0].insertRule(`body::before { content: '';
       position: absolute;
@@ -64,6 +65,7 @@ async function OpenCloseHamburger() {
     
 
     whatsappLogo.removeClass('d-none');
+    $('#cant-agregada-mobile').removeClass('d-none')
     burger.classList.add("hamburger");
     burger.classList.remove("ocultar");
     menu.classList.remove('animate__animated');

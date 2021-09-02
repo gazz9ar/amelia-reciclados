@@ -814,6 +814,7 @@
 }
 
 .cant-agregada-mobile {
+  display: none;
   width: 16px;
   height: 16px;
   background-color: #FF7A00;
@@ -823,8 +824,19 @@
   z-index: 99999;
   text-align: center;
 }
+@media (max-width: 1200px) {
+  .cant-agregada-mobile {
+    display: block;
+  }
+}
 .cant-agregada-mobile p {
   line-height: 15px;
+}
+
+@media (max-width: 500px) {
+  .carousel-item img {
+    height: 100% !important;
+  }
 }
 
 @media (max-width: 800px) {
