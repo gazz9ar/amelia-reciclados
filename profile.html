@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
 
-    <title>Carrito | Amelia Reciclados </title>
+    <title>Perfil | Amelia Reciclados </title>
 
     <link rel="shortcut icon" href="./images/LOGO-AMELIA.png" type="image/x-icon">
 
@@ -54,7 +54,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body class="body-profile">
 
     <div id="overlay" onclick="closeHamburger()"></div>
 
@@ -182,59 +182,71 @@
                 <!-- <img src="./images/iconos/square.png" alt="Menu Navegacion"> -->
                 <i class="fas fa-bars hamb-nuevo d-none" ></i>
             </a>
-            <p class=" fs-5 logo-mobile">Amelia</p>
-            <a href="carrito.html"><i class="fas fa-shopping-cart carrito-mobile  d-none" id="carrito-mobile"></i></a> 
+            <p class=" fs-5 logo-mobile" id="amelia-logo">Amelia</p>
+            <a href="carrito.html" id="carrito-mobile-wrapper"><i class="fas fa-shopping-cart carrito-mobile  d-none" id="carrito-mobile"></i></a> 
         </div>
        
     </header>
   
-
+    <div class="w-100 pt-5 d-none">
+        <h1 class="fs-5 fw-bold d-inline-block ">Mis Datos</h1> 
+    </div>
     <!-- app-carrito-selected -->
     <!-- MAQUETADO ITEMS EN CARRITO -->
 
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <!-- SPINNER -->
                 <div  id="spinner-z" class="preloader-vistaprevia w-100 bg-white mb-5 d-flex flex-column justify-content-center align-items-center" style="height: 500px;">
                     <img class="preloader-body-vistaprevia" src="../images/iconos/spinner.svg" alt="Spinner">
                  </div>
+
                 <div class="w-100 h-auto bg-white mb-5 d-flex flex-column justify-content-center align-items-center" id="content">
-                    <div class="w-75 pt-5">
-                        <h1 class="fs-5 fw-bold d-inline-block">Mis Datos</h1> 
+                   
+                    <div class="w-100 ms-3 d-flex justify-content-start align-items-center" id="content-top">
+                            <div class="img-perfil-wrapper me-3">
+                                <img src="./images/iconos/user.svg" class="img-perfil" alt="Imagen perfil de usuario">
+                            </div>
+                        
+                            <div class="w-100 mt-2"> 
+                                <p class="fs-5 fw-bold ls-1 text-dark mb-1 ls-titulos pt-3" id="nombre-perfil">Anónimo Amelia</p>
+                                <p class="fs-6 text-secondary" id="correo-perfil">ameliareciclados@gmail.com</p>
+                            </div>
                     </div>
-                    <div class="w-75 h-75 pt-5">
-                        <ul class="d-flex flex-column justify-content-center align-items-center">
+
+                    <div class="w-100 d-flex flex-row justify-content-center align-items-center" id="content-mid">
+                        <div class="w-50 border-seleccionada" id="perfil-wrapper">
+                            <p class="text-center mb-0">Perfil</p>
+                        </div>
+                        <div class="w-50" id="direcciones-wrapper">
+                            <p class="text-center mb-0">Direcciones</p>
+                        </div>
+
+                    </div>
+                    <div class="w-100 h-75 mt-3" id="content-change">
+                        <ul class="d-flex flex-column justify-content-center align-items-center lista-datos-perfil">
                             <li class="w-100 item-carrito d-flex flex-column justify-content-center mb-3">  
-                                <label for="nickname" class="fs-6 fw-bold">Nickname:</label>
-                                <input type="text" id="nickname" class="form-control" placeholder="Nick" aria-label="Nick">
+                                <label for="nickname" class="fs-6 fw-bold text-white" id="label-nickname">Nickname:</label>
+                                <input type="text" id="nickname" class="form-control" placeholder="Ingrese su Nickname..." aria-label="Ingrese su Nickname..." onclick="showPlaceholder()">
                                                            
                              </li>  
                              <li class="w-100 item-carrito d-flex flex-column justify-content-center mb-3">  
-                                <label for="nickname" class="fs-6 fw-bold">Nombre:</label>
-                                <input type="text" id="nombre" class="form-control" placeholder="Nombre" aria-label="Nombre">                            
+                                <label for="nickname" class="fs-6 fw-bold" id="label-nombre">Nombre:</label>
+                                <input type="text" id="nombre" class="form-control" placeholder="Ingrese su Nombre..." aria-label="Nombre" onclick="showPlaceholder()">                            
                              </li>  
                              <li class="w-100 item-carrito d-flex flex-column justify-content-center mb-3">  
-                                <label for="nickname" class="fs-6 fw-bold">Apellido:</label>
-                                <input type="text" id="apellido" class="form-control" placeholder="Apellido" aria-label="Apellido">                            
-                             </li>   
-                             <li class="w-100 item-carrito d-flex flex-column justify-content-center mb-3">  
-                                <label for="nickname" class="fs-6 fw-bold">Provincia:</label>
-                                <select class="form-select" id="provincia" aria-label="Provincia" id="provincias-dropdown">
-                                    <option id="input-provincia" selected>Provincia</option>                            
-                                </select>                            
-                             </li>   
-                             <li class="w-100 item-carrito d-flex flex-column justify-content-center mb-3"> 
-                                <label for="nickname" class="fs-6 fw-bold">Ciudad:</label> 
-                                <input type="text" id="ciudad" class="form-control" placeholder="Ciudad" aria-label="Ciudad">                            
-                             </li>    
+                                <label for="nickname" class="fs-6 fw-bold" id="label-apellido">Apellido:</label>
+                                <input type="text" id="apellido" class="form-control" placeholder="Ingrese su Apellido..." aria-label="Apellido" onclick="showPlaceholder()">                            
+                             </li>
                              <li class="w-100 item-carrito d-flex flex-column justify-content-center mb-4">  
-                                <label for="nickname" class="fs-6 fw-bold">Telefono:</label>
-                                <input type="text" id="telefono" class="form-control" placeholder="Telefono" aria-label="Telefono">                            
+                                <label for="nickname" class="fs-6 fw-bold" id="label-telefono">Telefono:</label>
+                                <input type="text" id="telefono" class="form-control" placeholder="Ingrese su Telefono..." aria-label="Telefono" onclick="showPlaceholder()">                            
                              </li>         
                         </ul>
 
-                        <div class="d-flex justify-content-center align-items-center mb-5">
-                            <a href="javascript:void(0)" class="btn btn-outline-primary w-50" id="guardarCambiosPerfil">Guardar</a>
+                        <div class="d-flex justify-content-center align-items-center mb-5 pt-5">
+                            <a href="javascript:void(0)" class="btn btn-amelia w-100" id="guardarCambiosPerfil">Guardar</a>
                         </div>
                                                
                        
@@ -376,6 +388,7 @@
             <script src="./js/public/user.js"></script>
             <script src="./js/firebaseFunctions.js"></script>
             <script src="./js/profile.js"></script>
+            <script src="./js/perfil.js"></script>
             
            
 </body>

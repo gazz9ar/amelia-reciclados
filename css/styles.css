@@ -991,6 +991,43 @@ body {
   }
 }
 
+.body-profile {
+  background-color: white;
+}
+
+.img-perfil {
+  width: 74px;
+  height: 74px;
+}
+
+.ls-titulos {
+  letter-spacing: 0.6px;
+}
+
+.btn-amelia {
+  background-color: #9D6A3B;
+  color: white;
+}
+
+.lista-datos-perfil {
+  padding-left: 0px !important;
+}
+
+.item-carrito label {
+  color: #bdbdbd;
+  font-size: 0.8rem !important;
+}
+.item-carrito input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #888;
+}
+
+.border-seleccionada {
+  border-bottom: 3.2px solid #9D6A3B;
+}
+
 .servicios-section {
   width: 100%;
 }
