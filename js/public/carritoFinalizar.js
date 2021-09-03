@@ -9,7 +9,14 @@ try {
     carrito = JSON.parse(localStorage.getItem('carrito'));
 } catch (error) {
     $('#total-wrapper').html(``);
-    console.log(error);
+   
+}
+
+
+if (carrito == null) {
+        carrito = [];
+} else {
+    
 }
 
 const productUrls = JSON.parse(localStorage.getItem('productsUrls'));
@@ -78,7 +85,7 @@ $(document).ready((e) => {
         }
     });
 
-    if (carrito.length == 0) {
+    if (carrito.length == 0  || carrito == null) {
 
         $('#items-carrito-wrapper').removeClass('pt-5');
         
@@ -549,7 +556,7 @@ function eliminarDelCarrito(uid)
     $(`#product-li-${uid}`).remove(); 
     localStorage.setItem('carrito',JSON.stringify(carrito));
    
-    if (carrito.length == 0) {
+    if (carrito.length == 0 || carrito == null) {
         
         $('#subtotal').html('');
         $('#total-wrapper').html(``);
@@ -561,7 +568,7 @@ function eliminarDelCarrito(uid)
 
 
                       <img src="./images/carrito-vacio.svg" class="img-tilde" alt="Carrito vacío">  
-                       <h2 class="fs-6">Tu carrito está vacío</h2>
+                       <h2 class="fs-5">Tu carrito está vacío</h2>
                      <a href="shop.html#visita" class="btn btn-volver-tienda">Ir a la Tienda</a>                      
                      
         

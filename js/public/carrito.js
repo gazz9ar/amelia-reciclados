@@ -35,13 +35,9 @@ function agregarCarrito(uid)
 { 
     let existe = false;
     
-   
+
     const productsLs = JSON.parse(localStorage.getItem('productsId'));
     
-
-    
-   
-
    
     let productoSeleccionado = {};
     
