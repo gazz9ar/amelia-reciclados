@@ -22,7 +22,7 @@ $('#perfil-wrapper').click((e) => {
 
         $('#direcciones-wrapper').removeClass('border-seleccionada');
 
-        $('#content-change').removeClass('d-none');
+        $('#content-perfil').removeClass('d-none');
     }
 })
 
@@ -42,7 +42,7 @@ $('#direcciones-wrapper').click((e) => {
 
         $('#perfil-wrapper').removeClass('border-seleccionada');
 
-        $('#content-change').addClass('d-none');
+        $('#content-perfil').addClass('d-none');
 
 
     }
