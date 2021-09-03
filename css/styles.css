@@ -10,6 +10,10 @@
   outline: none;
 }
 
+i {
+  font-family: "Font Awesome 5 Free" !important;
+}
+
 section::after:focus {
   content: "";
   position: absolute;
@@ -1026,6 +1030,18 @@ body {
 
 .border-seleccionada {
   border-bottom: 3.2px solid #9D6A3B;
+}
+
+@media (max-width: 1000px) {
+  .proximamente-wrapper {
+    height: 300px;
+  }
+}
+@media (max-width: 1000px) {
+  .proximamente-wrapper img {
+    width: 150px;
+    height: auto;
+  }
 }
 
 .servicios-section {
