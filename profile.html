@@ -191,6 +191,92 @@
     <div class="w-100 pt-5 d-none">
         <h1 class="fs-5 fw-bold d-inline-block ">Mis Datos</h1> 
     </div>
+
+
+    <div class="modal fade" id="modalEnvio" tabindex="-1" aria-labelledby="modalEnvioLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalEnvioLabel">Datos de Envío</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-white">
+             
+               <div class="d-flex flex-column justify-content-center align-items-center" id="inputsEnvio">
+                      <!-- NOMBRE Y APELLIDO -->
+                    <div class="input-group grupo-input-mobile mb-3 mt-3 w-75">
+                        <span class="envio-label-mobile">Nombre y Apellido:</span>
+                        <span class="input-group-text label-desktop d-sm-none d-md-block">Nombre y Apellido</span>
+                        <input id="input-nombre" type="text" aria-label="Nombre" class="form-control input-margin-mobile" placeholder="Ingrese su nombre...">
+                        <input id="input-apellido" type="text" aria-label="Apellido" class="form-control" placeholder="Ingrese su apellido...">
+                    </div>
+    
+                    <!-- Codigo Postal -->
+                    <div class="input-group grupo-input-mobile border mb-3 w-75">
+                        <span class="envio-label-mobile">Código Postal:</span>
+                        <span class="input-group-text d-sm-none label-desktop d-md-block" id="basic-addon1">Código Postal</span>
+                        <input id="input-codigoPostal" type="text" class="form-control" placeholder="Ingrese su codigo postal..." aria-label="Codigo Postal" aria-describedby="basic-addon1">
+                    </div>
+    
+                    <div class="d-flex justify-content-center align-items-center w-75 labels-wrapper">
+                                    <!-- Provincia -->
+                              
+                            <select class="form-select  mb-3 me-2 w-100" aria-label="Provincia" id="provincias-dropdown">
+                                <option id="input-provincia" selected>Provincia</option>                            
+                            </select>
+    
+                            <!-- Localidad -->
+                            <div class="input-group grupo-input-mobile mb-3 w-100">
+                                <span class="envio-label-mobile">Localidad:</span>
+                                <span class="input-group-text label-desktop d-sm-none d-md-block" id="basic-addon1">Localidad</span>
+                                <input id="input-localidad" type="text" class="form-control" placeholder="Ingrese su Localidad..." aria-label="Localidad" aria-describedby="basic-addon1">
+                            </div>
+                    </div>
+    
+                    <div class="d-flex justify-content-center  align-items-center w-75 labels-wrapper">
+    
+                        <!-- Calle -->
+                        <div class="input-group grupo-input-mobile  mb-3 me-2 w-100">
+                            <span class="envio-label-mobile">Calle:</span>
+                            <span class="input-group-text label-desktop d-sm-none d-md-block" id="basic-addon1">Calle</span>
+                            <input id="input-calle" type="text" class="form-control" placeholder="Ingrese su Calle..." aria-label="Calle" aria-describedby="basic-addon1">
+                        </div>
+    
+                        <!-- Numero -->
+                        <div class="input-group grupo-input-mobile  mb-3 w-100">
+                            <span class="envio-label-mobile">Numero:</span>
+                            <span class="input-group-text label-desktop d-sm-none d-md-block" id="basic-addon1">Numero</span>
+                            <input id="input-numeroCalle" type="text" class="form-control" placeholder="Ingrese la altura de la calle..." aria-label="Numero" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+    
+                     <!-- Piso/Departamento -->
+                     <div class="input-group grupo-input-mobile mb-3 w-75">
+                        <span class="input-group-text label-desktop d-sm-none d-md-block" id="basic-addon1">Piso/Departamento <strong class="text-opcional ps-1"> (opcional) </strong> </span>
+                        <input id="input-dpto" type="text" class="form-control" placeholder="Ingrese su Piso/Departamento/Torre ..." aria-label="Piso" aria-describedby="basic-addon1">
+                    </div>
+    
+                    <div class="input-group grupo-input-mobile mb-5 w-75">
+                        <span class="input-group-text label-desktop">Información Adicional <strong class="text-opcional ps-1"> (opcional) </strong></span>
+                        <textarea id="input-infoAdicional" class="form-control" aria-label="With textarea" placeholder="Ingrese indicaciones específicas..."></textarea>
+                    </div>
+                
+                    <p class="fs-6 text-danger"> * Los campos en <strong>rojo</strong>  son obligatorios</p>
+    
+                    <p class="fs-6 fw-bold text-dark d-none" id="ingresarEmail"> ** Ingrese su correo electronico o inicie sesión para que podamos enviarle su código de seguimiento</p>
+                    <input id="input-email" type="text" class="form-control mb-5 w-75 d-none" placeholder="Ingrese su Correo Electronico" aria-label="Email" aria-describedby="basic-addon1">
+                    
+                   
+               </div>
+            
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="guardar-datos-envio">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- app-carrito-selected -->
     <!-- MAQUETADO ITEMS EN CARRITO -->
 
@@ -252,8 +338,33 @@
                        
                     </div>
 
-                    <div class="w-100 h-75 mt-3 d-none" id="content-direcciones">
-                            
+                    <div class="w-100 h-75 mt-3 d-none d-flex flex-column" id="content-direcciones">
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input text-secondary" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Utilizar como dirección de envío
+                            </label>
+                        </div>
+
+
+                        <div class="envio-wrapper d-flex flex-column">
+                            <div class="nombre-wrapper">
+                                <p class="fs-6 fw-bold" id="nombre-envio">Anónimo</p>
+                                <a href="javascript:void(0)" id="btn-editar-envio"><i class="far fa-edit lapiz font-primary"></i></a> 
+                            </div>
+                            <div class="datos-wrapper">
+                                <p class="fs-6 text-secondary"> <span id="domicilio">Calle 123,</span>  <span id="ciudad">Villa Maria,</span> 
+                                 <span id="provincia">Córdoba,</span>  <span id="pais"> Argentina</span> </p>
+                            </div>
+                      </div>
+
+
+                      <div class="w-100 d-flex justify-content-center align-items-center mt-5 mb-3">
+
+                        <a href="javascript:void(0)"><i class="far fa-plus-square add-direccion"></i></a>
+                      </div>
+                        
 
 
                     </div>
@@ -395,7 +506,7 @@
             <script src="./js/firebaseFunctions.js"></script>
             <script src="./js/profile.js"></script>
             <script src="./js/perfil.js"></script>
-            
+            <script src="./js/direcciones.js"></script>
            
 </body>
 </html>

@@ -9,6 +9,18 @@ $('#amelia-logo').html('Mi perfil')
 // NICKNAME INPUT
 
 
+$(document).ready((e ) => { 
+
+
+    $('#btn-editar-envio').click((e) => {
+
+        
+        var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+        modalEnvio.show();
+
+    });
+})
+
 
 $('#perfil-wrapper').click((e) => {
 
@@ -23,6 +35,8 @@ $('#perfil-wrapper').click((e) => {
         $('#direcciones-wrapper').removeClass('border-seleccionada');
 
         $('#content-perfil').removeClass('d-none');
+
+        $('#content-direcciones').addClass('d-none');
     }
 })
 
@@ -43,6 +57,8 @@ $('#direcciones-wrapper').click((e) => {
         $('#perfil-wrapper').removeClass('border-seleccionada');
 
         $('#content-perfil').addClass('d-none');
+
+        $('#content-direcciones').removeClass('d-none');
 
 
     }

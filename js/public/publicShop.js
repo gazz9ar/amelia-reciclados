@@ -1,10 +1,10 @@
 
-const onGetCollection = (collection,callback) => {
+// const onGetCollection = (collection,callback) => {
 
-    const collectionSelected = db.collection(collection);
-    collectionSelected.onSnapshot(callback); 
+//     const collectionSelected = db.collection(collection);
+//     collectionSelected.onSnapshot(callback); 
   
-  }
+//   }
 
   let contadorProductosCol1 = 0;
   let contadorProductosCol2 = 0;
@@ -25,7 +25,7 @@ let products = [];
 
 $(document).ready(
 
-  onGetCollection('products',( querySnapshot => {
+  onGetCollection('products',( (querySnapshot) => {
 
 
     

@@ -9,6 +9,7 @@ try {
      carrito = JSON.parse(localStorage.getItem('carrito'));
 } catch (error) {
    
+   
 }
 
 
@@ -16,7 +17,8 @@ try {
 
 if (carrito == null || carrito == []) {
 
-    // no existe carrrito o esta vacio
+    // no existe carrito o esta vacio
+    carrito = [];
     
 } else if (carrito.length == 0) 
 {
@@ -32,16 +34,12 @@ if (carrito == null || carrito == []) {
 function agregarCarrito(uid)
 { 
     let existe = false;
-    let carrito = [];
+    
    
     const productsLs = JSON.parse(localStorage.getItem('productsId'));
     
 
-    try {
-        carrito = JSON.parse(localStorage.getItem('carrito'));
-    } catch (error) {
-        
-    }
+    
    
 
    

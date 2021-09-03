@@ -1044,6 +1044,11 @@ body {
   }
 }
 
+.add-direccion {
+  font-size: 38px;
+  color: #9D6A3B;
+}
+
 .servicios-section {
   width: 100%;
 }
