@@ -28,13 +28,43 @@ firebase.auth().onAuthStateChanged((user) => {
        
         validarEnvio(true);
 
+        cargarDatosEnvio(user);
+
     } else {
         usuarioLogeado = '';
         validarEnvio(false);
     }
 })
 
+function cargarDatosEnvio(user) {
 
+        let nombreCargado =  $(`#input-nombre`);
+        let apellidoCargado =  $(`#input-apellido`);
+        let codigoPostalCargado =  $(`#input-codigoPostal`);
+        let localidadCargado =  $(`#input-localidad`);
+        let calleCargado =  $(`#input-calle`);
+        let numeroCalleCargado =  $(`#input-numeroCalle`);        
+        let provincia =  $(`#input-provincia`);
+
+        onGetSubCollection( 'users', user.email , 'direccionesEnvio', (querySnapshot) => {
+
+            querySnapshot.forEach((doc) => {
+
+
+                if (doc.data().active) {
+                    nombreCargado.val(doc.data().nombre)
+                    apellidoCargado.val(doc.data().apellido)
+                    codigoPostalCargado.val(doc.data().codPostal)
+                    localidadCargado.val(doc.data().localidad)
+                    calleCargado.val(doc.data().calle)
+                    numeroCalleCargado.val(doc.data().numeroCalle)
+                    provincia.val(doc.data().provincia)
+                }
+
+            })
+        })
+    
+}
 
 $(document).ready((e) => {   
 
@@ -42,6 +72,8 @@ $(document).ready((e) => {
     $('#domicilio').html('Calle 123');
     $('#ciudad').html('Villa María');
     $('#provincia').html(`Argentina`);
+
+    
     
     guardarDatosEnvio();
 

@@ -231,6 +231,7 @@ body {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   z-index: 99999;
+  overflow: hidden;
 }
 .hamburger-menu ul {
   width: 100%;
@@ -1047,6 +1048,37 @@ body {
 .add-direccion {
   font-size: 38px;
   color: #9D6A3B;
+}
+
+.mostrar-desktop {
+  display: flex !important;
+  background-color: #EAEDF0;
+  box-shadow: 0px 0px 5px #ccc;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  align-self: center;
+}
+
+@media (min-width: 801px) {
+  .nombre-wrapper-desktop {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+@media (min-width: 801px) {
+  .datos-wrapper-desktop {
+    display: block !important;
+    padding: 3px 20px;
+  }
+}
+
+.delete-envio {
+  color: red;
 }
 
 .servicios-section {

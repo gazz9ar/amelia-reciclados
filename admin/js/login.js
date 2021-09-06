@@ -66,15 +66,38 @@ const registerLogin = () => {
 
 
     auth.createUserWithEmailAndPassword(email, pass)
-      .then((userCredential) => {
+      .then( async (userCredential) => {
         // Signed in
 
-        var user = userCredential.user;
-        let newUser = new UsuarioCompleto(user.email,user.pass);
+        
+        let user = {
+          email:userCredential.user.email,
+          nick: '',
+          nombre: 'Anónimo',
+          apellido:'Amelia',
+          telefono:''
+        };
+
+        let datosDireccion = {
+
+          active: true,
+          apellido:'',
+          nombre:'',
+          calle:'',
+          codPostal: 0000,
+          dpto:'',
+          infoAdicional:'',
+          localidad:'',   
+          numeroCalle:0000,
+          provincia:''
+
+        }
+        
+        saveUser(user,user.email,datosDireccion)
 
         
 
-        Swal.fire(
+       await  Swal.fire(
           'Buen trabajo!',
           'Te has Registrado',
           'success'
@@ -98,7 +121,7 @@ const registerLogin = () => {
       })
       .catch((error) => {
         let errorCode = error.code;
-        console.log(errorCode);
+        
         let errorMessage = error.message;
         console.log(errorMessage);
         // ..
