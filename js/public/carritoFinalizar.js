@@ -22,49 +22,36 @@ if (carrito == null) {
 const productUrls = JSON.parse(localStorage.getItem('productsUrls'));
 
 
-firebase.auth().onAuthStateChanged((user) => {
+firebase.auth().onAuthStateChanged(  (user) => {
     if (user) {
+
         usuarioLogeado = user;
        
-        validarEnvio(true);
+        
 
         cargarDatosEnvio(user);
+        if (carrito.length == 0 || !carrito) {
+            generarTotalWrapper(user,false,total);
+        } else {
+            generarTotalWrapper(user,true,total)
+        }
+
+        
+
+        validarEnvio(true);
+      
 
     } else {
+
         usuarioLogeado = '';
+
         validarEnvio(false);
+
+        generarTotalWrapper(user);
     }
 })
 
-function cargarDatosEnvio(user) {
 
-        let nombreCargado =  $(`#input-nombre`);
-        let apellidoCargado =  $(`#input-apellido`);
-        let codigoPostalCargado =  $(`#input-codigoPostal`);
-        let localidadCargado =  $(`#input-localidad`);
-        let calleCargado =  $(`#input-calle`);
-        let numeroCalleCargado =  $(`#input-numeroCalle`);        
-        let provincia =  $(`#input-provincia`);
-
-        onGetSubCollection( 'users', user.email , 'direccionesEnvio', (querySnapshot) => {
-
-            querySnapshot.forEach((doc) => {
-
-
-                if (doc.data().active) {
-                    nombreCargado.val(doc.data().nombre)
-                    apellidoCargado.val(doc.data().apellido)
-                    codigoPostalCargado.val(doc.data().codPostal)
-                    localidadCargado.val(doc.data().localidad)
-                    calleCargado.val(doc.data().calle)
-                    numeroCalleCargado.val(doc.data().numeroCalle)
-                    provincia.val(doc.data().provincia)
-                }
-
-            })
-        })
-    
-}
 
 $(document).ready((e) => {   
 
@@ -198,9 +185,6 @@ $(document).ready((e) => {
             // ======================================
             $(`#product-li-${producto.uid} #minus-${producto.uid}`).click((e) => {
 
-
-                
-
                 let contenido =  parseInt($(`#quantity-${producto.uid}`).html());               
 
                 if (contenido === 1 ) {
@@ -215,6 +199,7 @@ $(document).ready((e) => {
                     botonMenos.addClass('minus-quantity');
                     botonMenos.removeClass('minus-quantity-disabled');
                     contenido--;  
+                    
                     total -= producto.precio;
                     $(`#quantity-${producto.uid}`).html(contenido);
                     $(`#quantity-${producto.uid}-desktop`).html(contenido);
@@ -224,53 +209,15 @@ $(document).ready((e) => {
                     $(`#subtotal-${producto.uid}`).html(`$ ${contenido * producto.precio}`);
 
 
+                     generarTotalWrapper(usuarioLogeado,true,total)
+
                    
-                    $('#total-wrapper').html(`
-                    <div class="envio border-bottom mb-3 pb-3 w-50 d-flex flex-row justify-content-around align-items-center">
-                                        <div>
-                                            <button type="button" id="btnEnvio" class="fs-6 fw-bold btn btn-outline-primary text-dark">
-                                            Completar datos Envío
-                                            </button>
-                                        </div>
-                                        <div>
-                                            <p class="fs-6 mb-0 fw-bold text-success">Envío Gratis</p>
-                                        </div>                                
-                      </div>
-                      <p class="titulo-envio">Datos de Envío</p>
-                      <div class="envio-wrapper d-flex flex-column">
-                      <div class="nombre-wrapper">
-                          <p class="fs-6 fw-bold" id="nombre-envio">Anónimo</p>
-                          <a href="javascript:void(0)" id="btn-editar-envio"><i class="far fa-edit lapiz font-primary"></i></a> 
-                      </div>
-                      <div class="datos-wrapper">
-                          <p class="fs-6 text-secondary"> <span id="domicilio">Calle 123,</span>  <span id="ciudad">Villa Maria,</span> 
-                           <span id="provincia">Córdoba,</span>  <span id="pais"> Argentina</span> </p>
-                      </div>
-                </div>
-                    <div class="total mb-4 w-50 d-flex flex-row justify-content-around align-items-center">
-                                        <div class="me-2">
-                                            <p class="fs-5 fw-bold m-0">Total con envío</p>  
-                                        </div>
-                                        <div>
-                                            <p class="fs-5 fw-bold m-0">$ ${total},<strong class="fs-6">00</strong> </p>  
-                                        </div>
-                     </div>
-                     <div class="d-flex flex-row justify-content-end align-items-center btn-envio-wrapper">
-                            <a class="btn btn-primary mb-3 me-1 btn-finalizar" href="javascript:void(0)" id="finalizar-compra">Siguiente</a>
-                     </div>`
-                    );
 
-                    $('#btn-editar-envio').click((e) => {
-
-        
-                        var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
-                        modalEnvio.show();
-                
-                    });
+                    
                     guardarDatosEnvio();
                     
 
-                        validarEnvio(true);
+                    validarEnvio(true);
                     
                     if (producto.cantidad !== contenido) {
                         botonMas.addClass('add-quantity');
@@ -316,56 +263,10 @@ $(document).ready((e) => {
                      
                     total += producto.precio;
 
-                    $('#total-wrapper').html(`
-                    <div class="envio border-bottom mb-3 pb-3 w-50 d-flex flex-row justify-content-around align-items-center">
-                                        <div>
-                                            <button type="button" id="btnEnvio" class="fs-6 fw-bold btn btn-outline-primary text-dark">
-                                            Completar datos Envío
-                                            </button>
-                                        </div>
-                                        <div>
-                                            <p class="fs-6 mb-0 fw-bold text-success">Envío Gratis</p>
-                                        </div>                                
-                      </div>
-                      <p class="titulo-envio">Datos de Envío</p>
-                      <div class="envio-wrapper d-flex flex-column">
-                        <div class="nombre-wrapper">
-                            <p class="fs-6 fw-bold" id="nombre-envio">Anónimo</p>
-                            <a href="javascript:void(0)" id="btn-editar-envio"><i class="far fa-edit lapiz font-primary"></i></a> 
-                        </div>
-                        <div class="datos-wrapper">
-                            <p class="fs-6 text-secondary"> <span id="domicilio">Calle 123,</span>  <span id="ciudad">Villa Maria,</span> 
-                             <span id="provincia">Córdoba,</span>  <span id="pais"> Argentina</span> </p>
-                        </div>
-                  </div>
-                    <div class="total mb-4 w-50 d-flex flex-row justify-content-around align-items-center">
-                                        <div class="me-2">
-                                            <p class="fs-5 fw-bold m-0">Total con envío</p>  
-                                        </div>
-                                        <div>
-                                            <p class="fs-5 fw-bold m-0">$ ${total},<strong class="fs-6">00</strong> </p>  
-                                        </div>
-                     </div>
-                     <div class="d-flex flex-row justify-content-end align-items-center btn-envio-wrapper">
-                            <a class="btn btn-primary mb-3 me-1 btn-finalizar" href="javascript:void(0)" id="finalizar-compra" >Siguiente</a>
-                     </div>`
-                    );
+                    generarTotalWrapper(usuarioLogeado,true,total)
 
                     guardarDatosEnvio();
-                    $('#btnEnvio').click((e) => {
-
-        
-                        var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
-                        modalEnvio.show();
-                
-                    });
-                    $('#btn-editar-envio').click((e) => {
-
-        
-                        var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
-                        modalEnvio.show();
-                
-                    });
+                  
                     
                     
                         validarEnvio(true);
@@ -388,55 +289,9 @@ $(document).ready((e) => {
         }      
         
         
-        $('#total-wrapper').html(`
-        <div class="envio border-bottom mb-3 pb-3 w-50 d-flex flex-row justify-content-around align-items-center">
-                            <div>
-                                <button type="button" id="btnEnvio" class="fs-6 fw-bold btn btn-outline-primary text-dark">
-                                Completar datos Envío
-                                </button>
-                            </div>
-                            <div>
-                                <p class="fs-6 mb-0 fw-bold text-success">Envío Gratis</p>
-                            </div>                                
-          </div>
-          <p class="titulo-envio">Datos de Envío</p>
-          <div class="envio-wrapper d-flex flex-column">
-                        <div class="nombre-wrapper">
-                            <p class="fs-6 fw-bold" id="nombre-envio">Anónimo</p>
-                            <a href="javascript:void(0)" id="btn-editar-envio"><i class="far fa-edit lapiz font-primary"></i></a> 
-                        </div>
-                        <div class="datos-wrapper">
-                            <p class="fs-6 text-secondary"> <span id="domicilio">Calle 123,</span>  <span id="ciudad">Villa Maria,</span> 
-                             <span id="provincia">Córdoba,</span>  <span id="pais"> Argentina</span> </p>
-                        </div>
-                  </div>
-        <div class="total mb-4 w-50 d-flex flex-row justify-content-around align-items-center">
-                            <div class="me-2">
-                                <p class="fs-5 fw-bold m-0">Total con envío</p>  
-                            </div>
-                            <div>
-                                <p class="fs-5 fw-bold m-0">$ ${total},<strong class="fs-6">00</strong> </p>  
-                            </div>
-         </div>
-         <div class="d-flex flex-row justify-content-end align-items-center btn-envio-wrapper">
-                <a class="btn btn-primary mb-3 me-1 btn-finalizar" href="javascript:void(0)" id="finalizar-compra" >Siguiente</a>
-         </div>`
-        );
-
-        $('#btnEnvio').click((e) => {
+        generarTotalWrapper(usuarioLogeado,true,total)
 
         
-            var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
-            modalEnvio.show();
-    
-        });
-        $('#btn-editar-envio').click((e) => {
-
-        
-            var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
-            modalEnvio.show();
-    
-        });
     }    
      
     
@@ -454,7 +309,7 @@ function buscarURL(uid)
     }
 }
 
- function validarEnvio(user)
+ function validarEnvio(user,start)
 {
 
     let emailCargado =  $(`#input-email`);
@@ -473,7 +328,117 @@ function buscarURL(uid)
     // ELIMINO EL METODO CLICK PARA AGREGARLO DE NUEVO YA QUE SE EJECUTA **SIEMPRE** Y SE VUELVE A EJECUTAR CUANDO FIREBASE AUTENTICA AL USUARIO
     // LO QUE PROVOCABA QUE EL MODAL SE ABRA 2 VECES AL CLICKEAR "FINALIZAR COMPRA"
 
-    $('#finalizar-compra').unbind('click');
+    if (start) {
+
+        let nombreCargado =  $(`#input-nombre`);
+        let apellidoCargado =  $(`#input-apellido`);
+        let codigoPostalCargado =  $(`#input-codigoPostal`);
+        let localidadCargado =  $(`#input-localidad`);
+        let calleCargado =  $(`#input-calle`);
+        let numeroCalleCargado =  $(`#input-numeroCalle`);
+        
+        let provincia =  $(`#provincias-dropdown`);
+
+        // Para validar la provincia deberia chequear si la opción "pronvincia" contiene el atributo selected
+
+        if (user) {
+            if (nombreCargado.val() == '' || apellidoCargado.val() == '' || codigoPostalCargado.val() == '' || localidadCargado.val() == '' || calleCargado.val() == '' || numeroCalleCargado.val() == '' || provincia.val() == '') {
+            
+
+                nombreCargado.addClass('border border-danger');
+                apellidoCargado.addClass('border border-danger');
+                codigoPostalCargado.addClass('border border-danger');
+                localidadCargado.addClass('border border-danger');
+                calleCargado.addClass('border border-danger');
+                numeroCalleCargado.addClass('border border-danger');
+                provincia.addClass('border border-danger');
+    
+                if (nombreCargado.val() != '') {
+                    nombreCargado.removeClass('border border-danger');
+                }
+                 if(apellidoCargado.val() != '') {
+                    apellidoCargado.removeClass('border border-danger');
+                } 
+                 if (codigoPostalCargado.val() != '') {
+                    codigoPostalCargado.removeClass('border border-danger');
+                } 
+                 if (localidadCargado.val() != '') {
+                    localidadCargado.removeClass('border border-danger');
+                } 
+                 if (calleCargado.val() != '') {
+                    calleCargado.removeClass('border border-danger');
+                } 
+                 if (numeroCalleCargado.val() != '') {
+                    numeroCalleCargado.removeClass('border border-danger');
+                }         
+                if (provincia.val() != '') {
+                    provincia.removeClass('border border-danger');
+                }          
+    
+                var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+                        modalEnvio.show();
+    
+            } else {
+                
+                localStorage.setItem('totalPago',total);
+    
+                window.location.replace('pago.html');    
+            }
+        
+        } else {
+            if (nombreCargado.val() == '' || apellidoCargado.val() == '' || codigoPostalCargado.val() == ''
+             || localidadCargado.val() == '' || calleCargado.val() == '' || numeroCalleCargado.val() == '' || emailCargado.val() == '') {
+            
+
+                nombreCargado.addClass('border border-danger');
+                apellidoCargado.addClass('border border-danger');
+                codigoPostalCargado.addClass('border border-danger');
+                localidadCargado.addClass('border border-danger');
+                calleCargado.addClass('border border-danger');
+                numeroCalleCargado.addClass('border border-danger');
+                emailCargado.addClass('border border-danger');
+    
+                if (nombreCargado.val() != '') {
+                    nombreCargado.removeClass('border border-danger');
+                }
+                 if(apellidoCargado.val() != '') {
+                    apellidoCargado.removeClass('border border-danger');
+                } 
+                 if (codigoPostalCargado.val() != '') {
+                    codigoPostalCargado.removeClass('border border-danger');
+                } 
+                 if (localidadCargado.val() != '') {
+                    localidadCargado.removeClass('border border-danger');
+                } 
+                 if (calleCargado.val() != '') {
+                    calleCargado.removeClass('border border-danger');
+                } 
+                 if (numeroCalleCargado.val() != '') {
+                    numeroCalleCargado.removeClass('border border-danger');
+                }           
+                if (emailCargado.val() != '') {
+                    emailCargado.removeClass('border border-danger');
+                }           
+                
+    
+                var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+                        modalEnvio.show();
+    
+            } else {
+                
+                localStorage.setItem('totalPago',total);
+    
+                window.location.replace('pago.html');    
+            }
+        
+        }
+
+
+       
+     
+    } else {
+
+        $('#finalizar-compra').unbind('click');
     $('#finalizar-compra').click((e) => {
 
         let nombreCargado =  $(`#input-nombre`);
@@ -488,7 +453,7 @@ function buscarURL(uid)
         // Para validar la provincia deberia chequear si la opción "pronvincia" contiene el atributo selected
 
         if (user) {
-            if (nombreCargado.val() == '' || apellidoCargado.val() == '' || codigoPostalCargado.val() == '' || localidadCargado.val() == '' || calleCargado.val() == '' || numeroCalleCargado.val() == '') {
+            if (nombreCargado.val() == '' || apellidoCargado.val() == '' || codigoPostalCargado.val() == '' || localidadCargado.val() == '' || calleCargado.val() == '' || numeroCalleCargado.val() == '' || provincia.val() == '') {
             
 
                 nombreCargado.addClass('border border-danger');
@@ -497,9 +462,13 @@ function buscarURL(uid)
                 localidadCargado.addClass('border border-danger');
                 calleCargado.addClass('border border-danger');
                 numeroCalleCargado.addClass('border border-danger');
+                provincia.addClass('border border-danger');
     
                 if (nombreCargado.val() != '') {
                     nombreCargado.removeClass('border border-danger');
+                }
+                if (provincia.val() != '') {
+                    provincia.removeClass('border border-danger');
                 }
                  if(apellidoCargado.val() != '') {
                     apellidoCargado.removeClass('border border-danger');
@@ -578,6 +547,9 @@ function buscarURL(uid)
 
        
      });
+    }
+
+    
 }
 
 
@@ -622,55 +594,9 @@ function eliminarDelCarrito(uid)
         }
 
 
-        $('#total-wrapper').html(`
-                <div class="envio border-bottom mb-3 pb-3 w-50 d-flex flex-row justify-content-around align-items-center">
-                                    <div>
-                                        <button type="button" id="btnEnvio" class="fs-6 fw-bold btn btn-outline-primary text-dark">
-                                        Completar datos Envío
-                                        </button>
-                                    </div>
-                                    <div>
-                                        <p class="fs-6 mb-0 fw-bold text-success">Envío Gratis</p>
-                                    </div>                                
-                  </div>
-                  <p class="titulo-envio">Datos de Envío</p>
-                  <div class="envio-wrapper d-flex flex-column">
-                        <div class="nombre-wrapper">
-                            <p class="fs-6 fw-bold" id="nombre-envio">Anónimo</p>
-                            <a href="javascript:void(0)" id="btn-editar-envio"><i class="far fa-edit lapiz font-primary"></i></a> 
-                        </div>
-                        <div class="datos-wrapper">
-                            <p class="fs-6 text-secondary"> <span id="domicilio">Calle 123,</span>  <span id="ciudad">Villa Maria,</span> 
-                             <span id="provincia">Córdoba,</span>  <span id="pais"> Argentina</span> </p>
-                        </div>
-                  </div>
-                <div class="total mb-4 w-50 d-flex flex-row justify-content-around align-items-center">
-                                    <div class="me-2">
-                                        <p class="fs-5 fw-bold m-0">Total con envío</p>  
-                                    </div>
-                                    <div>
-                                        <p class="fs-5 fw-bold m-0">$ ${total},<strong class="fs-6">00</strong> </p>  
-                                    </div>
-                 </div>
-                 <div class="d-flex flex-row justify-content-end align-items-center btn-envio-wrapper">
-                        <a class="btn btn-primary mb-3 me-1 btn-finalizar" href="javascript:void(0)" id="finalizar-compra">Siguiente</a>
-                 </div>`
-                );
+        generarTotalWrapper(usuarioLogeado,true,total)
 
-                $('#btnEnvio').click((e) => {
-
-        
-                    var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
-                    modalEnvio.show();
-            
-                });
-                $('#btn-editar-envio').click((e) => {
-
-        
-                    var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
-                    modalEnvio.show();
-            
-                });
+                
 
                 $('#carritoLenght').html(carrito.length);
 
@@ -725,4 +651,188 @@ function guardarDatosEnvio()
 
 
         
+}
+
+
+function cargarDatosEnvio(user) {
+
+    let nombreCargado =  $(`#input-nombre`);
+    let apellidoCargado =  $(`#input-apellido`);
+    let codigoPostalCargado =  $(`#input-codigoPostal`);
+    let localidadCargado =  $(`#input-localidad`);
+    let calleCargado =  $(`#input-calle`);
+    let numeroCalleCargado =  $(`#input-numeroCalle`);        
+    let provincia =  $(`#provincias-dropdown`);
+
+    if (user == '') {
+        
+    } else {
+        onGetSubCollection( 'users', user.email , 'direccionesEnvio', (querySnapshot) => {
+
+            querySnapshot.forEach((doc) => {
+    
+    
+                if (doc.data().active) {
+                    nombreCargado.val(doc.data().nombre)
+                    apellidoCargado.val(doc.data().apellido)
+                    codigoPostalCargado.val(doc.data().codPostal)
+                    localidadCargado.val(doc.data().localidad)
+                    calleCargado.val(doc.data().calle)
+                    numeroCalleCargado.val(doc.data().numeroCalle)
+                    provincia.val(doc.data().provincia).change()
+                }
+    
+            })
+        })
+    }
+
+    
+
+}
+
+
+ function generarTotalWrapper(user,hayCarrito,total) {
+    
+    if (hayCarrito) {
+        
+        if (user == '') {
+
+            $('#total-wrapper').html(`
+            <div class="envio border-bottom mb-3 pb-3 w-50 d-flex flex-row justify-content-around align-items-center">
+                                <div>
+                                    <button type="button" id="btnEnvio" class="fs-6 fw-bold btn btn-outline-primary text-dark">
+                                    Completar datos Envío
+                                    </button>
+                                </div>
+                                <div>
+                                    <p class="fs-6 mb-0 fw-bold text-success">Envío Gratis</p>
+                                </div>                                
+              </div>
+              <p class="titulo-envio">Datos de Envío</p>
+              <div class="envio-wrapper d-flex flex-column">
+              <div class="nombre-wrapper">
+                  <p class="fs-6 fw-bold" id="nombre-envio">Anónimo</p>
+                  <a href="javascript:void(0)" id="btn-editar-envio"><i class="far fa-edit lapiz font-primary"></i></a> 
+              </div>
+              <div class="datos-wrapper">
+                  <p class="fs-6 text-secondary"> <span id="domicilio">Calle 123,</span>  <span id="ciudad">Villa Maria,</span> 
+                   <span id="provincia">Córdoba,</span>  <span id="pais"> Argentina</span> </p>
+              </div>
+            </div>
+            <div class="total mb-4 w-50 d-flex flex-row justify-content-around align-items-center">
+                                <div class="me-2">
+                                    <p class="fs-5 fw-bold m-0">Total con envío</p>  
+                                </div>
+                                <div>
+                                    <p class="fs-5 fw-bold m-0">$ ${total},<strong class="fs-6">00</strong> </p>  
+                                </div>
+             </div>
+             <div class="d-flex flex-row justify-content-end align-items-center btn-envio-wrapper">
+                    <a class="btn btn-primary mb-3 me-1 btn-finalizar" href="javascript:void(0)" id="finalizar-compra">Siguiente</a>
+             </div>`
+            );
+    
+            $('#btnEnvio').click((e) => {
+    
+            
+                var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+                modalEnvio.show();
+        
+            });
+            $('#btn-editar-envio').click((e) => {
+    
+    
+                var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+                modalEnvio.show();
+        
+            });
+    
+            $('#finalizar-compra').click((e) => {
+                
+                
+                validarEnvio(false,true);
+        
+            });
+        } else {
+    
+            
+            busqDireccionActiva('users',user.email,'direccionesEnvio').then((querySnapshot) => {
+    
+    
+                querySnapshot.forEach((doc) => {
+    
+                        const direccionActiva = doc.data()
+                        direccionActiva.id = doc.id
+                        
+    
+                         $('#total-wrapper').html(`
+                            <div class="envio border-bottom mb-3 pb-3 w-50 d-flex flex-row justify-content-around align-items-center">
+                                                <div>
+                                                    <button type="button" id="btnEnvio" class="fs-6 fw-bold btn btn-outline-primary text-dark">
+                                                    Completar datos Envío
+                                                    </button>
+                                                </div>
+                                                <div>
+                                                    <p class="fs-6 mb-0 fw-bold text-success">Envío Gratis</p>
+                                                </div>                                
+                            </div>
+                            <p class="titulo-envio">Datos de Envío</p>
+                            <div class="envio-wrapper d-flex flex-column">
+                            <div class="nombre-wrapper">
+                                <p class="fs-6 fw-bold" id="nombre-envio">${direccionActiva.nombre + " " + direccionActiva.apellido}</p>
+                                <a href="javascript:void(0)" id="btn-editar-envio"><i class="far fa-edit lapiz font-primary"></i></a> 
+                            </div>
+                            <div class="datos-wrapper">
+                                <p class="fs-6 text-secondary"> <span id="domicilio">${direccionActiva.calle +" "+ direccionActiva.numeroCalle},</span>  <span id="ciudad">${direccionActiva.localidad},</span> 
+                                <span id="provincia">${direccionActiva.provincia},</span>  <span id="pais"> Argentina</span> </p>
+                            </div>
+                            </div>
+                            <div class="total mb-4 w-50 d-flex flex-row justify-content-around align-items-center">
+                                                <div class="me-2">
+                                                    <p class="fs-5 fw-bold m-0">Total con envío</p>  
+                                                </div>
+                                                <div>
+                                                    <p class="fs-5 fw-bold m-0">$ ${total},<strong class="fs-6">00</strong> </p>  
+                                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-end align-items-center btn-envio-wrapper">
+                                    <a class="btn btn-primary mb-3 me-1 btn-finalizar" href="javascript:void(0)" id="finalizar-compra">Siguiente</a>
+                            </div>`
+                        );
+    
+                        $('#btnEnvio').click((e) => {
+    
+            
+                            var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+                            modalEnvio.show();
+                    
+                        });
+                        $('#btn-editar-envio').click((e) => {
+                
+                
+                            var modalEnvio = new bootstrap.Modal(document.getElementById('modalEnvio'))
+                            modalEnvio.show();
+                    
+                        });
+                        $('#finalizar-compra').click((e) => {
+                
+                
+                            validarEnvio(true,true);
+                    
+                        });
+                })
+                
+    
+            })
+    
+            
+    
+                
+        }
+    } else {
+
+
+    }
+    
+    
 }

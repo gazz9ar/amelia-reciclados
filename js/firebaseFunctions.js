@@ -72,3 +72,18 @@ const onGetSubCollection = (collection,doc,collection2,callback) => {
   collectionSelected.onSnapshot(callback); 
 
 }
+
+
+
+
+// ===================
+// METODOS DE BUSQUEDA
+// ===================
+
+
+function busqDireccionActiva(collection,doc,collection2) {
+
+
+  return db.collection(collection).doc(doc).collection(collection2).where('active','==',true).get()
+  
+}
