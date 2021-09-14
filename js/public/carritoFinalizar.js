@@ -32,13 +32,16 @@ firebase.auth().onAuthStateChanged(  (user) => {
         cargarDatosEnvio(user);
         if (carrito.length == 0 || !carrito) {
             generarTotalWrapper(user,false,total);
+            validarEnvio(true,false,total);
         } else {
+
             generarTotalWrapper(user,true,total)
+            validarEnvio(true,true,total);
         }
 
         
 
-        validarEnvio(true);
+        
       
 
     } else {
@@ -201,6 +204,7 @@ $(document).ready((e) => {
                     contenido--;  
                     
                     total -= producto.precio;
+
                     $(`#quantity-${producto.uid}`).html(contenido);
                     $(`#quantity-${producto.uid}-desktop`).html(contenido);
                     // ==================================================================================
@@ -208,7 +212,7 @@ $(document).ready((e) => {
                     // ==================================================================================
                     $(`#subtotal-${producto.uid}`).html(`$ ${contenido * producto.precio}`);
 
-
+                        validarEnvio(true,false,total);
                      generarTotalWrapper(usuarioLogeado,true,total)
 
                    
@@ -217,7 +221,7 @@ $(document).ready((e) => {
                     guardarDatosEnvio();
                     
 
-                    validarEnvio(true);
+                    
                     
                     if (producto.cantidad !== contenido) {
                         botonMas.addClass('add-quantity');
@@ -263,13 +267,14 @@ $(document).ready((e) => {
                      
                     total += producto.precio;
 
+                    validarEnvio(true,false,total);
                     generarTotalWrapper(usuarioLogeado,true,total)
 
                     guardarDatosEnvio();
                   
+               
                     
-                    
-                        validarEnvio(true);
+                      
                     
                     botonMas.addClass('add-quantity');
                     botonMas.removeClass('add-quantity-disabled');
@@ -288,7 +293,7 @@ $(document).ready((e) => {
             
         }      
         
-        
+        localStorage.setItem('totalPago',total);
         generarTotalWrapper(usuarioLogeado,true,total)
 
         
@@ -309,7 +314,7 @@ function buscarURL(uid)
     }
 }
 
- function validarEnvio(user,start)
+ function validarEnvio(user,start,total)
 {
 
     let emailCargado =  $(`#input-email`);
@@ -437,9 +442,10 @@ function buscarURL(uid)
        
      
     } else {
+        localStorage.setItem('totalPago',total);
 
         $('#finalizar-compra').unbind('click');
-    $('#finalizar-compra').click((e) => {
+     $('#finalizar-compra').click((e) => {
 
         let nombreCargado =  $(`#input-nombre`);
         let apellidoCargado =  $(`#input-apellido`);
@@ -601,7 +607,7 @@ function eliminarDelCarrito(uid)
                 $('#carritoLenght').html(carrito.length);
 
                 
-                    validarEnvio(true);
+                    validarEnvio(true,false,total);
                 
                
 
@@ -724,13 +730,16 @@ function cargarDatosEnvio(user) {
                                     <p class="fs-5 fw-bold m-0">Total con envío</p>  
                                 </div>
                                 <div>
-                                    <p class="fs-5 fw-bold m-0">$ ${total},<strong class="fs-6">00</strong> </p>  
+                                    <p class="fs-5 fw-bold m-0" id="p-total">$ ${total},<strong class="fs-6">00</strong> </p>  
                                 </div>
              </div>
              <div class="d-flex flex-row justify-content-end align-items-center btn-envio-wrapper">
                     <a class="btn btn-primary mb-3 me-1 btn-finalizar" href="javascript:void(0)" id="finalizar-compra">Siguiente</a>
              </div>`
             );
+
+            //modifico el total
+            $('#p-total').html(`$ ${total}  `)
     
             $('#btnEnvio').click((e) => {
     
@@ -750,7 +759,7 @@ function cargarDatosEnvio(user) {
             $('#finalizar-compra').click((e) => {
                 
                 
-                validarEnvio(false,true);
+                validarEnvio(false,true,total);
         
             });
         } else {
@@ -792,7 +801,7 @@ function cargarDatosEnvio(user) {
                                                     <p class="fs-5 fw-bold m-0">Total con envío</p>  
                                                 </div>
                                                 <div>
-                                                    <p class="fs-5 fw-bold m-0">$ ${total},<strong class="fs-6">00</strong> </p>  
+                                                    <p class="fs-5 fw-bold m-0" id="p-total">$ ${total},<strong class="fs-6">00</strong> </p>  
                                                 </div>
                             </div>
                             <div class="d-flex flex-row justify-content-end align-items-center btn-envio-wrapper">
@@ -817,14 +826,17 @@ function cargarDatosEnvio(user) {
                         $('#finalizar-compra').click((e) => {
                 
                 
-                            validarEnvio(true,true);
+                            validarEnvio(true,true,total);
                     
                         });
                 })
                 
     
             })
-    
+
+
+            //modifico el total
+            $('#p-total').html(`$ ${total}  `)
             
     
                 
