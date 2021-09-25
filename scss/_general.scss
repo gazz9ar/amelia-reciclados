@@ -1009,7 +1009,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.8);
   }
   
   .ocultar 
@@ -1322,4 +1322,63 @@
       .delete-envio
       {
         color: red;
+      }
+    
+
+
+
+
+      .sobre-nosotros
+      {
+        padding: 21px 20% !important;
+        text-align: center;
+
+        @media (max-width:1330px) {
+          padding: 21px 10% !important;
+      }
+   
+       
+      }
+      .sobre-nosotros-title
+      {
+        border-bottom: 1px solid #C09C7A;
+      }
+
+      .img-sobre-nosotros
+      {
+        @media (max-width:1330px) {
+            width: 70% !important;
+            height: auto !important;
+        }
+        @media (max-width:800px) {
+          
+        }
+      }
+      .no-guardes 
+      {
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        padding: 0px 8%;
+
+        @media (max-width:800px) {
+          padding-bottom: 0px !important;
+          margin-bottom: 0px !important;
+        }
+      }
+      .img-no-guardes
+      { 
+        top: -28px;
+        @media (max-width:1129px) {
+          width: 73%!important;
+         
+        }
+        @media (min-width:1663px) {
+          width: 33%!important;
+         
+        }
+        @media (max-width:769px) {
+          display: none !important;
+         
+        }
+     
       }

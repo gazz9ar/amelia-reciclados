@@ -5,4 +5,76 @@
 
 
 
+.bg-amelia
+{
+    background-color: #F9F1E6;
+}
+.bg-amelia2
+{
+    background-color: #E4CBAD;
+}
+.w-sm-50
+{
+    @media (max-width:800px) {
+        display: none !important;
+      
+    }
+  
+}
+.text-amelia
+{
+    color:#731F07;
+}
+.text-amelia-title
+{
+    color:#b98656 ;
+    
+}
+.mt-col-mobile
+{
+    @media (max-width:800px) {
+        margin-top: 50px !important; 
+    }
+
+}
+.btn-amelia
+{
+    background-color: #9D6A3B;
+}
+.btn-amelia-desktop
+{
+    @media (min-width:800px) {
+        padding: 15px !important;
+        width: 190px;
+    }
+  
+}
+
+
+//EDIT BOTONES CAROUSEL
+.carousel-indicators [data-bs-target] {
+    
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #8F6136;
+    background-clip: padding-box;
+    border: 0;
+    border-top: 0px solid transparent !important; 
+    border-bottom: 0px solid transparent !important; 
+    opacity: .5;
+    transition: opacity .6s ease;
+    border-radius: 50px;
+
+    .active 
+    {
+        opacity: 1 !important;
+    }
+}
 

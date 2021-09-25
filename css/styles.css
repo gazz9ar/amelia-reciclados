@@ -831,7 +831,7 @@ body {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .ocultar {
@@ -1079,6 +1079,57 @@ body {
 
 .delete-envio {
   color: red;
+}
+
+.sobre-nosotros {
+  padding: 21px 20% !important;
+  text-align: center;
+}
+@media (max-width: 1330px) {
+  .sobre-nosotros {
+    padding: 21px 10% !important;
+  }
+}
+
+.sobre-nosotros-title {
+  border-bottom: 1px solid #C09C7A;
+}
+
+@media (max-width: 1330px) {
+  .img-sobre-nosotros {
+    width: 70% !important;
+    height: auto !important;
+  }
+}
+.no-guardes {
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 0px 8%;
+}
+@media (max-width: 800px) {
+  .no-guardes {
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+  }
+}
+
+.img-no-guardes {
+  top: -28px;
+}
+@media (max-width: 1129px) {
+  .img-no-guardes {
+    width: 73% !important;
+  }
+}
+@media (min-width: 1663px) {
+  .img-no-guardes {
+    width: 33% !important;
+  }
+}
+@media (max-width: 769px) {
+  .img-no-guardes {
+    display: none !important;
+  }
 }
 
 .servicios-section {
@@ -1660,6 +1711,68 @@ a {
 
 .img-icon-menu {
   width: 30%;
+}
+
+.bg-amelia {
+  background-color: #F9F1E6;
+}
+
+.bg-amelia2 {
+  background-color: #E4CBAD;
+}
+
+@media (max-width: 800px) {
+  .w-sm-50 {
+    display: none !important;
+  }
+}
+
+.text-amelia {
+  color: #731F07;
+}
+
+.text-amelia-title {
+  color: #b98656;
+}
+
+@media (max-width: 800px) {
+  .mt-col-mobile {
+    margin-top: 50px !important;
+  }
+}
+
+.btn-amelia {
+  background-color: #9D6A3B;
+}
+
+@media (min-width: 800px) {
+  .btn-amelia-desktop {
+    padding: 15px !important;
+    width: 190px;
+  }
+}
+
+.carousel-indicators [data-bs-target] {
+  box-sizing: content-box;
+  flex: 0 1 auto;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #8F6136;
+  background-clip: padding-box;
+  border: 0;
+  border-top: 0px solid transparent !important;
+  border-bottom: 0px solid transparent !important;
+  opacity: 0.5;
+  transition: opacity 0.6s ease;
+  border-radius: 50px;
+}
+.carousel-indicators [data-bs-target] .active {
+  opacity: 1 !important;
 }
 
 /*# sourceMappingURL=styles.css.map */
