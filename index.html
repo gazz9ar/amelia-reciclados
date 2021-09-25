@@ -59,6 +59,33 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+          <!-- ============================================================= -->
+    <!-- JS PARA SERVICIOS DE FIREBASE -->
+    <!-- ============================================================= -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <!-- FIRESTORE -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js"></script>
+   
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyD9eLOX6Lz8ySiOH6D9u1DX-zQT4sugby0",
+            authDomain: "amelia-reciclados.firebaseapp.com",
+            databaseURL: "https://amelia-reciclados-default-rtdb.firebaseio.com",
+            projectId: "amelia-reciclados",
+            storageBucket: "amelia-reciclados.appspot.com",
+            messagingSenderId: "382397362766",
+            appId: "1:382397362766:web:ac95943549ae2ec847091f",
+            measurementId: "G-KG9VVNE8XW"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
 </head>
 
 
@@ -343,6 +370,61 @@
 
     </section>
 
+
+    <!-- =============== -->
+    <!-- Tienda Preview -->
+    <!-- =============== -->
+
+    <section class="w-100 bg-light h-auto mt-5 mb-5">
+
+        <!-- ------------- TIENDA ------------ -->
+        <div class="d-flex justify-content-center align-items-center">
+      
+                <img src="./images/gallery/line.svg" class=" h-auto lineas-tienda-preview" alt="Linea">
+                <p class="fs-3 fw-600 text-amelia-title text-center no-guardes tienda-preview pt-3 pb-3">Tienda</p>
+              
+              <img src="./images/gallery/line.svg" class=" h-auto lineas-tienda-preview" alt="Linea">
+           
+          
+        </div>
+
+        <!-- PRODUCTOS CARGADOS -->
+        <div class="d-flex justify-content-center">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-6 col-lg-3 col-desktop" id="col-1">                       
+                   
+                    </div>
+                    <div class="col-6 col-lg-3 col-desktop" id="col-2">             
+                       
+                    </div>
+                    <div class="col-6 col-lg-3 col-desktop" id="col-3">               
+        
+                      
+                     
+                    </div>
+        
+                    <!-- COLUMNAS MOBILE -->
+                    <div class="col-6 col-mobile" id="col-1-mobile">                       
+                       
+                    </div>
+        
+                    <div class="col-6 col-mobile" id="col-2-mobile">                       
+                      
+                    </div>
+                </div>
+            </div>
+           
+       
+        </div>
+
+        <!-- BTN IR A LA TIENDA -->
+        <div class="d-flex justify-content-center">
+            <a href="#" class="btn btn-amelia p-2 pe-5 ps-5">Ver más</a>
+        </div>
+        
+    </section>
+
     <!-- BOTON WHATSAPP -->
 
     <section class="whatsapp-section" id="whatsapp-logo">
@@ -427,6 +509,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
     <!-- FIREBASE -/ FIRESTORE -->
     <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    <!-- STORAGE -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-storage.js"></script>
     <!-- FIREBASE -/ AUTH -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <!-- FIREBASE -/ ANALYTICS -->
@@ -477,6 +561,8 @@
     <script src="./js/public/authPublic.js"></script>
     <script src="./js/public/user.js"></script>
     <script src="./js/public/carrito.js"></script>
+
+    <script src="./js/public/publicShop.js"></script>
 
 </body>
 

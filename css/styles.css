@@ -1132,6 +1132,17 @@ body {
   }
 }
 
+@media (max-width: 800px) {
+  .tienda-preview {
+    margin-bottom: 21px !important;
+  }
+}
+
+.lineas-tienda-preview {
+  width: 25% !important;
+  height: 50px !important;
+}
+
 .servicios-section {
   width: 100%;
 }

@@ -1382,3 +1382,15 @@
         }
      
       }
+
+      .tienda-preview
+      {
+        @media (max-width:800px) {
+          margin-bottom: 21px !important;
+        }
+      }
+      .lineas-tienda-preview
+      {
+        width: 25% !important;
+        height: 50px !important;
+      }
