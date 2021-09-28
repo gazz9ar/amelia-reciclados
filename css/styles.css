@@ -1095,12 +1095,6 @@ body {
   border-bottom: 1px solid #C09C7A;
 }
 
-@media (max-width: 1330px) {
-  .img-sobre-nosotros {
-    width: 70% !important;
-    height: auto !important;
-  }
-}
 .no-guardes {
   font-weight: 700;
   letter-spacing: 0.8px;
@@ -1141,6 +1135,59 @@ body {
 .lineas-tienda-preview {
   width: 25% !important;
   height: 50px !important;
+}
+
+.comentario-wrapper {
+  border-radius: 20px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25) !important;
+}
+@media (max-width: 800px) {
+  .comentario-wrapper {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+}
+
+@media (min-width: 800px) {
+  #carouselSeguinos {
+    display: none;
+  }
+}
+
+.seguinos {
+  border: 2px solid #B98656;
+  margin: 0px auto;
+  margin-top: 15px;
+  width: 88% !important;
+  margin-bottom: 64px;
+}
+.seguinos img {
+  width: 30% !important;
+}
+@media (max-width: 800px) {
+  .seguinos img {
+    display: none;
+    width: 100% !important;
+  }
+}
+@media (max-width: 800px) {
+  .seguinos .div-imagenes {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 15px !important;
+  }
+}
+
+.amelia-insta {
+  color: #fff;
+  background-color: #9D6A3B;
+  bottom: -21px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-align: center;
+}
+.amelia-insta:hover {
+  color: #ccc;
 }
 
 .servicios-section {
@@ -1784,6 +1831,19 @@ a {
 }
 .carousel-indicators [data-bs-target] .active {
   opacity: 1 !important;
+}
+
+.img-sobre-nosotros {
+  margin-left: 150px !important;
+}
+@media (max-width: 800px) {
+  .img-sobre-nosotros {
+    margin-left: 0px !important;
+  }
+}
+
+.text-comentarios {
+  color: #002348;
 }
 
 /*# sourceMappingURL=styles.css.map */

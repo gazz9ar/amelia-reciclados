@@ -77,4 +77,16 @@
         opacity: 1 !important;
     }
 }
+.img-sobre-nosotros
+      {
+        margin-left: 150px !important;
+        
+        @media (max-width:800px) {
+          margin-left: 0px !important;
+        }
 
+    }
+.text-comentarios
+{
+    color:#002348;
+}
